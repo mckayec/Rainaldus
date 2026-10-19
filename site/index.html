@@ -1,0 +1,1083 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cosmere Reading Order</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an astronomer's chart of the Cosmere. Controls on the left, the star map (or reading path) centre, the selected book's dossier on the right. */
+:root {
+  --bg: #eceff4;
+  --surface: #f8f9fb;
+  --surface-2: #e2e6ee;
+  --ink: #161d31;
+  --muted: #586179;
+  --line: #c9cfdb;
+  --accent: #946512;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(148, 101, 18, .12);
+  --warn: #9a3412;
+  --warn-soft: rgba(154, 52, 18, .09);
+  --c-major: #b42318;
+  --c-significant: #c2620c;
+  --c-minor: #8a8411;
+  --c-egg: #6f778b;
+  --shadow: 0 10px 30px rgba(22, 29, 49, .14);
+  --f-display: "Marcellus", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --header-h: 60px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1020; --surface: #121a2d; --surface-2: #1a2440; --ink: #e7eaf3; --muted: #939bb2; --line: #27314d;
+    --accent: #e5b85c; --accent-ink: #1a1405; --accent-soft: rgba(229, 184, 92, .14);
+    --warn: #fb9a6a; --warn-soft: rgba(251, 154, 106, .1);
+    --c-major: #ff6a5c; --c-significant: #f59e4a; --c-minor: #d3cc4c; --c-egg: #8a93ab;
+    --shadow: 0 12px 34px rgba(0, 0, 0, .5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1020; --surface: #121a2d; --surface-2: #1a2440; --ink: #e7eaf3; --muted: #939bb2; --line: #27314d;
+  --accent: #e5b85c; --accent-ink: #1a1405; --accent-soft: rgba(229, 184, 92, .14);
+  --warn: #fb9a6a; --warn-soft: rgba(251, 154, 106, .1);
+  --c-major: #ff6a5c; --c-significant: #f59e4a; --c-minor: #d3cc4c; --c-egg: #8a93ab;
+  --shadow: 0 12px 34px rgba(0, 0, 0, .5);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 14px; line-height: 1.5;
+  display: flex; flex-direction: column;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+a { color: var(--accent); text-underline-offset: 2px; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- header ---------- */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--surface); border-bottom: 1px solid var(--line);
+  padding-block: 10px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap;
+}
+.brand { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+.brand h1 { font-family: var(--f-display); font-weight: 400; font-size: 22px; margin: 0; letter-spacing: .01em; white-space: nowrap; }
+.brand span { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.tabs { display: inline-flex; background: var(--surface-2); border-radius: 999px; padding: 3px; }
+.tabs button {
+  border: 0; background: transparent; padding: 5px 14px; border-radius: 999px; cursor: pointer;
+  font-size: 13px; font-weight: 500; color: var(--muted);
+}
+.tabs button[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+.search { flex: 1 1 200px; max-width: 320px; position: relative; }
+.search input {
+  width: 100%; padding: 7px 12px 7px 32px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--bg);
+}
+.search svg { position: absolute; left: 10px; top: 50%; translate: 0 -50%; width: 14px; height: 14px; stroke: var(--muted); fill: none; }
+.progress { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); white-space: nowrap; }
+.progress b { color: var(--ink); font-family: var(--f-mono); font-weight: 500; }
+.meter { width: 110px; height: 6px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--accent); border-radius: 3px; transition: width .4s; }
+
+/* ---------- shell ---------- */
+.shell { flex: 1; min-height: 0; display: grid; grid-template-columns: 272px minmax(0, 1fr) 372px; }
+.side, .dossier { overflow-y: auto; background: var(--surface); }
+.side { border-right: 1px solid var(--line); }
+.dossier { border-left: 1px solid var(--line); }
+.stage { position: relative; min-width: 0; min-height: 0; overflow: hidden; }
+.stage.list-mode { overflow-y: auto; }
+
+/* ---------- sidebar ---------- */
+.side-inner { padding: 16px; display: flex; flex-direction: column; gap: 20px; }
+.side details > summary { display: none; }
+.side details .filters { display: flex; flex-direction: column; gap: 22px; }
+.group h2 {
+  font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted);
+  margin: 0 0 8px; font-weight: 600;
+}
+.next {
+  border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; background: var(--bg);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.next .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); font-weight: 600; }
+.next .t { font-family: var(--f-display); font-size: 19px; line-height: 1.2; cursor: pointer; background: none; border: 0; padding: 0; text-align: left; }
+.next .t:hover { color: var(--accent); }
+.next p { margin: 0; color: var(--muted); font-size: 12.5px; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.seg button {
+  border: 1px solid var(--line); background: transparent; border-radius: 6px; padding: 6px 8px; cursor: pointer;
+  font-size: 12.5px; text-align: left;
+}
+.seg button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); font-weight: 500; }
+.legend { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 3px; font-size: 12.5px; }
+.legend li { display: flex; align-items: center; gap: 8px; }
+.legend .n { margin-left: auto; color: var(--muted); font-family: var(--f-mono); font-size: 11px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.toggle {
+  display: flex; align-items: center; gap: 10px; width: 100%; padding: 6px 4px; cursor: pointer;
+  border: 0; background: none; text-align: left; border-radius: 6px; font-size: 13px;
+}
+.toggle:hover { background: var(--surface-2); }
+.toggle .sw { width: 28px; height: 16px; border-radius: 8px; background: var(--line); position: relative; flex: none; transition: background .2s; }
+.toggle .sw::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); transition: translate .2s; }
+.toggle[aria-checked="true"] .sw { background: var(--accent); }
+.toggle[aria-checked="true"] .sw::after { translate: 12px 0; }
+.toggle .lbl { flex: 1; }
+.toggle .n { color: var(--muted); font-family: var(--f-mono); font-size: 11px; }
+.line-swatch { width: 26px; height: 0; border-top-width: 2px; border-top-style: solid; flex: none; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 3px 10px; font-size: 12.5px; cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.foot { font-size: 11.5px; color: var(--muted); line-height: 1.5; border-top: 1px solid var(--line); padding-top: 14px; }
+.foot p { margin: 0 0 6px; }
+.linkbtn { background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; font-size: inherit; }
+
+/* ---------- map ---------- */
+.map { width: 100%; height: 100%; display: block; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
+.map.zoomed { touch-action: none; }
+.map.dragging { cursor: grabbing; }
+.map .ring-guide { fill: none; stroke: var(--line); stroke-width: 1; }
+.map .ring-guide.faint { stroke-dasharray: 1 5; }
+.map .world-band { fill: none; stroke-width: 5; stroke-linecap: round; }
+.map .world-name { font-family: var(--f-body); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; fill: var(--muted); font-weight: 600; }
+.map .node { cursor: pointer; transition: opacity .2s; outline: none; }
+.map .node:focus-visible circle.pt { stroke: var(--accent); stroke-width: 3; }
+.map .node circle.pt { stroke: var(--bg); stroke-width: 1.5; }
+.map .node circle.read-ring { fill: none; stroke: var(--accent); stroke-width: 1.6; }
+.map .node circle.hl-ring { fill: none; stroke: var(--ink); stroke-width: 1.2; }
+.map .node circle.hl-ring.mention { stroke-dasharray: 2 2; }
+.map .node text { font-family: var(--f-body); font-size: 11px; fill: var(--ink); dominant-baseline: central; }
+.map .node.planned text { fill: var(--muted); font-style: italic; }
+.map .node.extra text { fill: var(--muted); }
+.map .node:hover text, .map .node.focus text { font-weight: 600; }
+.map .node.focus circle.pt { stroke: var(--ink); stroke-width: 2; }
+.map .node .hit { fill: transparent; }
+.map .arc { fill: none; transition: opacity .2s, stroke-width .2s; }
+.map .arc-hit { fill: none; stroke: transparent; stroke-width: 9; cursor: help; }
+.map .arc.major { stroke: var(--c-major); stroke-width: 1.8; }
+.map .arc.significant { stroke: var(--c-significant); stroke-width: 1.6; stroke-dasharray: 5 3; }
+.map .arc.minor { stroke: var(--c-minor); stroke-width: 1.1; stroke-dasharray: 3 3; }
+.map .arc.egg { stroke: var(--c-egg); stroke-width: 1; stroke-dasharray: 1.5 2.5; }
+.map .mk-major { fill: var(--c-major); } .map .mk-significant { fill: var(--c-significant); }
+.map .mk-minor { fill: var(--c-minor); } .map .mk-egg { fill: var(--c-egg); }
+.map.has-focus .node.dim { opacity: .22; }
+.map.has-focus .arc.dim { opacity: .07; }
+.map.has-focus .arc.hl { stroke-width: 2.6; }
+.map .node.nomatch { opacity: .16; }
+.map .center-mark { fill: none; stroke: var(--line); }
+.map .center-text { font-family: var(--f-display); fill: var(--muted); font-size: 15px; text-anchor: middle; }
+.map .center-sub { font-family: var(--f-mono); fill: var(--muted); font-size: 10px; text-anchor: middle; letter-spacing: .06em; }
+.zoom {
+  position: absolute; right: 14px; bottom: 14px; display: flex; flex-direction: column; gap: 4px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 3px; box-shadow: var(--shadow);
+}
+.zoom button { width: 30px; height: 30px; border: 0; background: none; border-radius: 6px; cursor: pointer; font-size: 17px; line-height: 1; }
+.zoom button:hover { background: var(--surface-2); }
+.map-hint { position: absolute; left: 16px; bottom: 14px; font-size: 11.5px; color: var(--muted); pointer-events: none; max-width: 60%; }
+.tip {
+  position: fixed; z-index: 30; max-width: 320px; pointer-events: none;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 8px;
+  padding: 9px 11px; font-size: 12.5px; box-shadow: var(--shadow);
+}
+.tip .h { font-weight: 600; margin-bottom: 3px; }
+.tip .k { font-size: 10.5px; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; }
+.tip .m { color: var(--muted); }
+
+/* ---------- path list ---------- */
+.path { max-width: 820px; margin: 0 auto; padding-block: 24px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.path-head { display: flex; align-items: end; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+.path-head h2 { font-family: var(--f-display); font-weight: 400; font-size: 30px; margin: 0; text-wrap: balance; line-height: 1.15; }
+.path-head p { margin: 4px 0 0; color: var(--muted); max-width: 60ch; }
+.sortsel { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); }
+.sortsel select { padding: 6px 8px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); }
+.phase { margin-top: 28px; }
+.phase-h { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 4px 14px; margin-bottom: 8px; }
+.phase-h .num { font-family: var(--f-display); font-size: 40px; line-height: 1; color: var(--accent); grid-row: span 2; width: 34px; text-align: center; }
+.phase-h h3 { margin: 0; font-size: 16px; font-weight: 600; }
+.phase-h p { margin: 0; color: var(--muted); font-size: 13px; grid-column: 2 / 4; max-width: 64ch; }
+.phase-h .cnt { font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.row {
+  display: grid; grid-template-columns: 28px 12px minmax(0, 1fr) auto; align-items: center; gap: 12px;
+  padding: 10px 8px; border-bottom: 1px solid var(--line); cursor: pointer;
+}
+.row:hover { background: var(--surface); }
+.row.sel { background: var(--accent-soft); }
+.row .ttl { font-size: 15px; font-weight: 500; }
+.row.extra .ttl, .row.planned .ttl { color: var(--muted); font-weight: 400; }
+.row .sub { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.row .when { font-family: var(--f-mono); font-size: 12px; color: var(--muted); text-align: right; white-space: nowrap; }
+.row.is-read .ttl { text-decoration: line-through; text-decoration-color: var(--accent); text-decoration-thickness: 1.5px; }
+.row.nomatch { display: none; }
+.check {
+  width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid var(--line); background: var(--surface);
+  display: grid; place-items: center; cursor: pointer; padding: 0;
+}
+.check svg { width: 14px; height: 14px; stroke: var(--accent-ink); fill: none; stroke-width: 2.5; opacity: 0; }
+.check[aria-checked="true"] { background: var(--accent); border-color: var(--accent); }
+.check[aria-checked="true"] svg { opacity: 1; }
+.tag { font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; font-weight: 600; padding: 1px 6px; border-radius: 4px; background: var(--surface-2); color: var(--muted); }
+.tag.warn { background: var(--warn-soft); color: var(--warn); }
+.empty { padding: 40px 0; color: var(--muted); text-align: center; }
+
+/* ---------- dossier ---------- */
+.dossier-inner { padding: 20px 20px 40px; display: flex; flex-direction: column; gap: 18px; }
+.d-close { display: none; }
+.d-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.d-title { font-family: var(--f-display); font-weight: 400; font-size: 30px; line-height: 1.12; margin: 4px 0 0; text-wrap: balance; }
+.d-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.readbtn {
+  display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+  padding: 10px 14px; border-radius: 8px; border: 1px solid var(--accent); background: transparent; color: var(--ink);
+  cursor: pointer; font-weight: 500;
+}
+.readbtn[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.readbtn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2.4; }
+.facts { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 7px 12px; margin: 0; font-size: 13px; }
+.facts dt { color: var(--muted); font-size: 12px; }
+.facts dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.alert { border-radius: 8px; padding: 10px 12px; background: var(--warn-soft); color: var(--ink); font-size: 13px; border-left: 3px solid var(--warn); }
+.alert b { color: var(--warn); }
+.sec h3 { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin: 0 0 8px; font-weight: 600; display: flex; justify-content: space-between; }
+.conns { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.conn { border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; background: var(--bg); font-size: 13px; }
+.conn-h { display: flex; align-items: center; gap: 8px; }
+.conn-h .bk { background: none; border: 0; padding: 0; font-weight: 600; cursor: pointer; text-align: left; flex: 1; min-width: 0; }
+.conn-h .bk:hover { color: var(--accent); }
+.kind { font-size: 10px; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; white-space: nowrap; }
+.kind.major { color: var(--c-major); } .kind.significant { color: var(--c-significant); } .kind.minor { color: var(--c-minor); } .kind.egg { color: var(--c-egg); }
+.readmark { font-size: 11px; color: var(--accent); white-space: nowrap; }
+.note { margin-top: 6px; color: var(--muted); line-height: 1.5; }
+.spoil {
+  margin-top: 6px; display: inline-flex; align-items: center; gap: 6px; border: 1px dashed var(--line); border-radius: 6px;
+  background: none; padding: 4px 9px; font-size: 12px; color: var(--muted); cursor: pointer;
+}
+.spoil:hover { color: var(--ink); border-color: var(--muted); }
+.apps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+.apps li { display: grid; grid-template-columns: 26px 1fr; gap: 10px; }
+.initial { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-family: var(--f-mono); font-size: 11px; font-weight: 500; border: 1.5px solid var(--ink); }
+.initial.solid { background: var(--ink); color: var(--bg); }
+.intro h2 { font-family: var(--f-display); font-weight: 400; font-size: 26px; margin: 0 0 8px; line-height: 1.15; }
+.intro p { margin: 0 0 10px; color: var(--muted); }
+.intro ol { margin: 0; padding-left: 18px; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+.intro ol b { color: var(--ink); font-weight: 600; }
+.scrim { display: none; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1180px) {
+  .shell { grid-template-columns: 260px minmax(0, 1fr); }
+  .dossier {
+    position: fixed; z-index: 20; top: 0; right: 0; bottom: 0; width: min(400px, 92vw);
+    box-shadow: var(--shadow); translate: 105% 0; transition: translate .25s ease;
+    padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+  .dossier.open { translate: 0 0; }
+  .d-close { display: inline-grid; place-items: center; position: absolute; right: 12px; top: calc(10px + env(safe-area-inset-top, 0px)); width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); cursor: pointer; font-size: 18px; }
+  .dossier .intro { display: none; }
+  .scrim.open { display: block; position: fixed; inset: 0; z-index: 15; background: rgba(5, 8, 18, .35); }
+}
+@media (max-width: 820px) {
+  html, body { height: auto; }
+  body { display: block; }
+  .shell { display: block; }
+  .side { border-right: 0; border-bottom: 1px solid var(--line); overflow: visible; }
+  .side-inner { padding-block: 12px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); gap: 14px; }
+  .side details { display: block; }
+  .side details > summary {
+    display: flex; align-items: center; justify-content: space-between; cursor: pointer; list-style: none;
+    font-size: 13px; font-weight: 600; padding: 6px 0;
+  }
+  .side details > summary::-webkit-details-marker { display: none; }
+  .side details > summary::after { content: "+"; font-size: 18px; color: var(--muted); }
+  .side details[open] > summary::after { content: "–"; }
+  .side details .filters { display: flex; flex-direction: column; gap: 18px; padding-top: 10px; }
+  .stage { overflow: visible; }
+  .stage:not(.list-mode) { aspect-ratio: 1 / 1; max-width: 100%; max-height: 100vh; margin-inline: auto; }
+  .dossier {
+    top: auto; left: 0; width: auto; max-height: 82vh; border-radius: 16px 16px 0 0; border-left: 0; border-top: 1px solid var(--line);
+    translate: 0 105%; padding-left: env(safe-area-inset-left, 0px);
+  }
+  .dossier.open { translate: 0 0; }
+  .progress { margin-left: 0; width: 100%; }
+  .progress .meter { flex: 1; }
+  .search { max-width: none; }
+  .brand span { display: none; }
+  .map-hint { display: none; }
+  .row { grid-template-columns: 26px 10px minmax(0, 1fr); }
+  .row .when { grid-column: 3; text-align: left; margin-top: -6px; }
+}
+@media (min-width: 821px) {
+  .side details:not([open]) .filters { display: flex; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand"><h1>Cosmere Reading Order</h1><span>Brandon Sanderson’s connected universe</span></div>
+  <div class="tabs" role="tablist" aria-label="View">
+    <button role="tab" id="tab-map" aria-selected="true" data-view="map">Star map</button>
+    <button role="tab" id="tab-path" aria-selected="false" data-view="path">Reading path</button>
+  </div>
+  <label class="search">
+    <span class="sr-only">Find a book</span>
+    <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <input id="q" type="search" placeholder="Find a book, world or series" autocomplete="off">
+  </label>
+  <div class="progress" aria-live="polite"><span id="prog-text"></span><div class="meter"><i id="prog-bar"></i></div></div>
+</header>
+
+<div class="shell">
+  <aside class="side" aria-label="Controls">
+    <div class="side-inner">
+      <div class="next" id="next"></div>
+      <details id="filters-details">
+        <summary>Map &amp; list options</summary>
+        <div class="filters">
+          <section class="group">
+            <h2>Colour books by</h2>
+            <div class="seg" id="colorby"></div>
+            <ul class="legend" id="legend"></ul>
+          </section>
+          <section class="group">
+            <h2>Connections</h2>
+            <div id="conn-toggles"></div>
+          </section>
+          <section class="group">
+            <h2>Show</h2>
+            <div id="show-toggles"></div>
+          </section>
+          <section class="group">
+            <h2>Find recurring characters</h2>
+            <div class="chips" id="appearances"></div>
+            <p id="app-note" class="foot" style="border:0;padding:6px 0 0;margin:0"></p>
+          </section>
+          <div class="foot">
+            <p>Built on the community reading order from the <a href="https://github.com/17thshard/reading-order" target="_blank" rel="noopener">17th Shard</a> (MIT licence), with release data corrected for October 2026. Notes link to the <a href="https://coppermind.net" target="_blank" rel="noopener">Coppermind</a>. Unofficial fan project.</p>
+            <p id="sync-note">Your reading progress is kept in this browser.</p><p><button class="linkbtn" id="reset">Clear progress</button><span id="reset-confirm" hidden> Sure? <button class="linkbtn" id="reset-yes">Clear</button> · <button class="linkbtn" id="reset-no">Keep</button></span></p>
+          </div>
+        </div>
+      </details>
+    </div>
+  </aside>
+
+  <main class="stage" id="stage">
+    <svg class="map" id="map" viewBox="-505 -505 1010 1010" role="img" aria-label="Circular map of Cosmere books grouped by world, with lines showing which books connect"></svg>
+    <div class="zoom" id="zoom">
+      <button id="zin" aria-label="Zoom in">+</button>
+      <button id="zout" aria-label="Zoom out">−</button>
+      <button id="zreset" aria-label="Reset view" style="font-size:13px">⟲</button>
+    </div>
+    <div class="map-hint" id="hint">Hover a book to trace its connections. Click it for details. Scroll to zoom, drag to pan.</div>
+    <div class="path" id="path" hidden></div>
+  </main>
+
+  <aside class="dossier" id="dossier" aria-label="Book details">
+    <button class="d-close" id="d-close" aria-label="Close details">×</button>
+    <div class="dossier-inner" id="dossier-inner"></div>
+  </aside>
+</div>
+<div class="scrim" id="scrim"></div>
+<div class="tip" id="tip" hidden></div>
+
+<script type="module">
+const DATA = await (await fetch('data.json')).json();
+
+/* ---------- lookups ---------- */
+const BOOKS = DATA.books;
+const CONN = Object.fromEntries(DATA.connections.map(c => [c.id, c]));
+const CONN_ORDER = ['major', 'significant', 'minor', 'egg'];
+const CONN_LABEL = { major: 'Major', significant: 'Significant', minor: 'Minor', egg: 'Easter egg' };
+const LAYERS = Object.fromEntries(DATA.layers.map(l => [l.id, l]));
+const CAT = {};
+DATA.layers.forEach(l => l.categories.forEach(c => { CAT[c.id] = { ...c, layer: l.id }; }));
+const APPS = Object.fromEntries(DATA.appearances.map(a => [a.id, a]));
+const COLOR_LAYERS = [
+  { id: 'series', label: 'Series' },
+  { id: 'reading-order', label: 'Phase' },
+  { id: 'formats', label: 'Format' },
+  { id: 'pub-status', label: 'Status' },
+];
+const FORMAT_LABEL = { novel: 'Novel', novella: 'Novella', short: 'Short story', graphic: 'Graphic novel' };
+const PHASE_NAME = { 1: 'Phase 1', 2: 'Phase 2', 3: 'Phase 3', 4: 'Phase 4' };
+
+const INCOMING = {};
+Object.values(BOOKS).forEach(b => (b.connections || []).forEach(c => {
+  (INCOMING[c.target] ||= []).push({ from: b.id, type: c.type, description: c.description });
+}));
+
+const catIn = (b, layer) => b.categories.find(c => CAT[c] && CAT[c].layer === layer);
+const isPublished = b => b.categories.includes('published');
+const isForthcoming = b => b.categories.includes('forthcoming');
+const isExtra = b => b.categories.includes('other-pub');
+const isPlanned = b => !isPublished(b) && !isExtra(b);
+const formatOf = b => FORMAT_LABEL[catIn(b, 'formats')] || '';
+const plain = html => { const t = document.createElement('template'); t.innerHTML = html || ''; return t.content.textContent.trim(); };
+const esc = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+
+/* Keep only links, line breaks and emphasis from the source notes. */
+function safe(html) {
+  const t = document.createElement('template');
+  t.innerHTML = html || '';
+  const out = document.createDocumentFragment();
+  const copy = (node, parent) => node.childNodes.forEach(n => {
+    if (n.nodeType === 3) { parent.appendChild(document.createTextNode(n.textContent)); return; }
+    if (n.nodeType !== 1) return;
+    const tag = n.tagName.toLowerCase();
+    if (tag === 'a') {
+      const href = n.getAttribute('href') || '';
+      if (/^https?:\/\//i.test(href)) {
+        const a = document.createElement('a');
+        a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer';
+        copy(n, a); parent.appendChild(a); return;
+      }
+    } else if (tag === 'br') { parent.appendChild(document.createElement('br')); return; }
+    else if (tag === 'i' || tag === 'em') { const e = document.createElement('em'); copy(n, e); parent.appendChild(e); return; }
+    copy(n, parent);
+  });
+  copy(t.content, out);
+  const wrap = document.createElement('div'); wrap.appendChild(out);
+  return wrap.innerHTML;
+}
+
+/* ---------- state ---------- */
+const store = {
+  get(k, d) { try { const v = localStorage.getItem('cro.' + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem('cro.' + k, JSON.stringify(v)); } catch {} },
+};
+const prefs = store.get('prefs', {});
+const state = {
+  view: 'map',
+  colorBy: prefs.colorBy || 'series',
+  conn: Object.assign({ major: true, significant: true, minor: true, egg: false }, prefs.conn),
+  showPlanned: prefs.showPlanned ?? false,
+  showExtras: prefs.showExtras ?? false,
+  hideNotes: prefs.hideNotes ?? true,
+  sort: prefs.sort || 'order',
+  app: null,
+  q: '',
+  selected: null,
+  hover: null,
+  read: new Set(store.get('read', [])),
+  revealed: new Set(),
+};
+const savePrefs = () => store.set('prefs', {
+  colorBy: state.colorBy, conn: state.conn, showPlanned: state.showPlanned,
+  showExtras: state.showExtras, hideNotes: state.hideNotes, sort: state.sort,
+});
+const sync = { ref: null, timer: 0, last: '' };
+const saveRead = () => {
+  store.set('read', [...state.read]);
+  if (!sync.ref) return;
+  clearTimeout(sync.timer);
+  sync.timer = setTimeout(pushRead, 400);
+};
+function pushRead() {
+  const list = [...state.read].sort();
+  const key = list.join('|');
+  if (key === sync.last) return;
+  sync.last = key;
+  sync.ref.set({ read: list, updatedAt: Date.now() }).catch(e => {
+    sync.last = '';
+    if (e && e.code === 'invalid_argument') stopSync('Your progress can’t be saved to your account here, so it’s kept in this browser.');
+  });
+}
+function setSyncNote(t) { const n = document.getElementById('sync-note'); if (n) n.textContent = t; }
+function stopSync(msg) { if (sync.unsub) sync.unsub(); sync.ref = null; setSyncNote(msg); }
+async function startSync() {
+  if (!window.claude || !window.claude.use) return;
+  const [db, user] = await Promise.all([claude.use('db'), claude.use('user')]);
+  const uid = user && await user.id();
+  if (!db || !uid) return;
+  sync.ref = db.doc('data/users/' + uid + '/progress');
+  let first = true;
+  sync.unsub = sync.ref.onSnapshot(snap => {
+    const remote = snap.exists ? (snap.data().read || []).filter(id => BOOKS[id]) : [];
+    if (first) {
+      first = false;
+      // First contact: keep anything ticked in this browser before syncing existed.
+      const merged = new Set([...remote, ...state.read]);
+      sync.last = remote.slice().sort().join('|');
+      state.read = merged;
+      if (merged.size !== remote.length) pushRead();
+    } else if (!snap.metadata || !snap.metadata.hasPendingWrites) {
+      state.read = new Set(remote);
+      sync.last = remote.slice().sort().join('|');
+    }
+    store.set('read', [...state.read]);
+    setSyncNote('Your reading progress is saved to your claude.ai account and follows you to any device.');
+    renderProgress(); renderNext(); renderDossier();
+    if (state.view === 'path') renderPath(); else renderMap();
+  }, () => stopSync('Couldn’t reach your account, so progress is kept in this browser for now.'));
+}
+
+const visible = b => (isPlanned(b) ? state.showPlanned : true) && (isExtra(b) ? state.showExtras : true);
+const colorOf = b => {
+  const c = catIn(b, state.colorBy);
+  return c ? CAT[c].color : '#9aa0ad';
+};
+const matches = b => {
+  if (!state.q) return true;
+  const q = state.q.toLowerCase();
+  return [b.title, plain(b.series), b.worldName, b.group, plain(b.system)].some(s => (s || '').toLowerCase().includes(q));
+};
+const ORDERED = Object.values(BOOKS).filter(b => b.sorting && b.sorting.order != null).sort((a, b) => a.sorting.order - b.sorting.order);
+const CANON = ORDERED.filter(b => isPublished(b));
+
+/* ---------- map geometry ---------- */
+const R = 300, RC = R - 30;
+const svgNS = 'http://www.w3.org/2000/svg';
+const mapEl = document.getElementById('map');
+const polar = (r, deg) => { const a = deg * Math.PI / 180; return [r * Math.cos(a), r * Math.sin(a)]; };
+const f1 = n => Math.round(n * 10) / 10;
+let layout = { pos: {}, worlds: [] };
+
+function computeLayout() {
+  const items = [];
+  const worlds = [];
+  DATA.worlds.forEach(w => {
+    const start = items.length;
+    let any = false;
+    w.groups.forEach(g => {
+      const ids = g.books.filter(id => visible(BOOKS[id]));
+      if (!ids.length) return;
+      if (any) items.push(null);
+      ids.forEach(id => items.push(id));
+      any = true;
+    });
+    if (!any) return;
+    worlds.push({ ...w, from: start, to: items.length - 1 });
+    items.push(null, null);
+  });
+  const step = 360 / items.length;
+  const pos = {};
+  items.forEach((id, i) => { if (id) pos[id] = -90 + i * step + step / 2; });
+  worlds.forEach(w => { w.a0 = -90 + w.from * step + step * 0.15; w.a1 = -90 + w.to * step + step * 0.85; });
+  layout = { pos, worlds, step };
+}
+
+function arcPath(r, a0, a1, reverse) {
+  const [x0, y0] = polar(r, reverse ? a1 : a0), [x1, y1] = polar(r, reverse ? a0 : a1);
+  const large = Math.abs(a1 - a0) > 180 ? 1 : 0;
+  return `M${f1(x0)} ${f1(y0)} A${r} ${r} 0 ${large} ${reverse ? 0 : 1} ${f1(x1)} ${f1(y1)}`;
+}
+function connPath(a, b) {
+  let d = Math.abs(a - b) % 360; if (d > 180) d = 360 - d;
+  let mid = (a + b) / 2; if (Math.abs(a - b) > 180) mid += 180;
+  const [x0, y0] = polar(RC, a), [x1, y1] = polar(RC, b);
+  const [cx, cy] = polar(RC * Math.pow(1 - d / 180, 1.4) * 0.92, mid);
+  return `M${f1(x0)} ${f1(y0)} Q${f1(cx)} ${f1(cy)} ${f1(x1)} ${f1(y1)}`;
+}
+
+function el(tag, attrs, parent) {
+  const n = document.createElementNS(svgNS, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(n);
+  return n;
+}
+
+function renderMap() {
+  computeLayout();
+  mapEl.textContent = '';
+  const defs = el('defs', {}, mapEl);
+  CONN_ORDER.forEach(t => {
+    const m = el('marker', { id: 'mk-' + t, viewBox: '0 0 10 10', refX: 8, refY: 5, markerWidth: 5, markerHeight: 5, orient: 'auto-start-reverse', markerUnits: 'strokeWidth' }, defs);
+    el('path', { d: 'M0 0 L10 5 L0 10 z', class: 'mk-' + t }, m);
+  });
+  const vp = el('g', { id: 'vp' }, mapEl);
+  vp.setAttribute('transform', `translate(${view.tx} ${view.ty}) scale(${view.s})`);
+
+  el('circle', { cx: 0, cy: 0, r: R, class: 'ring-guide' }, vp);
+  el('circle', { cx: 0, cy: 0, r: RC - 8, class: 'ring-guide faint' }, vp);
+  el('circle', { cx: 0, cy: 0, r: 46, class: 'center-mark', 'stroke-dasharray': '2 4' }, vp);
+  const shown = Object.keys(layout.pos).length;
+  const ct = el('text', { x: 0, y: -2, class: 'center-text' }, vp); ct.textContent = 'The Cosmere';
+  const cs = el('text', { x: 0, y: 16, class: 'center-sub' }, vp); cs.textContent = `${shown} STORIES`;
+
+  // worlds
+  layout.worlds.forEach((w, i) => {
+    el('path', { d: arcPath(R - 16, w.a0, w.a1), class: 'world-band', stroke: w.color }, vp);
+    const span = (w.a1 - w.a0) * Math.PI / 180;
+    const mid = ((w.a0 + w.a1) / 2 + 360) % 360;
+    const bottom = mid > 0 && mid < 180;
+    const r = bottom ? R - 24 : R - 32;
+    if (r * span < w.name.length * 7 + 6) return;
+    const id = 'wp' + i;
+    el('path', { id, d: arcPath(r, w.a0, w.a1, bottom), fill: 'none' }, vp);
+    const t = el('text', { class: 'world-name' }, vp);
+    const tp = el('textPath', { href: '#' + id, startOffset: '50%', 'text-anchor': 'middle' }, t);
+    tp.textContent = w.name;
+  });
+
+  // connections
+  const arcs = el('g', {}, vp);
+  Object.values(BOOKS).forEach(b => (b.connections || []).forEach(c => {
+    if (!state.conn[c.type]) return;
+    const a = layout.pos[b.id], z = layout.pos[c.target];
+    if (a == null || z == null) return;
+    const d = connPath(a, z);
+    const g = el('g', { 'data-from': b.id, 'data-to': c.target, 'data-type': c.type }, arcs);
+    el('path', { d, class: 'arc ' + c.type, 'marker-end': `url(#mk-${c.type})` }, g);
+    el('path', { d, class: 'arc-hit' }, g);
+  }));
+
+  // nodes
+  const nodes = el('g', {}, vp);
+  Object.entries(layout.pos).forEach(([id, ang]) => {
+    const b = BOOKS[id];
+    const norm = (ang + 360) % 360;
+    const flip = norm > 90 && norm < 270;
+    const g = el('g', {
+      class: 'node' + (isPlanned(b) ? ' planned' : '') + (isExtra(b) ? ' extra' : ''),
+      'data-id': id, transform: `rotate(${f1(ang)})`, tabindex: 0, role: 'button',
+      'aria-label': b.title + (state.read.has(id) ? ', read' : ''),
+    }, nodes);
+    el('rect', { x: R - 8, y: -8, width: 210, height: 16, class: 'hit' }, g);
+    if (state.read.has(id)) el('circle', { cx: R, cy: 0, r: 8.5, class: 'read-ring' }, g);
+    if (state.app) {
+      const ap = (b.appearances || []).find(a => a.id === state.app);
+      if (ap) el('circle', { cx: R, cy: 0, r: 11.5, class: 'hl-ring' + (ap.type === 'mention' ? ' mention' : '') }, g);
+    }
+    el('circle', { cx: R, cy: 0, r: isPublished(b) ? 5.5 : 4, class: 'pt', fill: colorOf(b) }, g);
+    const t = el('text', flip
+      ? { x: -(R + 16), y: 0, transform: 'rotate(180)', 'text-anchor': 'end' }
+      : { x: R + 16, y: 0 }, g);
+    t.textContent = b.title;
+  });
+  updateFocus();
+}
+
+function updateFocus() {
+  const focus = state.hover || state.selected;
+  const linked = new Set();
+  if (focus) {
+    linked.add(focus);
+    mapEl.querySelectorAll('[data-from]').forEach(g => {
+      const on = g.dataset.from === focus || g.dataset.to === focus;
+      g.firstChild.classList.toggle('hl', on);
+      g.firstChild.classList.toggle('dim', !on);
+      if (on) { linked.add(g.dataset.from); linked.add(g.dataset.to); }
+    });
+  } else {
+    mapEl.querySelectorAll('.arc').forEach(a => a.classList.remove('hl', 'dim'));
+  }
+  mapEl.classList.toggle('has-focus', !!focus);
+  mapEl.querySelectorAll('.node').forEach(n => {
+    const id = n.dataset.id;
+    n.classList.toggle('dim', !!focus && !linked.has(id));
+    n.classList.toggle('focus', id === focus);
+    n.classList.toggle('nomatch', !matches(BOOKS[id]));
+  });
+}
+
+/* ---------- pan & zoom ---------- */
+const view = { s: 1, tx: 0, ty: 0 };
+function applyView() {
+  const vp = document.getElementById('vp');
+  if (vp) vp.setAttribute('transform', `translate(${f1(view.tx)} ${f1(view.ty)}) scale(${view.s.toFixed(3)})`);
+  mapEl.classList.toggle('zoomed', view.s > 1.02);
+}
+function svgPoint(cx, cy) {
+  const m = mapEl.getScreenCTM(); if (!m) return { x: 0, y: 0 };
+  const p = new DOMPoint(cx, cy).matrixTransform(m.inverse());
+  return { x: p.x, y: p.y };
+}
+function zoomAt(pt, factor) {
+  const s = Math.min(5, Math.max(0.8, view.s * factor));
+  const k = s / view.s;
+  view.tx = pt.x - (pt.x - view.tx) * k;
+  view.ty = pt.y - (pt.y - view.ty) * k;
+  view.s = s;
+  applyView();
+}
+mapEl.addEventListener('wheel', e => {
+  e.preventDefault();
+  zoomAt(svgPoint(e.clientX, e.clientY), Math.exp(-e.deltaY * 0.0015));
+}, { passive: false });
+const pointers = new Map();
+let drag = null, moved = 0;
+mapEl.addEventListener('pointerdown', e => {
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  moved = 0;
+  if (pointers.size === 1) drag = { x: e.clientX, y: e.clientY };
+  if (pointers.size === 2) {
+    const [p, q] = [...pointers.values()];
+    drag = { pinch: Math.hypot(p.x - q.x, p.y - q.y) };
+  }
+});
+window.addEventListener('pointermove', e => {
+  if (!pointers.has(e.pointerId)) return;
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  const m = mapEl.getScreenCTM(); if (!m || !drag) return;
+  if (pointers.size >= 2 && drag.pinch) {
+    const [p, q] = [...pointers.values()];
+    const dist = Math.hypot(p.x - q.x, p.y - q.y);
+    zoomAt(svgPoint((p.x + q.x) / 2, (p.y + q.y) / 2), dist / drag.pinch);
+    drag.pinch = dist; moved = 99;
+  } else if (pointers.size === 1 && drag.x != null) {
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    moved += Math.abs(dx) + Math.abs(dy);
+    if (moved > 4) {
+      mapEl.classList.add('dragging');
+      view.tx += dx / m.a; view.ty += dy / m.d;
+      applyView(); hideTip();
+    }
+    drag.x = e.clientX; drag.y = e.clientY;
+  }
+});
+const endPointer = e => {
+  pointers.delete(e.pointerId);
+  if (pointers.size === 0) { drag = null; mapEl.classList.remove('dragging'); }
+  else if (pointers.size === 1) { const [p] = [...pointers.values()]; drag = { x: p.x, y: p.y }; }
+};
+window.addEventListener('pointerup', endPointer);
+window.addEventListener('pointercancel', endPointer);
+document.getElementById('zin').onclick = () => zoomAt({ x: 0, y: 0 }, 1.35);
+document.getElementById('zout').onclick = () => zoomAt({ x: 0, y: 0 }, 1 / 1.35);
+document.getElementById('zreset').onclick = () => { view.s = 1; view.tx = 0; view.ty = 0; applyView(); };
+
+/* ---------- map interaction ---------- */
+const tip = document.getElementById('tip');
+const hoverCapable = matchMedia('(hover: hover)').matches;
+function showTip(html, e) {
+  tip.innerHTML = html; tip.hidden = false;
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = e.clientX + 14, y = e.clientY + 14;
+  if (x + w > innerWidth - 8) x = e.clientX - w - 14;
+  if (y + h > innerHeight - 8) y = e.clientY - h - 14;
+  tip.style.left = Math.max(8, x) + 'px'; tip.style.top = Math.max(8, y) + 'px';
+}
+function hideTip() { tip.hidden = true; }
+
+mapEl.addEventListener('pointerover', e => {
+  if (!hoverCapable || drag && moved > 4) return;
+  const n = e.target.closest('.node');
+  if (n) { state.hover = n.dataset.id; updateFocus(); return; }
+  const a = e.target.closest('[data-from]');
+  if (a && e.target.classList.contains('arc-hit')) {
+    const from = BOOKS[a.dataset.from], to = BOOKS[a.dataset.to], t = a.dataset.type;
+    const conn = from.connections.find(c => c.target === to.id && c.type === t);
+    const key = from.id + '>' + to.id;
+    const note = state.hideNotes && !state.revealed.has(key)
+      ? '<div class="m">Note hidden to avoid spoilers. Click a book to reveal it.</div>'
+      : `<div class="m">${esc(plain(conn.description))}</div>`;
+    showTip(`<div class="k kind ${t}">${CONN_LABEL[t]} connection</div><div class="h">${esc(from.title)} → ${esc(to.title)}</div>${note}`, e);
+  }
+});
+mapEl.addEventListener('pointermove', e => { if (!tip.hidden && e.target.classList.contains('arc-hit')) showTip(tip.innerHTML, e); });
+mapEl.addEventListener('pointerout', e => {
+  const n = e.target.closest('.node');
+  if (n && !n.contains(e.relatedTarget)) { state.hover = null; updateFocus(); }
+  if (e.target.classList.contains('arc-hit')) hideTip();
+});
+mapEl.addEventListener('click', e => {
+  if (moved > 4) return;
+  const n = e.target.closest('.node');
+  if (n) { select(n.dataset.id); return; }
+  const a = e.target.closest('[data-from]');
+  if (a) { select(a.dataset.to); return; }
+  if (state.selected) select(null);
+});
+mapEl.addEventListener('keydown', e => {
+  const n = e.target.closest('.node');
+  if (n && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); select(n.dataset.id); }
+});
+mapEl.addEventListener('focusin', e => { const n = e.target.closest('.node'); if (n) { state.hover = n.dataset.id; updateFocus(); } });
+mapEl.addEventListener('focusout', () => { state.hover = null; updateFocus(); });
+
+/* ---------- sidebar ---------- */
+function renderSide() {
+  // colour by
+  const seg = document.getElementById('colorby');
+  seg.innerHTML = COLOR_LAYERS.map(l => `<button data-c="${l.id}" aria-pressed="${state.colorBy === l.id}">${l.label}</button>`).join('');
+  const vis = Object.values(BOOKS).filter(visible);
+  const layer = LAYERS[state.colorBy];
+  document.getElementById('legend').innerHTML = layer.categories.map(c => {
+    const n = vis.filter(b => b.categories.includes(c.id)).length;
+    return n ? `<li title="${esc(c.details)}"><span class="dot" style="background:${c.color}"></span>${esc(c.description)}<span class="n">${n}</span></li>` : '';
+  }).join('');
+
+  // connection toggles
+  const counts = {};
+  Object.values(BOOKS).forEach(b => (b.connections || []).forEach(c => {
+    if (visible(b) && visible(BOOKS[c.target])) counts[c.type] = (counts[c.type] || 0) + 1;
+  }));
+  const style = { major: 'solid', significant: 'dashed', minor: 'dashed', egg: 'dotted' };
+  document.getElementById('conn-toggles').innerHTML = CONN_ORDER.map(t => `
+    <button class="toggle" role="switch" data-conn="${t}" aria-checked="${state.conn[t]}" title="${esc(CONN[t].details)}">
+      <span class="sw"></span><span class="lbl">${CONN_LABEL[t]}</span>
+      <span class="line-swatch" style="border-top-color:var(--c-${t});border-top-style:${style[t]}"></span>
+      <span class="n">${counts[t] || 0}</span>
+    </button>`).join('');
+
+  const planned = Object.values(BOOKS).filter(isPlanned).length;
+  const extras = Object.values(BOOKS).filter(isExtra).length;
+  document.getElementById('show-toggles').innerHTML = `
+    <button class="toggle" role="switch" data-show="showPlanned" aria-checked="${state.showPlanned}"><span class="sw"></span><span class="lbl">Announced &amp; planned books</span><span class="n">${planned}</span></button>
+    <button class="toggle" role="switch" data-show="showExtras" aria-checked="${state.showExtras}"><span class="sw"></span><span class="lbl">Extras: drafts, deleted scenes</span><span class="n">${extras}</span></button>
+    <button class="toggle" role="switch" data-show="hideNotes" aria-checked="${state.hideNotes}"><span class="sw"></span><span class="lbl">Hide spoiler notes</span></button>`;
+
+  document.getElementById('appearances').innerHTML = DATA.appearances.map(a =>
+    `<button class="chip" data-app="${a.id}" aria-pressed="${state.app === a.id}">${esc(a.description)}</button>`).join('');
+  document.getElementById('app-note').innerHTML = state.app
+    ? `Ringed on the map: solid for an appearance, dashed for a mention.`
+    : `Pick one to ring every book they turn up in.`;
+}
+
+document.querySelector('.side').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.c) { state.colorBy = b.dataset.c; }
+  else if (b.dataset.conn) { state.conn[b.dataset.conn] = !state.conn[b.dataset.conn]; }
+  else if (b.dataset.show) { state[b.dataset.show] = !state[b.dataset.show]; }
+  else if (b.dataset.app) { state.app = state.app === b.dataset.app ? null : b.dataset.app; }
+  else if (b.dataset.go) { select(b.dataset.go); return; }
+  else return;
+  savePrefs(); renderAll();
+});
+document.getElementById('reset').onclick = () => { document.getElementById('reset-confirm').hidden = false; };
+document.getElementById('reset-no').onclick = () => { document.getElementById('reset-confirm').hidden = true; };
+document.getElementById('reset-yes').onclick = () => {
+  state.read.clear(); saveRead(); document.getElementById('reset-confirm').hidden = true; renderAll();
+};
+
+function renderNext() {
+  const box = document.getElementById('next');
+  const done = CANON.filter(b => state.read.has(b.id)).length;
+  const next = CANON.find(b => !state.read.has(b.id));
+  if (!next) {
+    box.innerHTML = `<span class="eyebrow">All caught up</span><div class="t">Every published story read</div><p>Turn on “Announced &amp; planned books” to see what’s coming.</p>`;
+    return;
+  }
+  const phase = Math.floor(next.sorting.order);
+  const intro = done === 0 ? 'Start here' : 'Up next';
+  const why = done === 0
+    ? `The recommended first read. Mark books as read and this will keep pointing you onward.`
+    : `${PHASE_NAME[phase]} · ${esc(plain(next.series) || next.worldName)} · ${formatOf(next)}`;
+  box.innerHTML = `<span class="eyebrow">${intro}</span><button class="t" data-go="${next.id}">${esc(next.title)}</button><p>${why}</p>`;
+}
+
+function renderProgress() {
+  const done = CANON.filter(b => state.read.has(b.id)).length;
+  document.getElementById('prog-text').innerHTML = `<b>${done}</b> of <b>${CANON.length}</b> published stories read`;
+  document.getElementById('prog-bar').style.width = (100 * done / CANON.length) + '%';
+}
+
+/* ---------- reading path ---------- */
+const pathEl = document.getElementById('path');
+const CHECK = '<svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg>';
+function sortKeyLabel(b) {
+  if (state.sort === 'publication') return plain(b.publication) || '—';
+  if (state.sort === 'chronology') return b.worldName;
+  return (plain(b.publication).match(/\d{4}/) || [''])[0];
+}
+function rowHTML(b) {
+  const read = state.read.has(b.id);
+  const warn = unreadPrereqs(b).length && !read && isPublished(b);
+  const tags = [];
+  if (isExtra(b)) tags.push('<span class="tag">Extra</span>');
+  if (isPlanned(b)) tags.push(`<span class="tag">${isForthcoming(b) ? 'Forthcoming' : 'Planned'}</span>`);
+  if (warn) tags.push('<span class="tag warn" title="Some books that set this one up are unread">Read earlier books first</span>');
+  const series = plain(b.series);
+  return `<li class="row${read ? ' is-read' : ''}${isExtra(b) ? ' extra' : ''}${isPlanned(b) ? ' planned' : ''}${state.selected === b.id ? ' sel' : ''}${matches(b) ? '' : ' nomatch'}" data-id="${b.id}">
+    ${isPlanned(b) ? '<span></span>' : `<button class="check" role="checkbox" aria-checked="${read}" aria-label="Mark ${esc(b.title)} as read" data-read="${b.id}">${CHECK}</button>`}
+    <span class="dot" style="background:${colorOf(b)}"></span>
+    <div style="min-width:0"><div class="ttl">${esc(b.title)}</div><div class="sub"><span>${esc(series && series !== b.title ? series : b.worldName)}</span><span>${formatOf(b)}</span>${tags.join('')}</div></div>
+    <span class="when">${esc(sortKeyLabel(b))}</span>
+  </li>`;
+}
+function renderPath() {
+  const field = state.sort;
+  const list = Object.values(BOOKS)
+    .filter(b => visible(b) && b.sorting && b.sorting[field] != null)
+    .sort((a, b) => a.sorting[field] - b.sorting[field]);
+  const heads = {
+    order: ['The recommended path', 'Read top to bottom. Each phase leans harder on the wider Cosmere, so later books reward earlier ones.'],
+    publication: ['In publication order', 'The order readers got them. A safe choice if you want to experience the reveals as they happened.'],
+    chronology: ['In-world timeline', 'Roughly when each story happens in the Cosmere. Spoilery as a first read; best for a reread.'],
+  };
+  let body = '';
+  if (field === 'order') {
+    const groups = {};
+    list.forEach(b => (groups[Math.floor(b.sorting.order)] ||= []).push(b));
+    body = Object.keys(groups).sort().map(p => {
+      const items = groups[p];
+      const canon = items.filter(isPublished);
+      const done = canon.filter(b => state.read.has(b.id)).length;
+      const cat = CAT['phase' + p];
+      return `<section class="phase"><div class="phase-h"><span class="num">${p}</span><h3>${PHASE_NAME[p]}</h3><span class="cnt">${done}/${canon.length} read</span><p>${esc(cat ? cat.details : '')}</p></div><ul class="rows">${items.map(rowHTML).join('')}</ul></section>`;
+    }).join('');
+  } else {
+    body = `<ul class="rows" style="margin-top:12px">${list.map(rowHTML).join('')}</ul>`;
+  }
+  const anyMatch = list.some(matches);
+  pathEl.innerHTML = `
+    <div class="path-head"><div><h2>${heads[field][0]}</h2><p>${heads[field][1]}</p></div>
+      <label class="sortsel" for="sort">Order<select id="sort">
+        <option value="order"${field === 'order' ? ' selected' : ''}>Recommended</option>
+        <option value="publication"${field === 'publication' ? ' selected' : ''}>Publication date</option>
+        <option value="chronology"${field === 'chronology' ? ' selected' : ''}>In-world timeline</option>
+      </select></label></div>
+    ${body}${anyMatch ? '' : `<p class="empty">No books match “${esc(state.q)}”.</p>`}`;
+}
+pathEl.addEventListener('change', e => { if (e.target.id === 'sort') { state.sort = e.target.value; savePrefs(); renderPath(); } });
+pathEl.addEventListener('click', e => {
+  const c = e.target.closest('[data-read]');
+  if (c) { toggleRead(c.dataset.read); return; }
+  const r = e.target.closest('.row');
+  if (r) select(r.dataset.id);
+});
+
+/* ---------- dossier ---------- */
+const dossier = document.getElementById('dossier');
+const dInner = document.getElementById('dossier-inner');
+const scrim = document.getElementById('scrim');
+function unreadPrereqs(b) {
+  return (INCOMING[b.id] || []).filter(c => (c.type === 'major' || c.type === 'significant')
+    && isPublished(BOOKS[c.from]) && !state.read.has(c.from));
+}
+function connItem(otherId, c, key) {
+  const o = BOOKS[otherId];
+  const hidden = state.hideNotes && !state.revealed.has(key);
+  const note = c.description
+    ? (hidden ? `<button class="spoil" data-reveal="${esc(key)}">Show note · may spoil both books</button>` : `<div class="note">${safe(c.description)}</div>`)
+    : '';
+  return `<li class="conn"><div class="conn-h"><span class="dot" style="background:${colorOf(o)}"></span><button class="bk" data-go="${o.id}">${esc(o.title)}</button>${state.read.has(o.id) ? '<span class="readmark">✓ read</span>' : ''}<span class="kind ${c.type}">${CONN_LABEL[c.type]}</span></div>${note}</li>`;
+}
+function renderDossier() {
+  const id = state.selected;
+  dossier.classList.toggle('open', !!id);
+  scrim.classList.toggle('open', !!id);
+  if (!id) {
+    dInner.innerHTML = `<div class="intro">
+      <h2>Where to begin, and what to read next</h2>
+      <p>${CANON.length} published stories across a dozen worlds, linked by a shared mythology. You can read any series on its own. Read in the right order and the hidden threads start to show.</p>
+      <ol>
+        <li><b>Follow the reading path.</b> Three phases, each leaning harder on the wider Cosmere.</li>
+        <li><b>Tick off what you’ve read.</b> Your progress stays in this browser.</li>
+        <li><b>Check a book before you start it.</b> Its page lists the books that set it up, and flags any you haven’t read.</li>
+        <li><b>Trace connections on the star map.</b> Red lines are must-reads, dotted grey lines are easter eggs.</li>
+      </ol></div>`;
+    return;
+  }
+  const b = BOOKS[id];
+  const read = state.read.has(id);
+  const inc = (INCOMING[id] || []).filter(c => state.conn[c.type] || c.type === 'major' || c.type === 'significant')
+    .sort((x, y) => CONN_ORDER.indexOf(x.type) - CONN_ORDER.indexOf(y.type));
+  const out = (b.connections || []).filter(c => state.conn[c.type] || c.type === 'major' || c.type === 'significant')
+    .sort((x, y) => CONN_ORDER.indexOf(x.type) - CONN_ORDER.indexOf(y.type));
+  const pre = unreadPrereqs(b);
+  const phase = catIn(b, 'reading-order'), status = catIn(b, 'pub-status');
+  const tags = [formatOf(b), phase && CAT[phase].description, status && CAT[status].description].filter(Boolean);
+  const facts = [
+    ['Published', b.publication && safe(b.publication)],
+    ['Series', plain(b.series) && plain(b.series) !== b.title ? safe(b.series) : ''],
+    ['World', b.world ? safe(b.world) : esc(b.worldName)],
+    ['System', b.system && safe(b.system)],
+    ['Timeline', b.chronology && safe(b.chronology)],
+    ['Collected in', b.au && safe(b.au)],
+    ['Read it', b.link && safe(b.link)],
+  ].filter(f => f[1]);
+  const apps = (b.appearances || []).filter(a => APPS[a.id]);
+  dInner.innerHTML = `
+    <div>
+      <div class="d-eyebrow"><span class="dot" style="background:${colorOf(b)}"></span>${esc(b.worldName)}${b.group && b.group !== b.worldName ? ' · ' + esc(b.group) : ''}</div>
+      <h2 class="d-title">${esc(b.title)}</h2>
+      <div class="d-tags">${tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+    </div>
+    ${isPlanned(b) ? '' : `<button class="readbtn" data-read="${id}" aria-pressed="${read}"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg>${read ? 'Read' : 'Mark as read'}</button>`}
+    ${pre.length && !read ? `<div class="alert"><b>Before you start:</b> ${pre.map(c => `<button class="linkbtn" data-go="${c.from}">${esc(BOOKS[c.from].title)}</button>`).join(', ')} ${pre.length > 1 ? 'set' : 'sets'} this book up. You haven’t marked ${pre.length > 1 ? 'them' : 'it'} as read.</div>` : ''}
+    <dl class="facts">${facts.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>
+    ${inc.length ? `<section class="sec"><h3><span>Read these first</span><span>${inc.length}</span></h3><ul class="conns">${inc.map(c => connItem(c.from, c, c.from + '>' + id)).join('')}</ul></section>` : ''}
+    ${out.length ? `<section class="sec"><h3><span>Read this before</span><span>${out.length}</span></h3><ul class="conns">${out.map(c => connItem(c.target, c, id + '>' + c.target)).join('')}</ul></section>` : ''}
+    ${!inc.length && !out.length ? `<p class="note" style="margin:0">No connections recorded for this book${state.conn.egg ? '' : ' yet. Turn on easter eggs to see subtler links'}.</p>` : ''}
+    ${apps.length ? `<section class="sec"><h3><span>Recurring characters</span></h3><ul class="apps">${apps.map(a => `<li><span class="initial${a.type === 'appearance' ? ' solid' : ''}" title="${a.type}">${APPS[a.id].initial}</span><div><b>${esc(APPS[a.id].description)}</b> <span class="note">· ${a.type === 'appearance' ? 'appears' : 'mentioned'}</span>${a.description ? (state.hideNotes && !state.revealed.has('app:' + id + a.id) ? `<br><button class="spoil" data-reveal="app:${id}${a.id}">Show where</button>` : `<div class="note">${safe(a.description)}</div>`) : ''}</div></li>`).join('')}</ul></section>` : ''}
+  `;
+}
+dossier.addEventListener('click', e => {
+  const r = e.target.closest('[data-read]'); if (r) { toggleRead(r.dataset.read); return; }
+  const g = e.target.closest('[data-go]'); if (g) { select(g.dataset.go); return; }
+  const v = e.target.closest('[data-reveal]'); if (v) { state.revealed.add(v.dataset.reveal); renderDossier(); }
+});
+document.getElementById('d-close').onclick = () => select(null);
+scrim.onclick = () => select(null);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && state.selected) select(null); });
+
+/* ---------- actions ---------- */
+function select(id) {
+  if (id && !visible(BOOKS[id])) {
+    if (isPlanned(BOOKS[id])) state.showPlanned = true; else state.showExtras = true;
+    savePrefs(); state.selected = id; renderAll();
+  } else {
+    state.selected = id;
+    renderDossier(); updateFocus();
+    if (state.view === 'path') renderPath();
+  }
+  dossier.scrollTop = 0;
+  try { history.replaceState(null, '', '#' + (id || state.view)); } catch {}
+}
+function toggleRead(id) {
+  state.read.has(id) ? state.read.delete(id) : state.read.add(id);
+  saveRead();
+  renderProgress(); renderNext(); renderDossier();
+  if (state.view === 'path') renderPath(); else renderMap();
+}
+function setView(v) {
+  state.view = v;
+  document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.view === v));
+  const isMap = v === 'map';
+  mapEl.style.display = isMap ? '' : 'none';
+  document.getElementById('zoom').hidden = !isMap;
+  document.getElementById('hint').hidden = !isMap;
+  pathEl.hidden = isMap;
+  document.getElementById('stage').classList.toggle('list-mode', !isMap);
+  if (isMap) renderMap(); else renderPath();
+  store.set('view', v);
+}
+document.querySelector('.tabs').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  setView(b.dataset.view);
+  try { history.replaceState(null, '', '#' + b.dataset.view); } catch {}
+});
+document.getElementById('q').addEventListener('input', e => {
+  state.q = e.target.value.trim();
+  if (state.view === 'map') updateFocus(); else renderPath();
+});
+function renderAll() {
+  renderSide(); renderNext(); renderProgress(); renderDossier();
+  if (state.view === 'map') renderMap(); else renderPath();
+}
+
+/* ---------- boot ---------- */
+(function boot() {
+  const det = document.getElementById('filters-details');
+  if (matchMedia('(min-width: 821px)').matches) det.open = true;
+  const h = decodeURIComponent((location.hash || '').slice(1));
+  let v = store.get('view', 'map');
+  if (h === 'map' || h === 'path') v = h;
+  if (BOOKS[h]) { state.selected = h; if (!visible(BOOKS[h])) { if (isPlanned(BOOKS[h])) state.showPlanned = true; else state.showExtras = true; } }
+  renderSide(); renderNext(); renderProgress(); renderDossier();
+  setView(v);
+  startSync();
+})();
+</script>
+</body>
+</html>
