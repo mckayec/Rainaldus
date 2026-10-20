@@ -1,0 +1,798 @@
+{
+  "date": "2026-10-20",
+  "method": "Systematic full-text search and contextual verification of connection candidates; not a line-by-line reread",
+  "scope": "Fires connection audit; comparison books are not independently fully audited",
+  "limitations": [
+    "Not an exhaustive concordance or full illustration/annotation audit",
+    "Wind and Truth not fully downloaded or audited",
+    "Counterpart text not supplied for Warbreaker, Mistborn, Shadows for Silence or Rhythm of War",
+    "Text verification does not confirm an unspecified identity or theory"
+  ],
+  "editions": [
+    {
+      "title": "The Fires of December (Hoid's Travails)",
+      "sha256": "5cc4c2656af0822be5657690cf34557747ab577cbf601868f2851df8343c5c0a",
+      "scope": "All numbered chapters and epilogue searched, selected candidate contexts verified"
+    },
+    {
+      "title": "Isles of the Emberdark: A Cosmere Novel (Secret Projects)",
+      "sha256": "07065a5af4f6648f47004ef892da7460bbb0f2a0008a3a34e51c4a7f7c7f15ec",
+      "scope": "Relevant comparison passages only"
+    },
+    {
+      "title": "Tress of the Emerald Sea: A Cosmere Novel (Hoid's Travails Book 1)",
+      "sha256": "0ffa4e7736e02db6907b92411a4c54d6f310392e29262f8c6785d9447a6d9a2d",
+      "scope": "Relevant comparison passages only"
+    },
+    {
+      "title": "Yumi and the Nightmare Painter: A Cosmere Novel (Hoid's Travails)",
+      "sha256": "8413f1259c90f15dcaabe18d3143c4cc8c7279ec03f7b1f3fa3efc9e20e0759d",
+      "scope": "Relevant comparison passages only"
+    },
+    {
+      "title": "The Sunlit Man: A Cosmere Novel (Secret Projects Book 4)",
+      "sha256": "13ce226848d057eabdc871f695f5d079cb240b93604ce74c87b8642aad6db03c",
+      "scope": "Relevant comparison passages only"
+    }
+  ],
+  "chapters": [
+    {
+      "chapter": "Chapter I",
+      "status": "searched",
+      "words": 6111,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-6.xhtml",
+        "OEBPS/xhtml/xhtml-0-8.xhtml",
+        "OEBPS/xhtml/xhtml-0-10.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter II",
+      "status": "searched",
+      "words": 2845,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-11.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter III",
+      "status": "searched",
+      "words": 2541,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-12.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter IV",
+      "status": "searched",
+      "words": 1169,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-13.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter V",
+      "status": "searched",
+      "words": 3422,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-14.xhtml",
+        "OEBPS/xhtml/xhtml-0-16.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter VI",
+      "status": "searched",
+      "words": 2550,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-17.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter VII",
+      "status": "searched",
+      "words": 2585,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-18.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter VIII",
+      "status": "searched",
+      "words": 1826,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-21.xhtml",
+        "OEBPS/xhtml/xhtml-0-23.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter IX",
+      "status": "searched",
+      "words": 1832,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-24.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter X",
+      "status": "searched",
+      "words": 2400,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-25.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XI",
+      "status": "searched",
+      "words": 2820,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-26.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XII",
+      "status": "searched",
+      "words": 3154,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-27.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XIII",
+      "status": "searched",
+      "words": 1211,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-28.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XIV",
+      "status": "searched",
+      "words": 2442,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-29.xhtml",
+        "OEBPS/xhtml/xhtml-0-31.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XV",
+      "status": "searched",
+      "words": 2368,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-32.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XVI",
+      "status": "searched",
+      "words": 2020,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-34.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XVII",
+      "status": "searched",
+      "words": 2307,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-35.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XVIII",
+      "status": "searched",
+      "words": 3142,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-36.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XIX",
+      "status": "searched",
+      "words": 1826,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-37.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XX",
+      "status": "searched",
+      "words": 3477,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-38.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXI",
+      "status": "searched",
+      "words": 2682,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-39.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXII",
+      "status": "searched",
+      "words": 3288,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-40.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXIII",
+      "status": "searched",
+      "words": 2310,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-41.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXIV",
+      "status": "searched",
+      "words": 1962,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-42.xhtml",
+        "OEBPS/xhtml/xhtml-0-44.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXV",
+      "status": "searched",
+      "words": 2419,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-45.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXVI",
+      "status": "searched",
+      "words": 2421,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-46.xhtml",
+        "OEBPS/xhtml/xhtml-0-48.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXVII",
+      "status": "searched",
+      "words": 1126,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-50.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXVIII",
+      "status": "searched",
+      "words": 1860,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-51.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXIX",
+      "status": "searched",
+      "words": 4862,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-52.xhtml",
+        "OEBPS/xhtml/xhtml-0-54.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXX",
+      "status": "searched",
+      "words": 2290,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-55.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXXI",
+      "status": "searched",
+      "words": 2437,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-56.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXXII",
+      "status": "searched",
+      "words": 1742,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-57.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXXIII",
+      "status": "searched",
+      "words": 2329,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-59.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXXIV",
+      "status": "searched",
+      "words": 4305,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-60.xhtml",
+        "OEBPS/xhtml/xhtml-0-62.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXXV",
+      "status": "searched",
+      "words": 1961,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-63.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXXVI",
+      "status": "searched",
+      "words": 1712,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-64.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXXVII",
+      "status": "searched",
+      "words": 2110,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-65.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXXVIII",
+      "status": "searched",
+      "words": 2144,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-66.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XXXIX",
+      "status": "searched",
+      "words": 1573,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-67.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XL",
+      "status": "searched",
+      "words": 1822,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-68.xhtml",
+        "OEBPS/xhtml/xhtml-0-70.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XLI",
+      "status": "searched",
+      "words": 5958,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-71.xhtml",
+        "OEBPS/xhtml/xhtml-0-73.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XLII",
+      "status": "searched",
+      "words": 1861,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-74.xhtml",
+        "OEBPS/xhtml/xhtml-0-76.xhtml"
+      ]
+    },
+    {
+      "chapter": "Chapter XLIII",
+      "status": "searched",
+      "words": 915,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-77.xhtml"
+      ]
+    },
+    {
+      "chapter": "Epilogue",
+      "status": "searched",
+      "words": 1294,
+      "sections": [
+        "OEBPS/xhtml/xhtml-0-78.xhtml"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "edge": "wb--fod",
+      "title": "The Prophet is Vasher",
+      "evidence": "author-confirmed",
+      "locator": "FanX 2026, September 25, entry 3; Fires XLI and Epilogue corroborate the character’s later activities.",
+      "sources": [
+        "fires-text",
+        "fires-vasher"
+      ]
+    },
+    {
+      "edge": "wb--fod",
+      "title": "Breaths, passphrases and purified power",
+      "evidence": "text-verified",
+      "locator": "Fires XXVII (initial hypothesis); XXXVIII (Hoid’s explanation); Epilogue (passphrase changes).",
+      "sources": [
+        "fires-text",
+        "fires-arcana"
+      ]
+    },
+    {
+      "edge": "wb--fod",
+      "title": "T’Telir’s Court of Gods",
+      "evidence": "text-verified",
+      "locator": "Fires IX, description of Kingseat’s fashion.",
+      "sources": [
+        "fires-text"
+      ]
+    },
+    {
+      "edge": "wb--fod",
+      "title": "A Nalthian audience?",
+      "evidence": "theory",
+      "locator": "Fires IX. Audience identification is not stated; the Court of Gods comparison alone does not identify the listeners.",
+      "sources": [
+        "fires-text",
+        "fires-audience"
+      ]
+    },
+    {
+      "edge": "wb--fod",
+      "title": "The Prophet’s dream and emissary",
+      "evidence": "text-verified",
+      "locator": "Fires XLI, December’s dream; Epilogue, the Prophet’s visit.",
+      "sources": [
+        "fires-text",
+        "fires-vasher"
+      ]
+    },
+    {
+      "edge": "wb--fod",
+      "title": "Returned terminology, without a Returned cameo",
+      "evidence": "text-verified",
+      "locator": "Fires XXVII, opening explanation.",
+      "sources": [
+        "fires-text"
+      ]
+    },
+    {
+      "edge": "elantris--fod",
+      "title": "An Aon in a combined magical binding",
+      "evidence": "text-verified",
+      "locator": "Fires XXVI (rune); XXVII (named Aon); XXXVIII (buffer).",
+      "sources": [
+        "fires-text"
+      ]
+    },
+    {
+      "edge": "elantris--fod",
+      "title": "Aon on the Ever-Slaying Sword",
+      "evidence": "illustration",
+      "locator": "Fires XXVI, Tran Nguyen’s “Less a Sword, More a Spike” illustration. Painting inspected; Reo identification retained from Coppermind, not named in prose.",
+      "sources": [
+        "fires-text",
+        "fires-aon",
+        "fires-megalith"
+      ]
+    },
+    {
+      "edge": "elantris--fod",
+      "title": "Rivers and purified Dor: comparison",
+      "evidence": "theory",
+      "locator": "Fires XXXVIII describes purified power in the spike’s buffer. The river’s identity as Dor is not established.",
+      "sources": [
+        "fires-text",
+        "fires-magitech"
+      ]
+    },
+    {
+      "edge": "mb1--fod",
+      "title": "Hemalurgy-adjacent binding",
+      "evidence": "text-verified",
+      "locator": "Fires XXVI (Hemalurgic bind point); XXVII (“Hemalurgy-adjacent”); XXXVIII (silver and buffer).",
+      "sources": [
+        "fires-text",
+        "fires-megalith",
+        "fires-arcana"
+      ]
+    },
+    {
+      "edge": "mb1--fod",
+      "title": "A Scadrian second skin",
+      "evidence": "unresolved-reference",
+      "locator": "Fires XXIV, December’s demonblood gown.",
+      "sources": [
+        "fires-text",
+        "fires-skin"
+      ]
+    },
+    {
+      "edge": "mb1--fod",
+      "title": "Scadrial’s old canals",
+      "evidence": "text-verified",
+      "locator": "Fires III, the Northern Eclipse’s propulsion.",
+      "sources": [
+        "fires-text"
+      ]
+    },
+    {
+      "edge": "mb1--fod",
+      "title": "A Soothing-like effect",
+      "evidence": "text-verified",
+      "locator": "Fires XXIV, bathing and emotional dampening.",
+      "sources": [
+        "fires-text"
+      ]
+    },
+    {
+      "edge": "sfs--fod",
+      "title": "Threnodite entity lore",
+      "evidence": "referenced",
+      "locator": "Fires IV, XXIV, XXVII and XLI; Threnody association from the cited reference. Emberdark XXV and XXXIX supply explicit related-entity terminology.",
+      "sources": [
+        "fires-text",
+        "ember-text",
+        "fires-evil"
+      ]
+    },
+    {
+      "edge": "sfs--fod",
+      "title": "Silver behaves differently across systems",
+      "evidence": "referenced",
+      "locator": "Fires XXVI and XXXVIII; Shadows for Silence comparison via the cited silver reference.",
+      "sources": [
+        "fires-text",
+        "fires-silver",
+        "fires-arcana"
+      ]
+    },
+    {
+      "edge": "iote--fod",
+      "title": "Shared entity family",
+      "evidence": "text-verified",
+      "locator": "Fires XXIV and XXVII; Emberdark XXV (Threnodite entity and Evil), XXXVI (Splinter of Ambition), XXXIX (Eidolith terminology).",
+      "sources": [
+        "fires-text",
+        "ember-text",
+        "fires-evil"
+      ]
+    },
+    {
+      "edge": "sa4--fod",
+      "title": "Valor beyond a Shard-name mention",
+      "evidence": "referenced",
+      "locator": "Rhythm of War XXV epigraph (reference source); Fires IV, XXVII and Epilogue.",
+      "sources": [
+        "fires-text",
+        "fires-valor"
+      ]
+    },
+    {
+      "edge": "sa4--fod",
+      "title": "Which memory incident?",
+      "evidence": "theory",
+      "locator": "Fires XXVII, Hoid’s backups aside. Candidate Rhythm of War incident supplied by external discussion; no exclusive mapping is given.",
+      "sources": [
+        "fires-text",
+        "fires-backups"
+      ]
+    },
+    {
+      "edge": "sa5--fod",
+      "title": "An explicit Ashyn reference",
+      "evidence": "text-verified",
+      "locator": "Fires XXVII, Hoid’s Godsflame remark; Epilogue, the trap in Valor’s temple.",
+      "sources": [
+        "fires-text",
+        "fires-ashyn"
+      ]
+    },
+    {
+      "edge": "sa5--fod",
+      "title": "Another proposed memory incident",
+      "evidence": "theory",
+      "locator": "Fires XXVII; proposed Wind and Truth incident in external discussion.",
+      "sources": [
+        "fires-text",
+        "fires-backups"
+      ]
+    },
+    {
+      "edge": "sa5--fod",
+      "title": "Roshar and the Prophet’s confinement",
+      "evidence": "text-verified",
+      "locator": "Fires XLI and Epilogue.",
+      "sources": [
+        "fires-text",
+        "fires-vasher"
+      ]
+    },
+    {
+      "edge": "tress--fod",
+      "title": "Silver across two systems",
+      "evidence": "text-verified",
+      "locator": "Fires XXVI and XXXVIII; Tress I (salt and silver), VIII “The Stowaway”, XXXI “The Midnight Essence”.",
+      "sources": [
+        "fires-text",
+        "tress-text",
+        "fires-silver"
+      ]
+    },
+    {
+      "edge": "tress--fod",
+      "title": "Zuhel and Luhel",
+      "evidence": "theory",
+      "locator": "Fires XXVII (Zuhel named), XXXIV, XXXVII and XLII (bond behavior); Tress XXXI “The Midnight Essence” (Luhel and Nahel contrasted).",
+      "sources": [
+        "fires-text",
+        "tress-text",
+        "fires-witchcraft",
+        "fires-bonds"
+      ]
+    },
+    {
+      "edge": "tress--fod",
+      "title": "The Dougs return",
+      "evidence": "text-verified",
+      "locator": "Fires VII; Tress XIV “The Dougs”.",
+      "sources": [
+        "fires-text",
+        "tress-text"
+      ]
+    },
+    {
+      "edge": "sa1--fod",
+      "title": "Herald terminology, without a Herald cameo",
+      "evidence": "text-verified",
+      "locator": "Fires XXVII, opening explanation.",
+      "sources": [
+        "fires-text"
+      ]
+    },
+    {
+      "edge": "sa1--fod",
+      "title": "A cross-system bond comparison",
+      "evidence": "theory",
+      "locator": "Fires XXVII and XLII; Tress XXXI explicitly contrasts Nahel and Luhel. A universal three-Realm model is not established.",
+      "sources": [
+        "fires-text",
+        "tress-text",
+        "fires-bonds",
+        "fires-witchcraft"
+      ]
+    },
+    {
+      "edge": "yumi--fod",
+      "title": "Design is away on a quest",
+      "evidence": "text-verified",
+      "locator": "Fires XXXVIII; Yumi V (Design at the noodle shop) and “Another Epilogue”.",
+      "sources": [
+        "fires-text",
+        "yumi-text"
+      ]
+    },
+    {
+      "edge": "yumi--fod",
+      "title": "A possible memory-protection parallel",
+      "evidence": "theory",
+      "locator": "Fires XXVII; Yumi “Another Epilogue”, Hoid’s explanation of his protection protocols.",
+      "sources": [
+        "fires-text",
+        "yumi-text",
+        "fires-backups"
+      ]
+    },
+    {
+      "edge": "tsm--fod",
+      "title": "A magitech comparison",
+      "evidence": "theory",
+      "locator": "Fires XXVI (demonstone mining and cannonades); Sunlit Man XII (sunheart explanation). Comparison is interpretive.",
+      "sources": [
+        "fires-text",
+        "sunlit-text",
+        "fires-magitech"
+      ]
+    },
+    {
+      "edge": "tsm--fod",
+      "title": "A planet where sunrise is too much",
+      "evidence": "theory",
+      "locator": "Fires XXXVIII, immediately before the conversation with Hoid; Sunlit Man I–II.",
+      "sources": [
+        "fires-text",
+        "sunlit-text"
+      ]
+    },
+    {
+      "edge": "tsd--fod",
+      "title": "A setting connection, not a prerequisite",
+      "evidence": "text-verified",
+      "locator": "Fires XXVII. The Silence Divine’s planned Ashyn setting is supplied by external publication references.",
+      "sources": [
+        "fires-text",
+        "fires-ashyn"
+      ]
+    },
+    {
+      "edge": "mb3--fod",
+      "title": "Staring down Ironeyes",
+      "evidence": "text-verified",
+      "locator": "Fires VII, December’s response to a knife threat.",
+      "sources": [
+        "fires-text"
+      ]
+    },
+    {
+      "edge": "unpaired",
+      "title": "Hoid’s Sixth Word",
+      "evidence": "unresolved-reference",
+      "locator": "Fires XLI, opening narrator aside.",
+      "sources": [
+        "fires-text",
+        "fires-word",
+        "fires-invested-art"
+      ]
+    },
+    {
+      "edge": "unpaired",
+      "title": "The unidentified dragon",
+      "evidence": "unresolved-reference",
+      "locator": "Fires XXVI, correction to the tour guide’s legend.",
+      "sources": [
+        "fires-text",
+        "fires-dragon"
+      ]
+    },
+    {
+      "edge": "unpaired",
+      "title": "Jasper and the Tzendish cult",
+      "evidence": "unresolved-reference",
+      "locator": "Fires IV (Jasper); XXXVIII (Tzendish cult).",
+      "sources": [
+        "fires-text"
+      ]
+    },
+    {
+      "edge": "unpaired",
+      "title": "Shattering-related asides",
+      "evidence": "unresolved-reference",
+      "locator": "Fires IV and XXIII.",
+      "sources": [
+        "fires-text",
+        "fires-shattering"
+      ]
+    },
+    {
+      "edge": "unpaired",
+      "title": "The final bond is unusual",
+      "evidence": "text-verified",
+      "locator": "Fires XXXIV (first bond), XXXVII (release) and XLII (final bond).",
+      "sources": [
+        "fires-text"
+      ]
+    },
+    {
+      "edge": "unpaired",
+      "title": "Valor’s trap and three dragon-ruled worlds",
+      "evidence": "unresolved-reference",
+      "locator": "Fires Epilogue.",
+      "sources": [
+        "fires-text"
+      ]
+    },
+    {
+      "edge": "unpaired",
+      "title": "Why the Cosmere name is “December”",
+      "evidence": "text-verified",
+      "locator": "Fires I, narrator’s translation and the local name; Postscript, naming explanation.",
+      "sources": [
+        "fires-text"
+      ]
+    }
+  ]
+}
