@@ -1,10 +1,10 @@
 # Cosmere research — 2026-10-19
 
-This snapshot adds 21 source-backed relationships to the 93 imported source records (114 total), preserves all 82 source entries, and adds The Fires of December (83 works total). Ratings and suggested reading positions are editorial judgments. This is selected coverage, not a complete search of every book, map, illustration, annotation and interview.
+The current snapshot adds 34 curated relationships to the 93 imported source records (127 total), preserves all 82 source entries, and adds The Fires of December (83 works total). Ratings and suggested reading positions are editorial judgments. This is selected coverage, not a complete search of every book, map, illustration, annotation and interview.
 
 ## Method and source limitations
 
-Compared the pinned source dataset field-by-field. Author and publisher pages support release information, preview claims and development history. Coppermind summaries identify recent scenes; several direct Coppermind requests returned HTTP 403, so indexed chapter-summary results and author/publisher sources were used. No claim is presented as a new full-text verification of a purchased book. Precise locators are supplied when available; storyline-level locators remain broader and should be narrowed by a future text audit.
+Compared the pinned source dataset field-by-field. Author and publisher pages support release information, preview claims and development history. Coppermind summaries identify recent scenes; several direct Coppermind requests returned HTTP 403, so indexed chapter-summary results and author/publisher sources were used. The earlier secondary-source pass did not verify purchased-book text. The October 20 Fires audit now checks the supplied primary text with a defined search-and-context method; see `FIRES_TEXT_AUDIT.md`. This does not upgrade every older claim. Precise locators are supplied when available; storyline-level locators remain broader and should be narrowed by a future text audit.
 
 Connections marked documented are supported by the cited references, not necessarily a direct author confirmation of every interpretation. Preview relationships establish only what the released sample or official announcement supports. Imported notes retain original descriptions and ratings and are explicitly labeled unverified independently.
 
@@ -13,7 +13,7 @@ Connections marked documented are supported by the cited references, not necessa
 - Isles: first backer release July 1, 2025, public digital July 10; separate Sixth of the Dusk optional because revised flashbacks are included.
 - Elsecaller and King Lopen are existing entries, not duplicates. Added full title, coauthors, format-specific release history, context links and edition links.
 - Wind and Truth now has selected crossover records and a sourced Hoid appearance; appearance coverage is still not complete.
-- Correction: Fires released to backers September 15, 2026 and publicly in digital formats October 6; trade print is due in December. Preview-only Hoid narration and official Hoid’s Travails membership are included; no undisclosed full-book plot claims. Absolute chronology remains unplaced.
+- Correction: Fires released to backers September 15, 2026 and publicly in digital formats October 6; trade print is due in December. Hoid narration, official series membership and the subsequent primary-text connection findings are included. Absolute chronology remains unplaced.
 - Horneater, Elantris sequels and White Sand rewrite: avoid using older projections as current confirmed release dates. Ghostbloods dates remain explicitly projected.
 - Prime novels, White Sand prose and other existing curiosities remain opt-in and noncanonical. Reused Bridge Four/Merin concepts are development history, not continuity.
 - Required-before edges represent series sequence / first-read spoiler context. Optional novellas and crossover ratings do not become hard prerequisites for later main novels.
@@ -248,7 +248,7 @@ Locator: State of the Sanderson 2025: Hoid’s Travails.
 - Identify every appearance vs mention of Khriss, Nazh and Hoid in recent works using exact textual references. Only supported records have been added.
 - Elsecaller introduces Hwynn Tyvneri, Rellam and Lorieta. Do not infer they are established characters from another book without evidence.
 - Do not turn proposed identity matches, similar names, a shared word such as Emberdark, or similar-looking magic into confirmed crossovers.
-- Audit the complete released Fires text; preview-only research coverage does not mean the book is unpublished.
+- Fires now has a systematic full-text connection search with candidate-context verification. Independent literary rereading, other illustrations and unknown identities remain open; see `FIRES_TEXT_AUDIT.md`.
 - Add licensed art only with an explicit reuse basis, creator credit and spoiler-safe loading. Current callouts use original diagrams and external official galleries.
 - Extend exact chapter anchors where this snapshot only records a storyline or public sample.
 
@@ -291,4 +291,8 @@ The initial implementation used the older December trade-print plan and incorrec
 
 ## Fires expansion
 
-The overlay now contains 33 added book-pair links (126 total including the 93 preserved upstream links). Twelve new incoming Fires links contain individually labeled claims covering Vasher, Aon Reo artwork, silver, secondskin, Evil/Eidolith lore, Valor, Ashyn, bonds and proposed parallels. See `FIRES_SOURCE_AUDIT.md` for sources and limitations. Speculation defaults hidden. Selected full-book secondary-source and author-Q&A research supersedes the earlier preview-only coverage description; an exhaustive primary-text audit remains outstanding.
+The source-based expansion initially contained 33 added links (126 total). The primary-text pass brings the current count to 34 added links (127 total). Twelve new incoming Fires links contain individually labeled claims covering Vasher, Aon Reo artwork, silver, secondskin, Evil/Eidolith lore, Valor, Ashyn, bonds and proposed parallels. See `FIRES_SOURCE_AUDIT.md` for sources and limitations. Speculation defaults hidden. Selected full-book secondary-source and author-Q&A research supersedes the earlier preview-only coverage description; the subsequent October 20 audit is documented in `FIRES_TEXT_AUDIT.md` with explicit limits.
+
+## Primary-text audit update — October 20, 2026
+
+All 43 Fires chapters and the epilogue were systematically searched; candidate passages were checked in context and compared with relevant passages in four uploaded books. The result is 32 incoming claim callouts plus seven unpaired notes. Added canals, Ironeyes, Dougs, Court of Gods, Soothing comparison, named Design mention, Prophet/Roshar details, Aon prose distinction, Returned/Herald terminology and a candidate sunrise allusion. Exact locators replace several unresolved references. The open-ended memory aside does not imply exactly two incidents. Remove unsupported absolute or Tress/Yumi chronology. The implementation retains theory and illustration labels. Full method, qualifications and a chapter inventory: `FIRES_TEXT_AUDIT.md` and `audits/fires-2026-10-20.json`.

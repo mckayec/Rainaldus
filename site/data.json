@@ -435,22 +435,33 @@
           "locator": "See the locator for each individual finding.",
           "claims": [
             {
+              "title": "An Aon in a combined magical binding",
+              "description": "The prose names an Aon attached to the silver spike. Hoid later explains the intervening buffer of transformed power. An Aon is explicit in the text; the name Reo is not.",
+              "locator": "Fires XXVI (rune); XXVII (named Aon); XXXVIII (buffer).",
+              "evidence": "text-verified",
+              "sources": [
+                "fires-text"
+              ]
+            },
+            {
               "title": "Aon on the Ever-Slaying Sword",
               "description": "The binding incorporates an Aon. Coppermind identifies Reo in Tran Nguyen’s illustration; the exact Aon is not named in the prose. This is an illustration-specific identification.",
               "sources": [
+                "fires-text",
                 "fires-aon",
                 "fires-megalith"
               ],
-              "locator": "Chapter XXVI and accompanying interior artwork.",
+              "locator": "Fires XXVI, Tran Nguyen’s “Less a Sword, More a Spike” illustration. Painting inspected; Reo identification retained from Coppermind, not named in prose.",
               "evidence": "illustration"
             },
             {
               "title": "Rivers and purified Dor: comparison",
-              "description": "Readers compare the river’s usable Investiture with Dor. This is a functional analogy, not proof that the river contains Selish Dor.",
+              "description": "Purified power invites comparison with Dor, but the text does not identify Miral’s river as Selish Dor. The river is explained as matter released from the Megalith’s body. Do not conflate that river with the spike’s purified-power buffer.",
               "sources": [
+                "fires-text",
                 "fires-magitech"
               ],
-              "locator": "Opening magitech discussion; exact passage locator unresolved.",
+              "locator": "Fires XXXVIII describes purified power in the spike’s buffer. The river’s identity as Dor is not established.",
               "evidence": "theory"
             }
           ],
@@ -735,22 +746,47 @@
           "claims": [
             {
               "title": "Hemalurgy-adjacent binding",
-              "description": "The silver spike pins the Megalith’s Spiritual aspect to its body. Preserve the distinction between this application and ordinary Mistborn power-stealing Hemalurgy; do not infer that silver is a standard power-stealing metal.",
+              "description": "The Prophet targets a Hemalurgic bind point with a silver spike. Hoid calls the construction Hemalurgy-adjacent: it pins the entity rather than serving as an ordinary power-stealing spike. The Aon and transformed-power buffer explain why the soul cannot simply escape around the silver.",
               "sources": [
+                "fires-text",
                 "fires-megalith",
                 "fires-arcana"
               ],
-              "locator": "Fires XXVI; qualifying replies in the arcana discussion.",
-              "evidence": "referenced"
+              "locator": "Fires XXVI (Hemalurgic bind point); XXVII (“Hemalurgy-adjacent”); XXXVIII (silver and buffer).",
+              "evidence": "text-verified"
             },
             {
               "title": "A Scadrian second skin",
-              "description": "Hoid explicitly compares the dress with a garment encountered on Scadrial. This establishes the world reference, not a specific Mistborn installment, artifact or magic-system identification.",
+              "description": "Hoid explicitly compares the responsive dress with a similar garment on Scadrial, after an aside about a literal and figurative second skin. This confirms the world reference, while the particular Scadrian garment and technology remain unidentified.",
               "sources": [
+                "fires-text",
                 "fires-skin"
               ],
-              "locator": "Blood-river dress passage quoted in the opening post; chapter unresolved.",
+              "locator": "Fires XXIV, December’s demonblood gown.",
               "evidence": "unresolved-reference"
+            },
+            {
+              "title": "Scadrial’s old canals",
+              "description": "Hoid compares oxen towing Miral’s upriver barges with the old canals of Scadrial. This is an explicit historical/world reference, not a shared boat or a traveler cameo.",
+              "locator": "Fires III, the Northern Eclipse’s propulsion.",
+              "evidence": "text-verified",
+              "sources": [
+                "fires-text"
+              ],
+              "excerpt": {
+                "text": "the old days of Scadrial",
+                "source": "fires-text",
+                "locator": "Fires III, the Northern Eclipse’s propulsion."
+              }
+            },
+            {
+              "title": "A Soothing-like effect",
+              "description": "Hoid describes bathing in the demon’s blood as having a Soothing-like effect on emotions. He attributes it to the bound entity’s residual nature; the comparison does not establish that December is using brass Allomancy.",
+              "locator": "Fires XXIV, bathing and emotional dampening.",
+              "evidence": "text-verified",
+              "sources": [
+                "fires-text"
+              ]
             }
           ],
           "type": "minor",
@@ -997,6 +1033,41 @@
             "legacy-64ffee01116f"
           ],
           "evidence": "inherited"
+        },
+        {
+          "id": "mb3--fod",
+          "target": "fod",
+          "type": "egg",
+          "title": "An Ironeyes reference",
+          "description": "A familiar name for death appears in Hoid’s narration; this does not establish a physical visit.",
+          "relation": "crossover",
+          "evidence": "documented",
+          "sources": [
+            "fires-text"
+          ],
+          "locator": "Fires VII.",
+          "visual": {
+            "label": "A familiar death epithet",
+            "left": "Mistborn’s Ironeyes",
+            "right": "Hoid’s narration",
+            "credit": "Original explanatory diagram; not official artwork."
+          },
+          "claims": [
+            {
+              "title": "Staring down Ironeyes",
+              "description": "Hoid says December has stared Ironeyes straight on. This repeats the Mistborn death epithet; the sentence does not put Marsh physically on Miral. The connection is a linguistic allusion, not a cameo.",
+              "locator": "Fires VII, December’s response to a knife threat.",
+              "evidence": "text-verified",
+              "sources": [
+                "fires-text"
+              ],
+              "excerpt": {
+                "text": "had stared Ironeyes straight on",
+                "source": "fires-text",
+                "locator": "Fires VII, December’s response to a knife threat."
+              }
+            }
+          ]
         }
       ],
       "worldName": "Scadrial",
@@ -1849,28 +1920,59 @@
               "title": "The Prophet is Vasher",
               "description": "Sanderson confirms the identity. He corrects the historical visit to before Warbreaker, during Vasher’s travels involving Roshar and Sel. This dates the Prophet’s earlier visit, not December’s main story.",
               "sources": [
+                "fires-text",
                 "fires-vasher"
               ],
-              "locator": "FanX 2026, September 25, entry 3",
+              "locator": "FanX 2026, September 25, entry 3; Fires XLI and Epilogue corroborate the character’s later activities.",
               "evidence": "author-confirmed"
             },
             {
               "title": "Breaths, passphrases and purified power",
-              "description": "The binding discussion connects its transferable power and passphrases to Breaths, while explicitly distinguishing the modified power from ordinary Breaths. It should not all be described as conventional Awakening.",
+              "description": "Hoid first proposes repurposed Breaths, then explains a buffer of transformed Breath-adjacent Investiture between the Aon and silver. Its power has been purified of its original Intent. He describes transfer, withdrawal and dispersal passphrases; these are not ordinary unmodified Breaths or a complete recipe for conventional Awakening.",
               "sources": [
+                "fires-text",
                 "fires-arcana"
               ],
-              "locator": "Quoted binding passage in the linked discussion; exact chapter not independently verified.",
-              "evidence": "referenced"
+              "locator": "Fires XXVII (initial hypothesis); XXXVIII (Hoid’s explanation); Epilogue (passphrase changes).",
+              "evidence": "text-verified"
+            },
+            {
+              "title": "T’Telir’s Court of Gods",
+              "description": "Hoid explicitly compares Kingseat’s colors with T’Telir’s Court of Gods, the Warbreaker setting. This is a named place reference; it does not identify Hoid’s audience as Nalthian.",
+              "locator": "Fires IX, description of Kingseat’s fashion.",
+              "evidence": "text-verified",
+              "sources": [
+                "fires-text"
+              ]
             },
             {
               "title": "A Nalthian audience?",
               "description": "The colorful-clothing comparison has prompted a Nalthian or Hallandren audience theory. That audience identification is not established here.",
               "sources": [
+                "fires-text",
                 "fires-audience"
               ],
-              "locator": "Chapter IX comparison, as quoted in the discussion.",
+              "locator": "Fires IX. Audience identification is not stated; the Court of Gods comparison alone does not identify the listeners.",
               "evidence": "theory"
+            },
+            {
+              "title": "The Prophet’s dream and emissary",
+              "description": "December encounters the Prophet through the Spiritual Realm. In the epilogue he sends a simulacrum that he directs remotely because he cannot leave Roshar. The historical demon-binding visit and this later interaction are different events. The Vasher identification still relies on the separate author confirmation.",
+              "locator": "Fires XLI, December’s dream; Epilogue, the Prophet’s visit.",
+              "evidence": "text-verified",
+              "sources": [
+                "fires-text",
+                "fires-vasher"
+              ]
+            },
+            {
+              "title": "Returned terminology, without a Returned cameo",
+              "description": "While explaining his disembodied state, Hoid explicitly says he is not a Cognitive Shadow, Returned, Herald or Creed Wraith. Returned is familiar Warbreaker terminology, but the passage does not turn Hoid into a Returned or add an unnamed Returned appearance.",
+              "locator": "Fires XXVII, opening explanation.",
+              "evidence": "text-verified",
+              "sources": [
+                "fires-text"
+              ]
             }
           ],
           "type": "significant",
@@ -2055,7 +2157,7 @@
         {
           "id": "sa1--fod",
           "target": "fod",
-          "title": "Nahel and Zuhel comparisons",
+          "title": "Herald terminology and bond comparisons",
           "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
           "sources": [
             "fires-bonds",
@@ -2064,23 +2166,34 @@
           "locator": "See the locator for each individual finding.",
           "claims": [
             {
+              "title": "Herald terminology, without a Herald cameo",
+              "description": "Hoid includes Herald among the labels he explicitly denies for his current condition. This is a Stormlight vocabulary reference, not evidence that a Herald appears on Miral or that every type of Cognitive Shadow works identically.",
+              "locator": "Fires XXVII, opening explanation.",
+              "evidence": "text-verified",
+              "sources": [
+                "fires-text"
+              ]
+            },
+            {
               "title": "A cross-system bond comparison",
               "description": "Zuhel bonds invite comparison with Stormlight’s Nahel bonds. The one-bond-per-Realm model remains a fan interpretation, and no identical cost or mechanism is asserted.",
               "sources": [
+                "fires-text",
+                "tress-text",
                 "fires-bonds",
                 "fires-witchcraft"
               ],
-              "locator": "Zuhel discussion and Witchcraft article.",
+              "locator": "Fires XXVII and XLII; Tress XXXI explicitly contrasts Nahel and Luhel. A universal three-Realm model is not established.",
               "evidence": "theory"
             }
           ],
           "type": "minor",
-          "evidence": "theory",
-          "relation": "comparison",
+          "evidence": "documented",
+          "relation": "crossover",
           "visual": {
-            "label": "Nahel and Zuhel comparisons",
-            "left": "Nahel bond",
-            "right": "Zuhel comparison",
+            "label": "Vocabulary and bond comparisons",
+            "left": "Stormlight lore",
+            "right": "Hoid’s explanation",
             "credit": "Original explanatory diagram; not official artwork."
           }
         }
@@ -2610,20 +2723,22 @@
           "claims": [
             {
               "title": "Valor beyond a Shard-name mention",
-              "description": "Rhythm of War chapter 25’s epigraph mentions Valor. Fires expands the Shard’s identity and activities, including Medelantorius and the search connected with her temple.",
+              "description": "Rhythm of War’s epigraph names Valor. Fires describes her work establishing religion on Miral, Hoid’s search for her, and the temple trap revealed in the epilogue. Medelantorius is not named in the uploaded Fires text; any vessel-name claim needs a separate source.",
               "sources": [
+                "fires-text",
                 "fires-valor"
               ],
-              "locator": "Rhythm of War chapter 25 epigraph; Fires IV and temple material.",
+              "locator": "Rhythm of War XXV epigraph (reference source); Fires IV, XXVII and Epilogue.",
               "evidence": "referenced"
             },
             {
               "title": "Which memory incident?",
-              "description": "Readers connect Hoid’s discussion of earlier incidents with his encounter with Taravangian in Rhythm of War. The exact assignment of both incidents remains disputed.",
+              "description": "Hoid says he has memory backups because of earlier incidents, with an open-ended sequence of asides. Rhythm of War’s memory interference is a plausible referent, but Fires neither names the incidents nor limits them to exactly two.",
               "sources": [
+                "fires-text",
                 "fires-backups"
               ],
-              "locator": "Opening post and replies; no confirmed mapping of both incidents.",
+              "locator": "Fires XXVII, Hoid’s backups aside. Candidate Rhythm of War incident supplied by external discussion; no exclusive mapping is given.",
               "evidence": "theory"
             }
           ],
@@ -2735,21 +2850,38 @@
           "claims": [
             {
               "title": "An explicit Ashyn reference",
-              "description": "The cited Hoid passage associates Godsflame with Ashyn. This connects to Stormlight’s Ashyn history; the passage does not by itself establish that Valor caused its catastrophe or that Godsflame is a specific Surge or disease.",
+              "description": "Hoid thinks the fire used against him is Godsflame and explicitly says he thought it could not leave Ashyn. The epilogue locates his repeated burning in Valor’s temple trap. This supports an Ashyn link, while the material’s precise origin, mechanism and role in Ashyn’s catastrophe remain unproved.",
               "sources": [
+                "fires-text",
                 "fires-ashyn"
               ],
-              "locator": "Godsflame passage quoted in the linked thread; exact Fires chapter unresolved.",
-              "evidence": "referenced"
+              "locator": "Fires XXVII, Hoid’s Godsflame remark; Epilogue, the trap in Valor’s temple.",
+              "evidence": "text-verified",
+              "excerpt": {
+                "text": "I thought that stuff couldn’t leave Ashyn.",
+                "source": "fires-text",
+                "locator": "Fires XXVII, Hoid’s Godsflame remark; Epilogue, the trap in Valor’s temple."
+              }
             },
             {
               "title": "Another proposed memory incident",
-              "description": "Retribution’s attack in Wind and Truth is one proposed explanation for Hoid’s second incident. Treat this assignment as a theory, keeping narration-time distinct from story-time.",
+              "description": "Wind and Truth’s attack on Hoid is a proposed referent for his earlier-incident aside. The book does not identify an exact numbered incident; keep the assignment separate from the explicitly verified references.",
               "sources": [
+                "fires-text",
                 "fires-backups"
               ],
-              "locator": "Replies proposing Wind and Truth or Yumi; mapping unresolved.",
+              "locator": "Fires XXVII; proposed Wind and Truth incident in external discussion.",
               "evidence": "theory"
+            },
+            {
+              "title": "Roshar and the Prophet’s confinement",
+              "description": "The Prophet’s dream describes a damaged land and an inability to leave. The epilogue explicitly identifies his current planet as Roshar and says he sends a simulacrum instead. A specific date relative to Wind and Truth is not stated in this passage.",
+              "locator": "Fires XLI and Epilogue.",
+              "evidence": "text-verified",
+              "sources": [
+                "fires-text",
+                "fires-vasher"
+              ]
             }
           ],
           "type": "minor",
@@ -3248,21 +3380,24 @@
           "claims": [
             {
               "title": "Threnodite entity lore",
-              "description": "Coppermind places the Megalith and demons in the wider Evil/Eidolith material connected with Threnody. Do not conflate all these entities with shades or treat them as one named individual.",
+              "description": "Fires explicitly describes a negative-Investiture, Splintered Ambitional entity. Its relationship to Threnody’s Evil is supplied by the reference and the wider entity lore in Emberdark. The novel does not name the Megalith as a shade or identify it as one particular Threnodite being.",
               "sources": [
+                "fires-text",
+                "ember-text",
                 "fires-evil"
               ],
-              "locator": "Fires XXIV and XLI; Shadows for Silence references in the Evil article.",
+              "locator": "Fires IV, XXIV, XXVII and XLI; Threnody association from the cited reference. Emberdark XXV and XXXIX supply explicit related-entity terminology.",
               "evidence": "referenced"
             },
             {
               "title": "Silver behaves differently across systems",
               "description": "Compare the binding’s silver with its established effects on shades. The parallel is meaningful, but it does not establish that silver universally cancels all Investiture.",
               "sources": [
+                "fires-text",
                 "fires-silver",
                 "fires-arcana"
               ],
-              "locator": "Fires XXVI; linked silver reference and qualifying discussion.",
+              "locator": "Fires XXVI and XXXVIII; Shadows for Silence comparison via the cited silver reference.",
               "evidence": "referenced"
             }
           ],
@@ -3419,12 +3554,14 @@
           "claims": [
             {
               "title": "Shared entity family",
-              "description": "The Evil reference links Fires’ Megalith/demon material with Eidolith lore in Emberdark, including the Dakwara. Shared classification does not imply the Megalith and Dakwara are the same being.",
+              "description": "Hoid calls the Megalith a Splintered Ambitional entity. Emberdark describes related negative-Investiture entities and explicitly links the names Eidoliths, Splinters of Ambition and pieces of the Evil. The shared lore does not make the Megalith, the encountered Threnodite entity and the Dakwara the same individual.",
               "sources": [
+                "fires-text",
+                "ember-text",
                 "fires-evil"
               ],
-              "locator": "Fires XXIV and XLI; Emberdark 25, 27 and 39.",
-              "evidence": "referenced"
+              "locator": "Fires XXIV and XXVII; Emberdark XXV (Threnodite entity and Evil), XXXVI (Splinter of Ambition), XXXIX (Eidolith terminology).",
+              "evidence": "text-verified"
             }
           ],
           "type": "minor",
@@ -3812,22 +3949,36 @@
           "claims": [
             {
               "title": "Silver across two systems",
-              "description": "Silver’s role in the binding can be compared with its effects on aether spores in Tress. The shared material does not make the two magic systems identical.",
+              "description": "The uploaded texts verify silver’s effects in both systems: Tress explains that it kills spores, while Fires explains its danger to the demon and the extra measures needed to pin its soul. These different effects are a comparison, not a universal rule that silver cancels all magic.",
               "sources": [
+                "fires-text",
+                "tress-text",
                 "fires-silver"
               ],
-              "locator": "Fires XXVI and the silver article’s spore references.",
-              "evidence": "referenced"
+              "locator": "Fires XXVI and XXXVIII; Tress I (salt and silver), VIII “The Stowaway”, XXXI “The Midnight Essence”.",
+              "evidence": "text-verified"
             },
             {
               "title": "Zuhel and Luhel",
-              "description": "Witchcraft uses a Zuhel bond. Readers compare it with Tress’s Luhel bonds, but the proposed neat division of bonds between the three Realms is an interpretation, not a confirmed universal rule.",
+              "description": "Zuhel is named in Fires, and Tress explicitly explains Luhel and contrasts it with Nahel. The broader one-bond-per-Realm arrangement remains an interpretation, rather than a universal rule established by those passages.",
               "sources": [
+                "fires-text",
+                "tress-text",
                 "fires-witchcraft",
                 "fires-bonds"
               ],
-              "locator": "Witchcraft article and Zuhel discussion; cross-system model not confirmed.",
+              "locator": "Fires XXVII (Zuhel named), XXXIV, XXXVII and XLII (bond behavior); Tress XXXI “The Midnight Essence” (Luhel and Nahel contrasted).",
               "evidence": "theory"
+            },
+            {
+              "title": "The Dougs return",
+              "description": "Fires calls the two sailors guarding December’s barge Doug and Doug, repeating Hoid’s shorthand for background characters explained in Tress. This is a narrator joke, not evidence that the sailors are the same people as the Crow’s Song crew.",
+              "locator": "Fires VII; Tress XIV “The Dougs”.",
+              "evidence": "text-verified",
+              "sources": [
+                "fires-text",
+                "tress-text"
+              ]
             }
           ],
           "type": "minor",
@@ -3886,7 +4037,7 @@
         {
           "id": "yumi--fod",
           "target": "fod",
-          "title": "Hoid’s protections: an interpretation",
+          "title": "Design and Hoid’s protections",
           "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
           "sources": [
             "fires-backups"
@@ -3894,22 +4045,39 @@
           "locator": "See the locator for each individual finding.",
           "claims": [
             {
-              "title": "A possible memory-protection parallel",
-              "description": "The Father Machine incident is another proposed referent for Hoid’s earlier incidents. The interpretation depends on distinguishing when the events happened from when Hoid tells the stories; it is not confirmed here.",
+              "title": "Design is away on a quest",
+              "description": "Hoid names Design and says she is away on a quest when he worries about his clothing. Yumi identifies Design as his Cryptic companion. This is a mention in Fires, not an on-page appearance, and her quest is not explained.",
+              "locator": "Fires XXXVIII; Yumi V (Design at the noodle shop) and “Another Epilogue”.",
+              "evidence": "text-verified",
               "sources": [
+                "fires-text",
+                "yumi-text"
+              ],
+              "excerpt": {
+                "text": "If Design gets back from her quest",
+                "source": "fires-text",
+                "locator": "Fires XXXVIII; Yumi V (Design at the noodle shop) and “Another Epilogue”."
+              }
+            },
+            {
+              "title": "A possible memory-protection parallel",
+              "description": "Yumi explicitly connects Hoid’s freezing with protection protocols adopted after his memories were stolen. Fires mentions backups and earlier incidents without naming them. Yumi supplies a relevant parallel, but it does not prove which incident any particular aside in Fires means.",
+              "sources": [
+                "fires-text",
+                "yumi-text",
                 "fires-backups"
               ],
-              "locator": "Discussion replies; no confirmed assignment of the two incidents.",
+              "locator": "Fires XXVII; Yumi “Another Epilogue”, Hoid’s explanation of his protection protocols.",
               "evidence": "theory"
             }
           ],
           "type": "minor",
-          "evidence": "theory",
-          "relation": "comparison",
+          "evidence": "documented",
+          "relation": "shared-character",
           "visual": {
-            "label": "Hoid’s protections: an interpretation",
-            "left": "Hoid’s protections",
-            "right": "Memory question",
+            "label": "A named companion across stories",
+            "left": "Design in Yumi",
+            "right": "Design mentioned in Fires",
             "credit": "Original explanatory diagram; not official artwork."
           }
         }
@@ -3992,12 +4160,24 @@
           "claims": [
             {
               "title": "A magitech comparison",
-              "description": "Readers compare demonstone with Canticle’s sunhearts as useful sources of power. Similar function does not establish shared manufacture, origin or identical mechanics.",
+              "description": "Both texts use soul-related power in material form: Fires mines demonstone for cannonades; The Sunlit Man explains sunhearts. Similar function does not prove identical origin, manufacture or magical mechanics.",
               "sources": [
+                "fires-text",
+                "sunlit-text",
                 "fires-magitech"
               ],
-              "locator": "Magitech thread; sunheart comparison in replies.",
+              "locator": "Fires XXVI (demonstone mining and cannonades); Sunlit Man XII (sunheart explanation). Comparison is interpretive.",
               "evidence": "theory"
+            },
+            {
+              "title": "A planet where sunrise is too much",
+              "description": "Hoid alludes to a planet where sunrise can be excessive. Canticle’s lethal sunrise in The Sunlit Man is a strong candidate, but Fires does not name Canticle, so the identification remains an interpretation.",
+              "locator": "Fires XXXVIII, immediately before the conversation with Hoid; Sunlit Man I–II.",
+              "evidence": "theory",
+              "sources": [
+                "fires-text",
+                "sunlit-text"
+              ]
             }
           ],
           "type": "minor",
@@ -4055,10 +4235,11 @@
               "title": "A setting connection, not a prerequisite",
               "description": "The Silence Divine is a planned Ashyn story; Fires explicitly references Ashyn via Godsflame. This is a world-lore link, not evidence of a shared plot or a requirement to read an unpublished work.",
               "sources": [
+                "fires-text",
                 "fires-ashyn"
               ],
-              "locator": "Ashyn passage quoted in the linked thread; Silence Divine’s announced setting.",
-              "evidence": "referenced"
+              "locator": "Fires XXVII. The Silence Divine’s planned Ashyn setting is supplied by external publication references.",
+              "evidence": "text-verified"
             }
           ],
           "type": "minor",
@@ -4509,11 +4690,13 @@
           "description": "These are independent Hoid-narrated stories. Sanderson groups them together but specifies no required order.",
           "sources": [
             "sos25",
-            "hoids-travails"
+            "hoids-travails",
+            "fires-text",
+            "tress-text"
           ],
           "relation": "shared-narrator",
-          "evidence": "preview",
-          "locator": "State of the Sanderson 2025: Hoid’s Travails",
+          "evidence": "documented",
+          "locator": "Fires I, XVIII, XXVII, XXXVIII, XLI and Epilogue; official Hoid’s Travails grouping.",
           "visual": {
             "label": "Hoid’s Travails",
             "credit": "Original explanatory diagram; not official artwork.",
@@ -4529,11 +4712,13 @@
           "description": "Yumi and December belong to Hoid’s Travails. Sharing a narrator does not make one a prerequisite for the other.",
           "sources": [
             "sos25",
-            "hoids-travails"
+            "hoids-travails",
+            "fires-text",
+            "yumi-text"
           ],
           "relation": "shared-narrator",
-          "evidence": "preview",
-          "locator": "State of the Sanderson 2025: Hoid’s Travails",
+          "evidence": "documented",
+          "locator": "Fires I, XVIII, XXVII, XXXVIII, XLI and Epilogue; official Hoid’s Travails grouping.",
           "visual": {
             "label": "Hoid’s Travails",
             "credit": "Original explanatory diagram; not official artwork.",
@@ -4560,7 +4745,7 @@
       "worldName": "Other Worlds",
       "group": "",
       "publication": "September 15, 2026 (backers); October 6, 2026 (public digital); December 2026 (trade print)",
-      "chronology": "The story precedes Tress and Yumi; Hoid tells it after those tales. Its absolute position is not established here.",
+      "chronology": "The historical Prophet visit, December’s story, her possible-future experiences and Hoid’s later narration are distinct. Roshar is explicitly referenced, but a precise absolute date or order relative to Tress and Yumi is not established by this audit.",
       "categories": [
         "no-series",
         "novel",
@@ -4579,10 +4764,11 @@
         "fires-backers",
         "fires-vasher",
         "fires-aon",
-        "fires-evil"
+        "fires-evil",
+        "fires-text"
       ],
-      "coverage": "selected",
-      "readingNote": "Published in backer and digital editions. Includes selected full-book connections researched through 17th Shard, Coppermind and author Q&A; this is not an exhaustive text audit. Interpretations are optional and separately labeled.",
+      "coverage": "primary-audit",
+      "readingNote": "Primary-text connection audit: all 43 chapters and the epilogue were searched in the uploaded edition, with candidate passages checked in context. Relevant passages in Tress, Yumi, The Sunlit Man and Emberdark were cross-checked. This is a systematic connection audit, not a guarantee that every subtle allusion has been found; theories remain optional.",
       "authors": [
         "Brandon Sanderson"
       ],
@@ -4607,33 +4793,86 @@
       "researchNotes": [
         {
           "title": "Hoid’s Sixth Word",
-          "description": "Fires names a mechanism relevant to Hoid’s wider travels and Fortune. Its origin, associated Shard and the other Words remain unresolved; no Dawnshard identity is claimed.",
+          "description": "Hoid describes a sense telling him when important events will occur and says he obtained the Words from a place whose story he has not told. The exact origin and mechanics remain undisclosed; calling the Sixth Word a Dawnshard or assigning a Shard would go beyond this passage.",
+          "locator": "Fires XLI, opening narrator aside.",
+          "evidence": "unresolved-reference",
           "sources": [
+            "fires-text",
             "fires-word",
             "fires-invested-art"
-          ],
-          "locator": "Sixth Word discussion; Invested Art table retains unknown origin.",
-          "evidence": "unresolved-reference"
+          ]
         },
         {
           "title": "The unidentified dragon",
-          "description": "The Prophet’s cooperation with a dragon is a research lead. No particular dragon is identified here.",
+          "description": "Hoid explicitly distinguishes the dragon who helped the Prophet from both the Prophet and Valor. It is unnamed and requested removal from the stories. No particular dragon identity is confirmed.",
+          "locator": "Fires XXVI, correction to the tour guide’s legend.",
+          "evidence": "unresolved-reference",
           "sources": [
+            "fires-text",
             "fires-dragon"
-          ],
-          "locator": "Linked discussion; individual identity unresolved.",
-          "evidence": "unresolved-reference"
+          ]
         },
         {
-          "title": "A Shattering allusion?",
-          "description": "Readers interpret Hoid’s reference to helping cause a collapse as an allusion to the Shattering. Do not turn that interpretation into confirmation of another cosmological catastrophe.",
+          "title": "Jasper and the Tzendish cult",
+          "description": "Hoid mentions influencing religion on Jasper and separately recalls joining a Tzendish cult. Neither aside identifies another published story as its source, so these remain unpaired references rather than invented book links.",
+          "locator": "Fires IV (Jasper); XXXVIII (Tzendish cult).",
+          "evidence": "unresolved-reference",
           "sources": [
+            "fires-text"
+          ]
+        },
+        {
+          "title": "Shattering-related asides",
+          "description": "Hoid says he helped kill God, then later jokes about helping cause the collapse of reality. The first statement is explicit; identifying the later joke as a specific additional event would be an interpretation. It is not evidence for a second Shattering.",
+          "locator": "Fires IV and XXIII.",
+          "evidence": "unresolved-reference",
+          "sources": [
+            "fires-text",
             "fires-shattering"
-          ],
-          "locator": "Chapter XXIII.",
-          "evidence": "theory"
+          ]
+        },
+        {
+          "title": "The final bond is unusual",
+          "description": "December’s final sharing of her soul with the negative-power entity goes beyond simple command and obedience, and Hoid says scholars have not replicated it. Treating this exceptional outcome as a standard example of every Zuhel bond would overstate the text.",
+          "locator": "Fires XXXIV (first bond), XXXVII (release) and XLII (final bond).",
+          "evidence": "text-verified",
+          "sources": [
+            "fires-text"
+          ]
+        },
+        {
+          "title": "Valor’s trap and three dragon-ruled worlds",
+          "description": "The epilogue reveals that Valor’s temple burns Hoid again and that its murals prompt him to seek three worlds ruled by dragons. The worlds are not named. This does not establish they are Yolen, any particular future book setting, or all one known system.",
+          "locator": "Fires Epilogue.",
+          "evidence": "unresolved-reference",
+          "sources": [
+            "fires-text"
+          ]
+        },
+        {
+          "title": "Why the Cosmere name is “December”",
+          "description": "Hoid says he is translating the name; the local form is Hodołnika. In the postscript, Sanderson explains that December is his own birth month and that he chose it for its end-of-one-life/beginning-of-another associations. This is a translation convention and an authorial naming detail, not evidence that Miral uses Earth’s calendar.",
+          "locator": "Fires I, narrator’s translation and the local name; Postscript, naming explanation.",
+          "evidence": "text-verified",
+          "sources": [
+            "fires-text"
+          ]
         }
-      ]
+      ],
+      "audit": {
+        "date": "2026-10-20",
+        "method": "Systematic full-text search with contextual candidate verification",
+        "chaptersSearched": 43,
+        "epilogueSearched": true,
+        "comparisonBooks": [
+          "tress",
+          "yumi",
+          "tsm",
+          "iote"
+        ],
+        "limitations": "Not a line-by-line literary reread or an exhaustive illustration/annotation audit. Wind and Truth is not fully audited. Exact unnamed identities and chronology remain unresolved.",
+        "report": "docs/FIRES_TEXT_AUDIT.md"
+      }
     }
   },
   "worlds": [
@@ -5156,6 +5395,36 @@
       "label": "17th Shard: intended audience theories",
       "locator": "Chapter IX clothing reference; proposed Nalthian audience remains a hypothesis",
       "kind": "discussion"
+    },
+    "fires-text": {
+      "url": "https://www.dragonsteelbooks.com/blogs/the-cognitive-realm/the-creatures-of-the-cosmere",
+      "label": "The Fires of December — uploaded ebook, primary text",
+      "kind": "primary-text",
+      "locator": "Checked in the user-supplied edition on October 20, 2026. Link opens an official book reference, not the uploaded text."
+    },
+    "ember-text": {
+      "url": "https://www.brandonsanderson.com/blogs/blog/isles-of-the-emberdark-coming-soon-weekly-update",
+      "label": "Isles of the Emberdark — uploaded ebook, primary text",
+      "kind": "primary-text",
+      "locator": "Checked in the user-supplied edition on October 20, 2026. Link opens an official book reference, not the uploaded text."
+    },
+    "tress-text": {
+      "url": "https://www.brandonsanderson.com/pages/hoids-travails",
+      "label": "Tress of the Emerald Sea — uploaded ebook, primary text",
+      "kind": "primary-text",
+      "locator": "Checked in the user-supplied edition on October 20, 2026. Link opens an official book reference, not the uploaded text."
+    },
+    "yumi-text": {
+      "url": "https://www.brandonsanderson.com/pages/hoids-travails",
+      "label": "Yumi and the Nightmare Painter — uploaded ebook, primary text",
+      "kind": "primary-text",
+      "locator": "Checked in the user-supplied edition on October 20, 2026. Link opens an official book reference, not the uploaded text."
+    },
+    "sunlit-text": {
+      "url": "https://www.brandonsanderson.com/pages/standalones-cosmere",
+      "label": "The Sunlit Man — uploaded ebook, primary text",
+      "kind": "primary-text",
+      "locator": "Checked in the user-supplied edition on October 20, 2026. Link opens an official book reference, not the uploaded text."
     },
     "legacy-3063dbc5afd7": {
       "url": "https://coppermind.net/wiki/Elantris",
@@ -6737,5 +7006,5 @@
     "license": "MIT",
     "note": "Local research is additive. Selected connections are not an exhaustive concordance."
   },
-  "researchAsOf": "2026-10-19"
+  "researchAsOf": "2026-10-20"
 }

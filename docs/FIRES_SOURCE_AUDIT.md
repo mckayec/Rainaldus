@@ -1,6 +1,6 @@
 # Fires of December — 17th Shard source audit
 
-Research date: 2026-10-19. This is a research register, not a completed full-text audit or a statement that every candidate is confirmed. No new connection records were applied in this pass: the user asked to review 17th Shard first.
+Research date: 2026-10-19. Subsequent primary-text audit: [October 20 report](FIRES_TEXT_AUDIT.md). This is a research register, not a completed full-text audit or a statement that every candidate is confirmed. Historical source-only pass: no new connection records were applied then; later implementation is recorded below. At that point, the user asked to review 17th Shard first.
 
 ## Scope and correction
 
@@ -60,3 +60,7 @@ Use separate claim-level evidence and sources inside connection cards even when 
 ## Implementation status
 
 The researched additions are now implemented as 12 book-pair links to Fires, with separate sourced subclaims and additional unpaired research notes. Earlier “prepare” and “next implementation” language above records the audit stage. Confirmed identity, illustration-only evidence, unresolved details and speculative comparisons retain separate labels. Theories are opt-in and do not become reading prerequisites. Original upstream data remains unchanged.
+
+## Primary-text supersession
+
+The user subsequently supplied the ebook. `FIRES_TEXT_AUDIT.md` records the systematic full-text connection search and contextual verification. Use its exact chapter locators and corrections in preference to unresolved locations above. It does not independently revalidate the author-Q&A transcript or turn every candidate in this source register into a confirmed reference. In particular, the memory aside is open-ended, the dragon remains unidentified, and Reo remains an illustration identification.

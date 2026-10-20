@@ -57,7 +57,7 @@ with sync_playwright() as p:
   assert page.locator('.coverage-note').count()==1
  page.goto(url+'?check=preview#fod')
  page.wait_for_selector('.d-title')
- assert 'Selected connections reviewed' in page.locator('.coverage-note').inner_text()
+ assert 'Primary-text connection audit' in page.locator('.coverage-note').inner_text()
  assert page.locator('[data-show="showTheories"]').get_attribute('aria-checked')=='false'
  page.locator('[data-reveal="wb>fod"]').click()
  assert 'Author confirmed' in page.locator('#dossier-inner').inner_text()
@@ -72,6 +72,18 @@ with sync_playwright() as p:
  assert page.locator('.readbtn').get_attribute('aria-pressed')=='true'
  page.locator('[data-reveal="book:fod"]').click()
  assert page.locator('blockquote').count()==1
+ # Primary-text excerpts and theory subclaims stay behind their own connection reveal.
+ if page.locator('[data-conn="minor"]').get_attribute('aria-checked')=='false':
+  page.locator('[data-conn="minor"]').click()
+ assert 'Design is away on a quest' not in page.locator('#dossier-inner').inner_text()
+ page.locator('[data-reveal="yumi>fod"]').click()
+ assert 'Design is away on a quest' in page.locator('#dossier-inner').inner_text()
+ assert 'Verified in uploaded book text' in page.locator('#dossier-inner').inner_text()
+ assert page.locator('blockquote').filter(has_text='If Design gets back from her quest').count()==1
+ assert 'A possible memory-protection parallel' not in page.locator('#dossier-inner').inner_text()
+ page.locator('[data-show="showTheories"]').click()
+ assert 'A possible memory-protection parallel' in page.locator('#dossier-inner').inner_text()
+ page.locator('[data-show="showTheories"]').click()
  # Prime drafts and their graph connections disappear with the toggle.
  page.goto(url+'?case=map#map')
  page.wait_for_selector('.map .node')
@@ -97,6 +109,6 @@ with sync_playwright() as p:
  assert page.get_by_text('Not placed in this order',exact=True).count()==1
  assert page.locator('.row[data-id="fod"]').count()==1
  assert not errors,errors
- print('PASS: desktop/mobile evidence, spoiler gates, citations, original diagrams, saved progress, draft toggle, selected coverage, theory toggle, keyboard reveals, unknown timeline, no JS errors')
+ print('PASS: desktop/mobile evidence, spoiler gates, citations, original diagrams, saved progress, draft toggle, primary-text coverage and excerpts, theory toggle, keyboard reveals, unknown timeline, no JS errors')
  browser.close()
 server.shutdown()

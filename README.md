@@ -4,7 +4,7 @@ An unofficial interactive guide to Brandon Sanderson's Cosmere. Open the star ma
 
 ## Reading guidance
 
-Series sequence is separate from optional crossover background. Prime novels and other noncanonical drafts are hidden by default; enable **Noncanonical drafts & Prime novels** and **Easter eggs** to explore development history. Announced books have a separate toggle. *The Fires of December* has selected full-book research coverage, with optional theories labeled separately.
+Series sequence is separate from optional crossover background. Prime novels and other noncanonical drafts are hidden by default; enable **Noncanonical drafts & Prime novels** and **Easter eggs** to explore development history. Announced books have a separate toggle. *The Fires of December* has a primary-text connection audit across all 43 chapters and its epilogue, with optional theories labeled separately. [Audit method and limits](docs/FIRES_TEXT_AUDIT.md).
 
 New connection cards include citations, chapter/section locators, original explanatory diagrams, and selected short excerpts. Official artwork is linked with credits. Evidence stays behind spoiler reveals. Existing source notes are labeled as imported, not independently reverified.
 

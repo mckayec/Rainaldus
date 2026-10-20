@@ -63,19 +63,38 @@ class DataChecks(unittest.TestCase):
             if c['from'] in ['dsp','twokp','jasnah']:
                 self.assertEqual(c['relation'],'development')
         self.assertEqual(len(ids),len(set(ids)))
-        self.assertEqual(len(ids),33)
+        self.assertEqual(len(ids),34)
 
     def test_fires_claims_keep_evidence_and_sources(self):
         edges = [c for c in overlay['connections'] if c['target']=='fod']
-        self.assertEqual(len(edges),12)
-        self.assertEqual({c['from'] for c in edges}, {'wb','elantris','mb1','sfs','iote','sa4','sa5','tress','sa1','yumi','tsm','tsd'})
+        self.assertEqual(len(edges),13)
+        self.assertEqual({c['from'] for c in edges}, {'wb','elantris','mb1','sfs','iote','sa4','sa5','tress','sa1','yumi','tsm','tsd','mb3'})
         for claim in [x for c in edges for x in c['claims']] + books['fod']['researchNotes']:
             self.assertTrue(claim['locator'])
-            self.assertIn(claim['evidence'], ['referenced','author-confirmed','illustration','unresolved-reference','theory'])
+            self.assertIn(claim['evidence'], ['text-verified','referenced','author-confirmed','illustration','unresolved-reference','theory'])
             self.assertTrue(claim['sources'])
             for ref in claim['sources']: self.assertIn(ref,data['sources'])
         self.assertEqual(next(c for c in edges if c['from']=='wb')['claims'][0]['evidence'],'author-confirmed')
-        self.assertEqual(next(c for c in edges if c['from']=='elantris')['claims'][0]['evidence'],'illustration')
+        self.assertEqual(next(c for c in edges if c['from']=='elantris')['claims'][1]['evidence'],'illustration')
+
+    def test_primary_audit_keeps_claim_boundaries_and_traceability(self):
+        ledger=json.loads((ROOT/'docs/audits/fires-2026-10-20.json').read_text())
+        self.assertEqual(len(ledger['chapters']),44)
+        self.assertEqual(ledger['chapters'][-1]['chapter'],'Epilogue')
+        self.assertEqual(books['fod']['audit']['chaptersSearched'],43)
+        self.assertEqual(books['fod']['coverage'],'primary-audit')
+        claims=[x for c in overlay['connections'] if c['target']=='fod' for x in c['claims']] + books['fod']['researchNotes']
+        self.assertCountEqual([(c['title'],c['evidence'],c['locator']) for c in claims], [(c['title'],c['evidence'],c['locator']) for c in ledger['claims']])
+        for c in claims:
+            if c['evidence']=='text-verified':
+                self.assertTrue(any(data['sources'][ref]['kind']=='primary-text' for ref in c['sources']))
+            if c.get('excerpt'):
+                self.assertIn(c['excerpt']['source'],data['sources'])
+                self.assertLessEqual(len(c['excerpt']['text'].split()),40)
+        yumi=next(c for c in overlay['connections'] if c['id']=='yumi--fod')
+        self.assertEqual(yumi['claims'][0]['evidence'],'text-verified')
+        self.assertEqual(yumi['claims'][1]['evidence'],'theory')
+        self.assertNotIn('precedes Tress',books['fod']['chronology'])
 
     def test_dates_and_canon_boundaries(self):
         self.assertTrue(books['iote']['publication'].startswith('July 1, 2025'))

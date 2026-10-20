@@ -1005,9 +1005,14 @@ function connectionVisual(c, otherId, currentId) {
     <text x="160" y="141" text-anchor="middle" fill="var(--ink)" font-size="11">${esc(name)}</text>
     </svg><figcaption>${esc(c.visual.credit)}</figcaption></figure>`;
 }
-const evidenceLabel = c => ({inherited:'Imported notes; not independently rechecked', preview:'Public preview only', documented:'Documented connection; see individual evidence', referenced:'Referenced in research; see source and locator', 'author-confirmed':'Author confirmed', illustration:'Illustration evidence; not a prose reference', 'unresolved-reference':'Reference identified; details unresolved', theory:'Interpretation / open theory; unconfirmed'})[c.evidence] || 'Source-backed; rating is editorial';
+const evidenceLabel = c => ({inherited:'Imported notes; not independently rechecked', preview:'Public preview only', 'text-verified':'Verified in uploaded book text', documented:'Documented connection; see individual evidence', referenced:'Referenced in research; see source and locator', 'author-confirmed':'Author confirmed', illustration:'Illustration evidence; not a prose reference', 'unresolved-reference':'Reference identified; details unresolved', theory:'Interpretation / open theory; unconfirmed'})[c.evidence] || 'Source-backed; rating is editorial';
+function excerptHTML(c) {
+  if (!c.excerpt) return '';
+  const ref = DATA.sources[c.excerpt.source];
+  return `<blockquote>${esc(c.excerpt.text)}<cite>${esc(c.excerpt.locator || c.locator || '')}${ref ? ' · ' + safe(`<a href="${esc(ref.url)}">${esc(ref.label)}</a>`) : ''}</cite></blockquote>`;
+}
 function claimHTML(c) {
-  return `<div class="claim"><span class="evidence-label">${esc(evidenceLabel(c))}</span><h4>${esc(c.title)}</h4><div class="note">${safe(c.description)}</div><p class="note"><b>Where to look:</b> ${esc(c.locator)}</p>${sourceList(c.sources)}</div>`;
+  return `<div class="claim"><span class="evidence-label">${esc(evidenceLabel(c))}</span><h4>${esc(c.title)}</h4><div class="note">${safe(c.description)}</div><p class="note"><b>Where to look:</b> ${esc(c.locator)}</p>${excerptHTML(c)}${sourceList(c.sources)}</div>`;
 }
 function bookResearch(b) {
   if (!b.researchNotes?.length) return '';
@@ -1090,7 +1095,7 @@ function renderDossier() {
     ${pre.length && !read ? `<div class="alert"><b>Earlier series reading:</b> ${pre.map(prior => `<button class="linkbtn" data-go="${prior}">${esc(BOOKS[prior].title)}</button>`).join(', ')}. These earlier series books are not marked read.</div>` : ''}
     ${earlier.length ? `<section class="sec"><h3>Series sequence</h3><p class="note">${earlier.map(prior => `<button class="linkbtn" data-go="${prior}">${esc(BOOKS[prior].title)}</button>`).join(' → ')} → ${esc(b.title)}</p><p class="note">Side stories remain optional for the next main novel.</p></section>` : ''}
     ${background.length && !read ? `<p class="reading-note"><b>Optional background:</b> ${[...new Set(background.map(c => c.from))].map(prior => `<button class="linkbtn" data-go="${prior}">${esc(BOOKS[prior].title)}</button>`).join(', ')}. Recommended for crossover context, not mandatory series prerequisites.</p>` : ''}
-    <p class="coverage-note">${b.coverage === 'preview' ? 'Preview coverage only; no full-book connection audit yet.' : b.coverage === 'selected' ? 'Selected connections reviewed; this is not an exhaustive list.' : 'Imported 17th Shard coverage; individual claims have not all been independently rechecked.'} Research snapshot: ${esc(DATA.researchAsOf)}.</p>
+    <p class="coverage-note">${b.coverage === 'primary-audit' ? `Primary-text connection audit: all ${Number.isInteger(b.audit?.chaptersSearched) ? b.audit.chaptersSearched : 'numbered'} chapters${b.audit?.epilogueSearched ? ' and epilogue' : ''} searched; candidate passages checked. Subtle allusions may remain.` : b.coverage === 'preview' ? 'Preview coverage only; no full-book connection audit yet.' : b.coverage === 'selected' ? 'Selected connections reviewed; this is not an exhaustive list.' : 'Imported 17th Shard coverage; individual claims have not all been independently rechecked.'} Research snapshot: ${esc(DATA.researchAsOf)}.</p>
     <dl class="facts">${facts.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>
     ${inc.length ? `<section class="sec"><h3><span>Connections from other books</span><span>${inc.length}</span></h3><ul class="conns">${inc.map(c => connItem(c.from, c, c.from + '>' + id)).join('')}</ul></section>` : ''}
     ${out.length ? `<section class="sec"><h3><span>Connections to other books</span><span>${out.length}</span></h3><ul class="conns">${out.map(c => connItem(c.target, c, id + '>' + c.target)).join('')}</ul></section>` : ''}
