@@ -23,3 +23,7 @@ The user requested accuracy fixes, research on recent works, optional Prime-nove
 ## Merging alongside ongoing work
 
 Merge this PR into the branch Claude is using (or merge/rebase its branch onto main after this PR lands). Read these notes first. If upstream adds a connection already curated here, the builder intentionally fails on the duplicate; reconcile sources and notes in the overlay rather than deleting the local research silently. Git history and CI make changes visible but cannot prevent another agent from ignoring instructions.
+
+## Fires source audit follow-up
+
+Read `docs/FIRES_SOURCE_AUDIT.md` before expanding Fires coverage. It records substantial omissions found on 17th Shard, separates author confirmation, reference-supported claims and forum theories, and preserves locators and sources. The current two narrator-grouping edges are not adequate full-book coverage.
