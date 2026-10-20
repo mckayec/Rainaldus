@@ -22,6 +22,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - run: python3 -m unittest discover -s tests
+      - run: node --test tests/guide.test.mjs
+      - run: python3 scripts/build_data.py
+      - run: git diff --exit-code -- site/data.json
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

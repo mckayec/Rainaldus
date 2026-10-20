@@ -328,6 +328,19 @@ button, input, select { font: inherit; color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+/* Source-backed, spoiler-gated connection cards. */
+.evidence-card { margin-top: 9px; border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: var(--bg); }
+.evidence-card h4 { font-family: var(--f-display); font-weight: 400; font-size: 18px; margin: 8px 0; }
+.evidence-label { color: var(--muted); font-size: 10.5px; }
+.evidence-sources { padding-left: 17px; font-size: 12px; overflow-wrap: anywhere; }
+.evidence-sources li + li { margin-top: 7px; }
+.connection-visual { margin: 12px 0; }
+.connection-visual svg { display: block; width: 100%; height: auto; }
+.connection-visual figcaption { font-size: 10px; color: var(--muted); margin-top: 4px; }
+.coverage-note { font-size: 11px; color: var(--muted); border-left: 2px solid var(--line); padding-left: 10px; }
+.reading-note { font-size: 12.5px; padding: 10px; border-radius: 8px; background: var(--accent-soft); }
+blockquote { margin: 12px 0; padding: 8px 12px; border-left: 2px solid var(--accent); font-family: var(--f-display); }
+blockquote cite { display: block; font: 11px var(--f-body); color: var(--muted); margin-top: 6px; }
 </style>
 </head>
 <body>
@@ -400,6 +413,7 @@ button, input, select { font: inherit; color: inherit; }
 <div class="tip" id="tip" hidden></div>
 
 <script type="module">
+import { incomingConnections, seriesPrerequisites, recommendedBackground } from "./guide.mjs";
 const DATA = await (await fetch('data.json')).json();
 
 /* ---------- lookups ---------- */
@@ -420,10 +434,7 @@ const COLOR_LAYERS = [
 const FORMAT_LABEL = { novel: 'Novel', novella: 'Novella', short: 'Short story', graphic: 'Graphic novel' };
 const PHASE_NAME = { 1: 'Phase 1', 2: 'Phase 2', 3: 'Phase 3', 4: 'Phase 4' };
 
-const INCOMING = {};
-Object.values(BOOKS).forEach(b => (b.connections || []).forEach(c => {
-  (INCOMING[c.target] ||= []).push({ from: b.id, type: c.type, description: c.description });
-}));
+const INCOMING = incomingConnections(BOOKS);
 
 const catIn = (b, layer) => b.categories.find(c => CAT[c] && CAT[c].layer === layer);
 const isPublished = b => b.categories.includes('published');
@@ -538,7 +549,7 @@ const colorOf = b => {
 const matches = b => {
   if (!state.q) return true;
   const q = state.q.toLowerCase();
-  return [b.title, plain(b.series), b.worldName, b.group, plain(b.system)].some(s => (s || '').toLowerCase().includes(q));
+  return [b.title, ...(b.aliases || []), plain(b.series), b.worldName, b.group, plain(b.system)].some(s => (s || '').toLowerCase().includes(q));
 };
 const ORDERED = Object.values(BOOKS).filter(b => b.sorting && b.sorting.order != null).sort((a, b) => a.sorting.order - b.sorting.order);
 const CANON = ORDERED.filter(b => isPublished(b));
@@ -833,7 +844,8 @@ function renderSide() {
   const extras = Object.values(BOOKS).filter(isExtra).length;
   document.getElementById('show-toggles').innerHTML = `
     <button class="toggle" role="switch" data-show="showPlanned" aria-checked="${state.showPlanned}"><span class="sw"></span><span class="lbl">Announced &amp; planned books</span><span class="n">${planned}</span></button>
-    <button class="toggle" role="switch" data-show="showExtras" aria-checked="${state.showExtras}"><span class="sw"></span><span class="lbl">Extras: drafts, deleted scenes</span><span class="n">${extras}</span></button>
+    <button class="toggle" role="switch" data-show="showExtras" aria-checked="${state.showExtras}"><span class="sw"></span><span class="lbl">Noncanonical drafts &amp; Prime novels</span><span class="n">${extras}</span></button>
+    <p class="note">Enable Easter eggs to see Prime-novel development links. Drafts are separate from current canon.</p>
     <button class="toggle" role="switch" data-show="hideNotes" aria-checked="${state.hideNotes}"><span class="sw"></span><span class="lbl">Hide spoiler notes</span></button>`;
 
   document.getElementById('appearances').innerHTML = DATA.appearances.map(a =>
@@ -870,7 +882,7 @@ function renderNext() {
   const phase = Math.floor(next.sorting.order);
   const intro = done === 0 ? 'Start here' : 'Up next';
   const why = done === 0
-    ? `The recommended first read. Mark books as read and this will keep pointing you onward.`
+    ? `One suggested starting point. You can also begin with another series opener. Mark books as read to track this path.`
     : `${PHASE_NAME[phase]} · ${esc(plain(next.series) || next.worldName)} · ${formatOf(next)}`;
   box.innerHTML = `<span class="eyebrow">${intro}</span><button class="t" data-go="${next.id}">${esc(next.title)}</button><p>${why}</p>`;
 }
@@ -895,7 +907,7 @@ function rowHTML(b) {
   const tags = [];
   if (isExtra(b)) tags.push('<span class="tag">Extra</span>');
   if (isPlanned(b)) tags.push(`<span class="tag">${isForthcoming(b) ? 'Forthcoming' : 'Planned'}</span>`);
-  if (warn) tags.push('<span class="tag warn" title="Some books that set this one up are unread">Read earlier books first</span>');
+  if (warn) tags.push('<span class="tag warn" title="Earlier books in this series are unread">Earlier series books unread</span>');
   const series = plain(b.series);
   return `<li class="row${read ? ' is-read' : ''}${isExtra(b) ? ' extra' : ''}${isPlanned(b) ? ' planned' : ''}${state.selected === b.id ? ' sel' : ''}${matches(b) ? '' : ' nomatch'}" data-id="${b.id}">
     ${isPlanned(b) ? '<span></span>' : `<button class="check" role="checkbox" aria-checked="${read}" aria-label="Mark ${esc(b.title)} as read" data-read="${b.id}">${CHECK}</button>`}
@@ -910,9 +922,9 @@ function renderPath() {
     .filter(b => visible(b) && b.sorting && b.sorting[field] != null)
     .sort((a, b) => a.sorting[field] - b.sorting[field]);
   const heads = {
-    order: ['The recommended path', 'Read top to bottom. Each phase leans harder on the wider Cosmere, so later books reward earlier ones.'],
-    publication: ['In publication order', 'The order readers got them. A safe choice if you want to experience the reveals as they happened.'],
-    chronology: ['In-world timeline', 'Roughly when each story happens in the Cosmere. Spoilery as a first read; best for a reread.'],
+    order: ['A suggested reading path', 'An editorial route that keeps series together, not a mandatory Cosmere order. Crossovers may point across phases; optional side stories and Prime drafts are not prerequisites.'],
+    publication: ['In publication order', 'First release, including Story Deck editions. Follow series sequence and spoiler notes when choosing a first read.'],
+    chronology: ['In-world timeline', 'Approximate story chronology; flashbacks overlap and some placements remain uncertain. Unknown placements are listed separately. Best for a reread.'],
   };
   let body = '';
   if (field === 'order') {
@@ -928,7 +940,9 @@ function renderPath() {
   } else {
     body = `<ul class="rows" style="margin-top:12px">${list.map(rowHTML).join('')}</ul>`;
   }
-  const anyMatch = list.some(matches);
+  const unplaced = Object.values(BOOKS).filter(b => visible(b) && b.sorting?.[field] == null);
+  if (unplaced.length) body += `<section class="phase"><h3>Not placed in this order</h3><p class="note">No reliable ${field === 'chronology' ? 'timeline position' : field === 'publication' ? 'release date' : 'reading-path position'} is recorded. These works remain available here.</p><ul class="rows">${unplaced.map(rowHTML).join('')}</ul></section>`;
+  const anyMatch = [...list, ...unplaced].some(matches);
   pathEl.innerHTML = `
     <div class="path-head"><div><h2>${heads[field][0]}</h2><p>${heads[field][1]}</p></div>
       <label class="sortsel" for="sort">Order<select id="sort">
@@ -951,16 +965,63 @@ const dossier = document.getElementById('dossier');
 const dInner = document.getElementById('dossier-inner');
 const scrim = document.getElementById('scrim');
 function unreadPrereqs(b) {
-  return (INCOMING[b.id] || []).filter(c => (c.type === 'major' || c.type === 'significant')
-    && isPublished(BOOKS[c.from]) && !state.read.has(c.from));
+  return seriesPrerequisites(BOOKS, b.id).filter(id => !state.read.has(id));
+}
+const RELATION_LABEL = {
+  crossover: 'Crossover', 'shared-character': 'Shared character', technology: 'Shared technology',
+  'side-story': 'Optional side story', retelling: 'Expanded / revised story',
+  development: 'Development history · noncanonical', 'shared-narrator': 'Shared narrator · any order',
+};
+function sourceList(ids) {
+  return `<ul class="evidence-sources">${(ids || []).map(id => {
+    const source = DATA.sources[id];
+    if (!source) return '';
+    return `<li>${safe(`<a href="${esc(source.url)}">${esc(source.label)}</a>`)}${source.locator ? `<span class="note"> · ${esc(source.locator)}</span>` : ''}</li>`;
+  }).join('')}</ul>`;
+}
+function connectionVisual(c, otherId, currentId) {
+  if (!c.visual) return '';
+  const from = BOOKS[c.from || currentId];
+  const to = BOOKS[c.target || otherId];
+  // Original diagram, not a depiction of a scene or licensed book artwork.
+  const name = c.visual.label;
+  const short = title => title.length > 23 ? title.slice(0, 21) + '…' : title;
+  return `<figure class="connection-visual"><svg viewBox="0 0 320 162" role="img" aria-label="${esc(from.title)} and ${esc(to.title)}: ${esc(name)}. ${esc(c.visual.left)} → ${esc(c.visual.right)}">
+    <rect x="1" y="1" width="318" height="160" rx="12" fill="var(--surface)" stroke="var(--line)"/>
+    <rect x="10" y="12" width="140" height="104" rx="8" fill="var(--accent-soft)"/>
+    <rect x="170" y="12" width="140" height="104" rx="8" fill="var(--accent-soft)"/>
+    <text x="80" y="34" text-anchor="middle" fill="var(--muted)" font-size="10">${esc(short(from.title))}</text>
+    <text x="240" y="34" text-anchor="middle" fill="var(--muted)" font-size="10">${esc(short(to.title))}</text>
+    <path d="M69 49h22v25H69zm160 0h22v25h-22zM74 50v23m160-23v23" fill="none" stroke="var(--accent)" stroke-width="1.8"/>
+    <path d="M145 62h30m-5-5 5 5-5 5" fill="none" stroke="var(--accent)" stroke-width="1.8"/>
+    <text x="80" y="99" text-anchor="middle" fill="var(--ink)" font-size="10">${esc(c.visual.left)}</text>
+    <text x="240" y="99" text-anchor="middle" fill="var(--ink)" font-size="10">${esc(c.visual.right)}</text>
+    <text x="160" y="141" text-anchor="middle" fill="var(--ink)" font-size="11">${esc(name)}</text>
+    </svg><figcaption>${esc(c.visual.credit)}</figcaption></figure>`;
 }
 function connItem(otherId, c, key) {
   const o = BOOKS[otherId];
   const hidden = state.hideNotes && !state.revealed.has(key);
-  const note = c.description
-    ? (hidden ? `<button class="spoil" data-reveal="${esc(key)}">Show note · may spoil both books</button>` : `<div class="note">${safe(c.description)}</div>`)
-    : '';
+  const relation = c.relation || 'crossover';
+  const note = hidden
+    ? `<button class="spoil" data-reveal="${esc(key)}">Reveal connection &amp; sources · spoilers for both books</button>`
+    : `<div class="evidence-card"><span class="evidence-label">${esc(RELATION_LABEL[relation] || relation)} · ${c.evidence === 'inherited' ? 'Imported notes; not independently rechecked' : c.evidence === 'preview' ? 'Public preview only' : 'Source-backed; rating is editorial'}</span>
+       ${c.title ? `<h4>${esc(c.title)}</h4>` : ''}
+       <div class="note">${safe(c.description || '')}</div>
+       ${connectionVisual(c, otherId, state.selected)}
+       ${c.locator ? `<p class="note"><b>Where to look:</b> ${esc(c.locator)}</p>` : ''}
+       ${c.excerpt ? `<blockquote>${esc(c.excerpt.text)}<cite>${esc(c.excerpt.locator || '')} · ${safe(`<a href="${esc(DATA.sources[c.excerpt.source].url)}">Source excerpt</a>`)}</cite></blockquote>` : ''}
+       ${sourceList(c.sources)}
+       </div>`;
   return `<li class="conn"><div class="conn-h"><span class="dot" style="background:${colorOf(o)}"></span><button class="bk" data-go="${o.id}">${esc(o.title)}</button>${state.read.has(o.id) ? '<span class="readmark">✓ read</span>' : ''}<span class="kind ${c.type}">${CONN_LABEL[c.type]}</span></div>${note}</li>`;
+}
+function bookEvidence(b) {
+  if (!b.sources?.length) return '';
+  const hidden = state.hideNotes && !state.revealed.has('book:' + b.id);
+  return `<section class="sec"><h3>Sources &amp; visual references</h3>${hidden
+    ? `<button class="spoil" data-reveal="book:${b.id}">Show sources, preview &amp; artwork links · external pages may spoil</button>`
+    : sourceList(b.sources) + (b.sampleExcerpt ? `<blockquote>${esc(b.sampleExcerpt.text)}<cite>${esc(b.sampleExcerpt.locator)} · ${safe(`<a href="${esc(DATA.sources[b.sampleExcerpt.source].url)}">Official sample</a>`)}</cite></blockquote>` : '') + (b.artwork || []).map(a => `<p>${safe(`<a href="${esc(a.url)}">${esc(a.label)}</a>`)}<br><span class="note">${esc(a.credit)}</span></p>`).join('')
+  }</section>`;
 }
 function renderDossier() {
   const id = state.selected;
@@ -971,24 +1032,27 @@ function renderDossier() {
       <h2>Where to begin, and what to read next</h2>
       <p>${CANON.length} published stories across a dozen worlds, linked by a shared mythology. You can read any series on its own. Read in the right order and the hidden threads start to show.</p>
       <ol>
-        <li><b>Follow the reading path.</b> Three phases, each leaning harder on the wider Cosmere.</li>
+        <li><b>Follow the reading path.</b> Optional phases for exploring the wider Cosmere; each series keeps its own sequence.</li>
         <li><b>Tick off what you’ve read.</b> Your progress stays in this browser.</li>
         <li><b>Check a book before you start it.</b> Its page lists the books that set it up, and flags any you haven’t read.</li>
-        <li><b>Trace connections on the star map.</b> Red lines are must-reads, dotted grey lines are easter eggs.</li>
+        <li><b>Trace connections on the star map.</b> Red lines mark major connections, dotted grey lines are easter eggs. Connections are not automatically prerequisites.</li>
       </ol></div>`;
     return;
   }
   const b = BOOKS[id];
   const read = state.read.has(id);
-  const inc = (INCOMING[id] || []).filter(c => state.conn[c.type] || c.type === 'major' || c.type === 'significant')
+  const inc = (INCOMING[id] || []).filter(c => visible(BOOKS[c.from]) && (state.conn[c.type] || c.type === 'major' || c.type === 'significant'))
     .sort((x, y) => CONN_ORDER.indexOf(x.type) - CONN_ORDER.indexOf(y.type));
-  const out = (b.connections || []).filter(c => state.conn[c.type] || c.type === 'major' || c.type === 'significant')
+  const out = (b.connections || []).filter(c => visible(BOOKS[c.target]) && (state.conn[c.type] || c.type === 'major' || c.type === 'significant'))
     .sort((x, y) => CONN_ORDER.indexOf(x.type) - CONN_ORDER.indexOf(y.type));
   const pre = unreadPrereqs(b);
+  const earlier = seriesPrerequisites(BOOKS, id);
+  const background = recommendedBackground(INCOMING, id).filter(c => visible(BOOKS[c.from]) && !state.read.has(c.from));
   const phase = catIn(b, 'reading-order'), status = catIn(b, 'pub-status');
   const tags = [formatOf(b), phase && CAT[phase].description, status && CAT[status].description].filter(Boolean);
   const facts = [
-    ['Published', b.publication && safe(b.publication)],
+    [isPlanned(b) ? 'Release plan' : 'Published', b.publication && safe(b.publication)],
+    ['Authors', b.authors && esc(b.authors.join(', '))],
     ['Series', plain(b.series) && plain(b.series) !== b.title ? safe(b.series) : ''],
     ['World', b.world ? safe(b.world) : esc(b.worldName)],
     ['System', b.system && safe(b.system)],
@@ -1004,12 +1068,18 @@ function renderDossier() {
       <div class="d-tags">${tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
     </div>
     ${isPlanned(b) ? '' : `<button class="readbtn" data-read="${id}" aria-pressed="${read}"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg>${read ? 'Read' : 'Mark as read'}</button>`}
-    ${pre.length && !read ? `<div class="alert"><b>Before you start:</b> ${pre.map(c => `<button class="linkbtn" data-go="${c.from}">${esc(BOOKS[c.from].title)}</button>`).join(', ')} ${pre.length > 1 ? 'set' : 'sets'} this book up. You haven’t marked ${pre.length > 1 ? 'them' : 'it'} as read.</div>` : ''}
+    ${b.readingNote ? `<p class="reading-note">${esc(b.readingNote)}</p>` : ''}
+    ${isExtra(b) ? '<p class="alert"><b>Noncanonical rendition.</b> These connections describe creative development or reused concepts, not events in current Cosmere continuity.</p>' : ''}
+    ${pre.length && !read ? `<div class="alert"><b>Earlier series reading:</b> ${pre.map(prior => `<button class="linkbtn" data-go="${prior}">${esc(BOOKS[prior].title)}</button>`).join(', ')}. These earlier series books are not marked read.</div>` : ''}
+    ${earlier.length ? `<section class="sec"><h3>Series sequence</h3><p class="note">${earlier.map(prior => `<button class="linkbtn" data-go="${prior}">${esc(BOOKS[prior].title)}</button>`).join(' → ')} → ${esc(b.title)}</p><p class="note">Side stories remain optional for the next main novel.</p></section>` : ''}
+    ${background.length && !read ? `<p class="reading-note"><b>Optional background:</b> ${[...new Set(background.map(c => c.from))].map(prior => `<button class="linkbtn" data-go="${prior}">${esc(BOOKS[prior].title)}</button>`).join(', ')}. Recommended for crossover context, not mandatory series prerequisites.</p>` : ''}
+    <p class="coverage-note">${b.coverage === 'preview' ? 'Preview coverage only; no full-book connection audit yet.' : b.coverage === 'selected' ? 'Selected connections reviewed; this is not an exhaustive list.' : 'Imported 17th Shard coverage; individual claims have not all been independently rechecked.'} Research snapshot: ${esc(DATA.researchAsOf)}.</p>
     <dl class="facts">${facts.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>
-    ${inc.length ? `<section class="sec"><h3><span>Read these first</span><span>${inc.length}</span></h3><ul class="conns">${inc.map(c => connItem(c.from, c, c.from + '>' + id)).join('')}</ul></section>` : ''}
-    ${out.length ? `<section class="sec"><h3><span>Read this before</span><span>${out.length}</span></h3><ul class="conns">${out.map(c => connItem(c.target, c, id + '>' + c.target)).join('')}</ul></section>` : ''}
-    ${!inc.length && !out.length ? `<p class="note" style="margin:0">No connections recorded for this book${state.conn.egg ? '' : ' yet. Turn on easter eggs to see subtler links'}.</p>` : ''}
-    ${apps.length ? `<section class="sec"><h3><span>Recurring characters</span></h3><ul class="apps">${apps.map(a => `<li><span class="initial${a.type === 'appearance' ? ' solid' : ''}" title="${a.type}">${APPS[a.id].initial}</span><div><b>${esc(APPS[a.id].description)}</b> <span class="note">· ${a.type === 'appearance' ? 'appears' : 'mentioned'}</span>${a.description ? (state.hideNotes && !state.revealed.has('app:' + id + a.id) ? `<br><button class="spoil" data-reveal="app:${id}${a.id}">Show where</button>` : `<div class="note">${safe(a.description)}</div>`) : ''}</div></li>`).join('')}</ul></section>` : ''}
+    ${inc.length ? `<section class="sec"><h3><span>Connections from other books</span><span>${inc.length}</span></h3><ul class="conns">${inc.map(c => connItem(c.from, c, c.from + '>' + id)).join('')}</ul></section>` : ''}
+    ${out.length ? `<section class="sec"><h3><span>Connections to other books</span><span>${out.length}</span></h3><ul class="conns">${out.map(c => connItem(c.target, c, id + '>' + c.target)).join('')}</ul></section>` : ''}
+    ${!inc.length && !out.length ? `<p class="note" style="margin:0">No connections are shown with these filters. Missing records do not mean this book has no Cosmere connections.</p>` : ''}
+    ${bookEvidence(b)}
+    ${apps.length ? `<section class="sec"><h3><span>Tracked appearances</span></h3><ul class="apps">${apps.map(a => `<li><span class="initial${a.type === 'appearance' ? ' solid' : ''}" title="${a.type}">${APPS[a.id].initial}</span><div><b>${esc(APPS[a.id].description)}</b> <span class="note">· ${a.id === 'ars' ? 'included' : a.type === 'appearance' ? 'appears' : 'mentioned'}</span>${a.description ? (state.hideNotes && !state.revealed.has('app:' + id + a.id) ? `<br><button class="spoil" data-reveal="app:${id}${a.id}">Show where</button>` : `<div class="note">${safe(a.description)}${sourceList(a.sources)}</div>`) : ''}</div></li>`).join('')}</ul></section>` : ''}
   `;
 }
 dossier.addEventListener('click', e => {
@@ -1062,6 +1132,7 @@ document.getElementById('q').addEventListener('input', e => {
   if (state.view === 'map') updateFocus(); else renderPath();
 });
 function renderAll() {
+  if (state.selected && !visible(BOOKS[state.selected])) state.selected = null;
   renderSide(); renderNext(); renderProgress(); renderDossier();
   if (state.view === 'map') renderMap(); else renderPath();
 }

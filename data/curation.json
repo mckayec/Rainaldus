@@ -1,0 +1,938 @@
+{
+  "reviewedAt": "2026-10-19",
+  "provenance": {
+    "repository": "17thshard/reading-order",
+    "commit": "c1fdba7c45b598d622493c9b9396226611367926",
+    "path": "public/data.json",
+    "license": "MIT",
+    "note": "Local research is additive. Selected connections are not an exhaustive concordance."
+  },
+  "sources": {
+    "author-order": {
+      "url": "https://www.brandonsanderson.com/pages/where-do-i-start",
+      "label": "Sanderson: where to start",
+      "kind": "author",
+      "locator": "Recommended Reading Order for Cosmere Books"
+    },
+    "sos25": {
+      "url": "https://www.brandonsanderson.com/blogs/blog/state-of-the-sanderson-2025",
+      "label": "State of the Sanderson 2025",
+      "kind": "author",
+      "locator": "Hoid’s Travails; White Sand; Projected Schedule (December 19, 2025)"
+    },
+    "ember-release": {
+      "url": "https://www.brandonsanderson.com/blogs/blog/isles-of-the-emberdark-coming-soon-weekly-update",
+      "label": "Emberdark release announcement",
+      "kind": "author",
+      "locator": "July 1 backer print fulfillment and ebook; July 10 public ebook"
+    },
+    "ember-reveal": {
+      "url": "https://wob.coppermind.net/events/533-secret-project-5-reveal-and-livestream/",
+      "label": "Secret Project 5 reveal and sample",
+      "kind": "author",
+      "locator": "Novelization explanation and Starling sample chapter; March 21, 2024"
+    },
+    "ember-summary": {
+      "url": "https://coppermind.net/wiki/Summary:Isles_of_the_Emberdark",
+      "label": "Emberdark chapter summaries",
+      "kind": "reference",
+      "locator": "Flashbacks; Chapter 30 (Silverlight); Chapter 32 (Crow); final chapters"
+    },
+    "ember-book": {
+      "url": "https://coppermind.net/wiki/Isles_of_the_Emberdark",
+      "label": "Emberdark publication and cast",
+      "kind": "reference",
+      "locator": "Publication history; cast; later development"
+    },
+    "crow": {
+      "url": "https://coppermind.net/wiki/Crow",
+      "label": "Crow across the two novels",
+      "kind": "reference",
+      "locator": "History; Isles of the Emberdark chapter 32"
+    },
+    "spores": {
+      "url": "https://coppermind.net/wiki/Aether_spores",
+      "label": "Aether spore technology",
+      "kind": "reference",
+      "locator": "Zephyr spores; propulsion in Isles of the Emberdark"
+    },
+    "wat-summary": {
+      "url": "https://coppermind.net/wiki?mobileaction=toggle_view_mobile&title=Summary%3AWind_and_Truth",
+      "label": "Wind and Truth chapter summaries",
+      "kind": "reference",
+      "locator": "Prologue; Interlude I-1; Interlude I-11; Chapter 147; Epilogue"
+    },
+    "nightblood": {
+      "url": "https://coppermind.net/wiki/Nightblood",
+      "label": "Nightblood history and appearances",
+      "kind": "reference",
+      "locator": "Warbreaker origins; Stormlight appearances"
+    },
+    "ulaam": {
+      "url": "https://coppermind.net/wiki/Ulaam",
+      "label": "Ulaam appearances",
+      "kind": "reference",
+      "locator": "Tress of the Emerald Sea; Wind and Truth chapter 147"
+    },
+    "sigzil": {
+      "url": "https://wob.coppermind.net/adv_search/?query=Sigzil",
+      "label": "Sanderson Q&A: Sigzil",
+      "kind": "author",
+      "locator": "Dawnshard transfer; footnote identifies Wind and Truth reveal"
+    },
+    "lost-tales": {
+      "url": "https://www.dragonsteelbooks.com/products/elsecaller-king-lopen-story-deck-double-book",
+      "label": "Official Lost Tales double book",
+      "kind": "publisher",
+      "locator": "Elsecaller by Sanderson and Dan Wells; King Lopen by Sanderson and Isaac Stewart"
+    },
+    "lost-tales-ebook": {
+      "url": "https://www.dragonsteelbooks.com/products/elsecaller-king-lopen-the-first-of-alethkar-ebook",
+      "label": "Official Lost Tales ebook",
+      "kind": "publisher",
+      "locator": "Digital edition"
+    },
+    "elsecaller": {
+      "url": "https://coppermind.net/wiki/Elsecaller_(short_story)",
+      "label": "Elsecaller publication and story",
+      "kind": "reference",
+      "locator": "Publication history; Jasnah, Ivory, Hwynn Tyvneri and Lorieta"
+    },
+    "lopen": {
+      "url": "https://coppermind.net/wiki/King_Lopen_the_First_of_Alethkar",
+      "label": "King Lopen publication and story",
+      "kind": "reference",
+      "locator": "Publication history; story occurs during Words of Radiance"
+    },
+    "fires-preview": {
+      "url": "https://www.brandonsanderson.com/blogs/blog/the-fires-of-december",
+      "label": "Official Fires of December sample",
+      "kind": "author",
+      "locator": "Chapter 1; first-person narrator and the stranger at the inn (February 27, 2026)"
+    },
+    "hoids-travails": {
+      "url": "https://www.brandonsanderson.com/pages/hoids-travails",
+      "label": "Official Hoid’s Travails collection",
+      "kind": "author",
+      "locator": "The Fires of December, Tress, and Yumi"
+    },
+    "bridge-origin": {
+      "url": "https://wob.coppermind.net/events/255-the-way-of-kings-annotations/",
+      "label": "Sanderson: origins of Bridge Four",
+      "kind": "author",
+      "locator": "Bridge Four and the Shattered Plains moved from Dragonsteel into The Way of Kings"
+    },
+    "merin": {
+      "url": "https://faq.brandonsanderson.com/knowledge-base/why-did-you-change-merins-name-to-kaladin/",
+      "label": "Sanderson: Merin became Kaladin",
+      "kind": "author",
+      "locator": "Different choices and a changed character in the rewrite"
+    },
+    "prime-read": {
+      "url": "https://www.brandonsanderson.com/blogs/blog/way-of-kings-prime-chapter-1-dalenar-1",
+      "label": "Read The Way of Kings Prime sample",
+      "kind": "author",
+      "locator": "Introduction and Chapter 1: Dalenar 1"
+    },
+    "dragonsteel-prime": {
+      "url": "https://www.dragonsteelbooks.com/products/dragonsteel-prime-ebook",
+      "label": "Dragonsteel Prime ebook",
+      "kind": "publisher",
+      "locator": "Sanderson Curiosity; noncanonical early novel"
+    },
+    "white-sand": {
+      "url": "https://coppermind.net/wiki/White_Sand",
+      "label": "White Sand adaptation history",
+      "kind": "reference",
+      "locator": "Prose draft and graphic novel adaptation"
+    }
+  },
+  "books": {
+    "iote": {
+      "title": "Isles of the Emberdark",
+      "publication": "July 1, 2025 (backer edition); July 10, 2025 (public digital)",
+      "categories": [
+        "no-series",
+        "novel",
+        "phase3",
+        "published"
+      ],
+      "sorting": {
+        "order": 3.13,
+        "publication": 2025.0701,
+        "chronology": 13.02
+      },
+      "chronology": "The main Dusk narrative is five years after Sixth of the Dusk; the novel also incorporates revised flashbacks from that story.",
+      "readingNote": "Includes a revised Sixth of the Dusk as flashbacks. Reading the novella separately is optional.",
+      "sources": [
+        "ember-release",
+        "ember-reveal",
+        "ember-book"
+      ],
+      "coverage": "selected",
+      "appearances": [
+        {
+          "id": "hoid",
+          "type": "appearance",
+          "description": "Hoid appears in Starling’s story.",
+          "sources": [
+            "ember-book"
+          ]
+        },
+        {
+          "id": "nazh",
+          "type": "appearance",
+          "description": "Nazh serves aboard the Dynamic.",
+          "sources": [
+            "ember-summary"
+          ]
+        },
+        {
+          "id": "khriss",
+          "type": "mention",
+          "description": "Khriss is mentioned during the Silverlight sequence.",
+          "sources": [
+            "ember-summary"
+          ]
+        }
+      ],
+      "artwork": [
+        {
+          "url": "https://www.brandonsanderson.com/pages/standalones-cosmere",
+          "label": "Official standalone book art gallery",
+          "credit": "Artist credits appear with each artwork on the publisher’s page. External gallery may contain spoilers."
+        }
+      ]
+    },
+    "sa5": {
+      "sources": [
+        "wat-summary"
+      ],
+      "coverage": "selected",
+      "appearances": [
+        {
+          "id": "hoid",
+          "type": "appearance",
+          "description": "Hoid appears as Wit and narrates the epilogue.",
+          "sources": [
+            "wat-summary"
+          ]
+        }
+      ]
+    },
+    "sa5.5": {
+      "title": "Horneater",
+      "publication": "Planned; release date unconfirmed (older December 2026 projection superseded)",
+      "categories": [
+        "stormlight",
+        "novella",
+        "unpublished",
+        "future-plan"
+      ],
+      "sorting": {
+        "chronology": 7.045
+      },
+      "sources": [
+        "sos25"
+      ],
+      "readingNote": "No firm release date in the cited 2025 update."
+    },
+    "elsecaller": {
+      "series": "Stormlight Lost Tales",
+      "publication": "December 5, 2024 (Story Deck); December 4, 2025 (print); July 21, 2026 (ebook)",
+      "authors": [
+        "Brandon Sanderson",
+        "Dan Wells"
+      ],
+      "sources": [
+        "lost-tales",
+        "elsecaller",
+        "lost-tales-ebook"
+      ],
+      "coverage": "selected",
+      "link": "<a href='https://www.dragonsteelbooks.com/products/elsecaller-king-lopen-the-first-of-alethkar-ebook'>Official double-book ebook.</a>",
+      "readingNote": "Read after Words of Radiance: its concurrent events reveal developments in that novel. This finished story is distinct from the earlier Jasnah deleted scene.",
+      "artwork": [
+        {
+          "url": "https://www.dragonsteelbooks.com/products/elsecaller-king-lopen-story-deck-double-book",
+          "label": "Official cover images and Story Deck double book",
+          "credit": "Elsecaller artwork: Erion Makuo. King Lopen artwork: Marie Seeberger. View on the official product page."
+        }
+      ]
+    },
+    "lopen": {
+      "title": "King Lopen the First of Alethkar",
+      "authors": [
+        "Brandon Sanderson",
+        "Isaac Stewart"
+      ],
+      "publication": "December 5, 2024 (Story Deck); December 4, 2025 (print); July 21, 2026 (ebook)",
+      "sources": [
+        "lost-tales",
+        "lopen",
+        "lost-tales-ebook"
+      ],
+      "coverage": "selected",
+      "readingNote": "Optional side story. Read after Words of Radiance to protect its ending.",
+      "link": "<a href='https://www.dragonsteelbooks.com/products/elsecaller-king-lopen-the-first-of-alethkar-ebook'>Official double-book ebook.</a>",
+      "artwork": [
+        {
+          "url": "https://www.dragonsteelbooks.com/products/elsecaller-king-lopen-story-deck-double-book",
+          "label": "Official cover images and Story Deck double book",
+          "credit": "Elsecaller artwork: Erion Makuo. King Lopen artwork: Marie Seeberger. View on the official product page."
+        }
+      ],
+      "aliases": [
+        "King Lopen"
+      ]
+    },
+    "dsp": {
+      "publication": "March 2024 (ebook and audiobook; print edition later)",
+      "sources": [
+        "dragonsteel-prime",
+        "bridge-origin"
+      ],
+      "readingNote": "Noncanonical early rendition. Similar names and concepts show development history, not shared continuity.",
+      "coverage": "selected",
+      "link": "<a href='https://www.dragonsteelbooks.com/products/dragonsteel-prime-ebook'>Official free ebook.</a>",
+      "appearances": [
+        {
+          "id": "hoid",
+          "type": "appearance",
+          "description": "Topaz is an early, noncanonical rendition of Hoid.",
+          "sources": [
+            "dragonsteel-prime"
+          ]
+        }
+      ]
+    },
+    "twokp": {
+      "sources": [
+        "merin",
+        "prime-read"
+      ],
+      "coverage": "selected",
+      "readingNote": "Noncanonical 2002 version, published in 2020. Merin is a predecessor to Kaladin, not an additional canonical character.",
+      "link": "<a href='https://www.brandonsanderson.com/blogs/blog/way-of-kings-prime-chapter-1-dalenar-1'>Official introduction and sample.</a>"
+    },
+    "fod": {
+      "title": "The Fires of December",
+      "series": "Hoid’s Travails",
+      "world": "Not confirmed in the cited public preview",
+      "system": "Unknown",
+      "worldName": "Other Worlds",
+      "group": "",
+      "publication": "December 2026 (announced commercial release; forthcoming)",
+      "chronology": "The story precedes Tress and Yumi; Hoid tells it after those tales. Its absolute position is not established here.",
+      "categories": [
+        "no-series",
+        "novel",
+        "unpublished",
+        "forthcoming"
+      ],
+      "sorting": {
+        "order": 3.14,
+        "publication": 2026.12
+      },
+      "sources": [
+        "sos25",
+        "fires-preview",
+        "hoids-travails"
+      ],
+      "coverage": "preview",
+      "readingNote": "Preview coverage only. Hoid’s Travails can be read in any order. Full-book crossover claims await publication.",
+      "authors": [
+        "Brandon Sanderson"
+      ],
+      "link": "<a href='https://www.brandonsanderson.com/blogs/blog/the-fires-of-december'>Read the official opening chapters.</a>",
+      "appearances": [
+        {
+          "id": "hoid",
+          "type": "appearance",
+          "description": "Hoid narrates and appears as the stranger at the inn in the public opening.",
+          "sources": [
+            "fires-preview",
+            "hoids-travails"
+          ]
+        }
+      ],
+      "sampleExcerpt": {
+        "text": "It was a face composed in a minor key.",
+        "source": "fires-preview",
+        "locator": "Chapter 1"
+      },
+      "artwork": [
+        {
+          "url": "https://www.brandonsanderson.com/blogs/blog/the-fires-of-december",
+          "label": "Official preview and early cover",
+          "credit": "Cover art: Tran Nguyen; early design, not final."
+        }
+      ]
+    },
+    "tress": {
+      "series": "Hoid’s Travails"
+    },
+    "yumi": {
+      "series": "Hoid’s Travails"
+    },
+    "elantris2": {
+      "publication": "Planned; release date unconfirmed in the 2025 update",
+      "sorting": {
+        "chronology": 3.2
+      },
+      "sources": [
+        "sos25"
+      ]
+    },
+    "elantris3": {
+      "publication": "Planned; release date unconfirmed in the 2025 update",
+      "sorting": {
+        "chronology": 3.3
+      },
+      "sources": [
+        "sos25"
+      ]
+    },
+    "wsn": {
+      "publication": "Planned; release date unconfirmed in the 2025 update",
+      "sorting": {
+        "order": 1.51,
+        "chronology": 2.101
+      },
+      "sources": [
+        "sos25"
+      ]
+    },
+    "mb8": {
+      "publication": "December 2028 (projected; schedule may change)",
+      "sources": [
+        "sos25"
+      ]
+    },
+    "mb9": {
+      "publication": "December 2029 (projected; schedule may change)",
+      "sources": [
+        "sos25"
+      ]
+    },
+    "mb10": {
+      "publication": "December 2030 (projected; schedule may change)",
+      "sources": [
+        "sos25"
+      ]
+    },
+    "sa6": {
+      "publication": "Planned; December 2031 was an earlier projection, not a confirmed release date",
+      "sources": [
+        "sos25"
+      ],
+      "sorting": {
+        "chronology": 9.06
+      }
+    }
+  },
+  "requiredBefore": {
+    "mb2": [
+      "mb1"
+    ],
+    "mb3": [
+      "mb2"
+    ],
+    "mb4": [
+      "mb3"
+    ],
+    "mb5": [
+      "mb4"
+    ],
+    "mb6": [
+      "mb5"
+    ],
+    "mb7": [
+      "mb6"
+    ],
+    "msh": [
+      "mb3"
+    ],
+    "jak": [
+      "mb4"
+    ],
+    "sa2": [
+      "sa1"
+    ],
+    "sa3": [
+      "sa2"
+    ],
+    "sa4": [
+      "sa3"
+    ],
+    "sa5": [
+      "sa4"
+    ],
+    "sa2.5": [
+      "sa2"
+    ],
+    "sa3.5": [
+      "sa3"
+    ],
+    "sa5.5": [
+      "sa4"
+    ],
+    "elsecaller": [
+      "sa2"
+    ],
+    "lopen": [
+      "sa2"
+    ],
+    "thoe": [
+      "elantris"
+    ]
+  },
+  "connections": [
+    {
+      "id": "wb--sa5",
+      "from": "wb",
+      "target": "sa5",
+      "type": "major",
+      "title": "Nightblood and Awakening",
+      "description": "Szeth carries Nightblood. Awakened curtains also restrain Kalak in Interlude I-1. Warbreaker supplies background for the sword and magic.",
+      "sources": [
+        "nightblood",
+        "wat-summary"
+      ],
+      "relation": "crossover",
+      "evidence": "documented",
+      "locator": "Wind and Truth: Shinovar storyline; Interlude I-1",
+      "visual": {
+        "label": "Nightblood and Awakening",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Awakening / Nightblood",
+        "right": "Szeth / Kalak’s curtains"
+      }
+    },
+    {
+      "id": "elantris--sa5",
+      "from": "elantris",
+      "target": "sa5",
+      "type": "minor",
+      "title": "Galladon and seons",
+      "description": "Galladon returns with the Seventeenth Shard party in Interlude I-11; seons also carry Ghostblood communications.",
+      "sources": [
+        "wat-summary"
+      ],
+      "relation": "crossover",
+      "evidence": "documented",
+      "locator": "Interlude I-11; Prologue; Interlude I-1",
+      "visual": {
+        "label": "Galladon and seons",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Galladon / seons",
+        "right": "Dyel / Ghostbloods"
+      }
+    },
+    {
+      "id": "mb1--sa5",
+      "from": "mb1",
+      "target": "sa5",
+      "type": "minor",
+      "title": "Demoux returns",
+      "description": "Demoux is among the three visitors in Dyel’s interlude.",
+      "sources": [
+        "wat-summary"
+      ],
+      "relation": "crossover",
+      "evidence": "documented",
+      "locator": "Interlude I-11: Dyel",
+      "visual": {
+        "label": "Demoux returns",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Captain Demoux",
+        "right": "Dyel’s visitors"
+      }
+    },
+    {
+      "id": "wsgn--sa5",
+      "from": "wsgn",
+      "target": "sa5",
+      "type": "minor",
+      "title": "Baon returns",
+      "description": "Baon joins Galladon and Demoux in Dyel’s interlude.",
+      "sources": [
+        "wat-summary"
+      ],
+      "relation": "crossover",
+      "evidence": "documented",
+      "locator": "Interlude I-11: Dyel",
+      "visual": {
+        "label": "Baon returns",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Baon",
+        "right": "Dyel’s visitors"
+      }
+    },
+    {
+      "id": "msh--sa5",
+      "from": "msh",
+      "target": "sa5",
+      "type": "significant",
+      "title": "Kelsier and Thaidakar",
+      "description": "Thaidakar is Kelsier. Secret History gives background for his continued activity beyond the original Mistborn trilogy.",
+      "sources": [
+        "wat-summary"
+      ],
+      "relation": "crossover",
+      "evidence": "documented",
+      "locator": "Prologue; Interlude I-1",
+      "visual": {
+        "label": "Kelsier and Thaidakar",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Kelsier after Era 1",
+        "right": "Thaidakar"
+      }
+    },
+    {
+      "id": "sa5--tsm",
+      "from": "sa5",
+      "target": "tsm",
+      "type": "significant",
+      "title": "Sigzil and the Dawnshard",
+      "description": "Wind and Truth shows Hoid passing his Dawnshard to Sigzil, background for Nomad in The Sunlit Man. This is a retrospective connection; The Sunlit Man was published first.",
+      "sources": [
+        "wat-summary",
+        "sigzil"
+      ],
+      "relation": "crossover",
+      "evidence": "documented",
+      "locator": "Wind and Truth: concluding Sigzil sequence",
+      "visual": {
+        "label": "Sigzil and the Dawnshard",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Sigzil / Dawnshard",
+        "right": "Nomad"
+      }
+    },
+    {
+      "id": "sa5--tress",
+      "from": "sa5",
+      "target": "tress",
+      "type": "minor",
+      "title": "Ulaam across worlds",
+      "description": "Ulaam meets Hoid in Wind and Truth and is the kandra doctor aboard the Crow’s Song in Tress.",
+      "sources": [
+        "ulaam"
+      ],
+      "relation": "shared-character",
+      "evidence": "documented",
+      "locator": "Wind and Truth chapter 147; Tress: Crow’s Song crew",
+      "visual": {
+        "label": "Ulaam across worlds",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Ulaam on Scadrial",
+        "right": "Ulaam on the ship"
+      }
+    },
+    {
+      "id": "sa5--mb7",
+      "from": "sa5",
+      "target": "mb7",
+      "type": "minor",
+      "title": "Hoid’s next job",
+      "description": "The Wind and Truth epilogue points toward Hoid’s work as a Ladrian coachman, seen in The Lost Metal. This is retrospective setup, not a required reading order.",
+      "sources": [
+        "wat-summary"
+      ],
+      "relation": "shared-character",
+      "evidence": "documented",
+      "locator": "Wind and Truth: Epilogue; The Lost Metal: Hoid as coachman",
+      "visual": {
+        "label": "Hoid’s next job",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Ladrian job offer",
+        "right": "Wax’s coachman"
+      }
+    },
+    {
+      "id": "sotd--iote",
+      "from": "sotd",
+      "target": "iote",
+      "type": "minor",
+      "title": "An expanded story",
+      "description": "Isles incorporates revised Sixth of the Dusk flashbacks and continues Dusk’s story. The separate novella is optional.",
+      "sources": [
+        "ember-reveal"
+      ],
+      "relation": "retelling",
+      "evidence": "documented",
+      "locator": "Author’s explanation of the novelization",
+      "visual": {
+        "label": "An expanded story",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Dusk’s novella",
+        "right": "Revised flashbacks"
+      }
+    },
+    {
+      "id": "tress--iote",
+      "from": "tress",
+      "target": "iote",
+      "type": "significant",
+      "title": "Xisis, Crow, and spore technology",
+      "description": "Xisis and Crow from Tress also appear in Isles of the Emberdark. Zephyr spores also return as propulsion technology.",
+      "sources": [
+        "ember-book",
+        "crow",
+        "spores"
+      ],
+      "relation": "shared-character",
+      "evidence": "documented",
+      "locator": "Isles of the Emberdark: Crow’s storyline; chapter 32",
+      "visual": {
+        "label": "Xisis, Crow, and spore technology",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Xisis / Crow / spores",
+        "right": "Returning cast / tech"
+      }
+    },
+    {
+      "id": "msh--iote",
+      "from": "msh",
+      "target": "iote",
+      "type": "minor",
+      "title": "Nazh returns",
+      "description": "Nazh, seen with Khriss in Secret History, is part of the Dynamic’s crew in Isles.",
+      "sources": [
+        "ember-reveal",
+        "ember-summary"
+      ],
+      "relation": "shared-character",
+      "evidence": "documented",
+      "locator": "Secret History: Part 3; Isles: Starling’s shipboard narrative",
+      "visual": {
+        "label": "Nazh returns",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Nazh with Khriss",
+        "right": "Nazh on the Dynamic"
+      }
+    },
+    {
+      "id": "tsm--iote",
+      "from": "tsm",
+      "target": "iote",
+      "type": "egg",
+      "title": "Awakened metalminds",
+      "description": "Both stories mention Awakened metalminds as advanced technology. The shared term does not establish that every such device uses Nalthian Breath.",
+      "sources": [
+        "ember-reveal"
+      ],
+      "relation": "technology",
+      "evidence": "documented",
+      "locator": "Starling sample: ship technology; The Sunlit Man: Awakened steelmind",
+      "visual": {
+        "label": "Awakened metalminds",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Awakened steelmind",
+        "right": "Awakened metalmind"
+      }
+    },
+    {
+      "id": "wb--iote",
+      "from": "wb",
+      "target": "iote",
+      "type": "minor",
+      "title": "Awakening terminology",
+      "description": "The novel’s technology uses the term Awakened. Warbreaker introduces Awakening; the terminology alone does not prove identical mechanisms.",
+      "sources": [
+        "ember-reveal"
+      ],
+      "relation": "technology",
+      "evidence": "documented",
+      "locator": "Official Starling sample: Awakened metalmind",
+      "visual": {
+        "label": "Awakening terminology",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Awakening introduced",
+        "right": "Awakened technology"
+      }
+    },
+    {
+      "id": "sa1--iote",
+      "from": "sa1",
+      "target": "iote",
+      "type": "egg",
+      "title": "A story of Nohadon",
+      "description": "Hoid tells Starling a story about Nohadon, connecting to the Rosharan king and his in-world book.",
+      "sources": [
+        "ember-summary"
+      ],
+      "relation": "crossover",
+      "evidence": "documented",
+      "locator": "Isles: Hoid’s story to Starling",
+      "visual": {
+        "label": "A story of Nohadon",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "King Nohadon",
+        "right": "Hoid tells his story"
+      }
+    },
+    {
+      "id": "sa2--elsecaller",
+      "from": "sa2",
+      "target": "elsecaller",
+      "type": "minor",
+      "title": "Jasnah’s parallel journey",
+      "description": "Elsecaller follows Jasnah and Ivory during Words of Radiance. Read the novel first; the side story adds another viewpoint.",
+      "sources": [
+        "elsecaller",
+        "lost-tales"
+      ],
+      "relation": "side-story",
+      "evidence": "documented",
+      "locator": "Elsecaller: setting and publication history",
+      "visual": {
+        "label": "Jasnah’s parallel journey",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Jasnah in the novel",
+        "right": "Jasnah’s side story"
+      },
+      "excerpt": {
+        "text": "Calm it now or their food will be us!",
+        "source": "lost-tales",
+        "locator": "Official Elsecaller product-page preview; Ivory speaking"
+      }
+    },
+    {
+      "id": "sa2--lopen",
+      "from": "sa2",
+      "target": "lopen",
+      "type": "minor",
+      "title": "The missing royal interlude",
+      "description": "King Lopen expands on Elhokar and Lopen during the ending of Words of Radiance.",
+      "sources": [
+        "lopen",
+        "lost-tales"
+      ],
+      "relation": "side-story",
+      "evidence": "documented",
+      "locator": "King Lopen: setting during Words of Radiance",
+      "visual": {
+        "label": "The missing royal interlude",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Elhokar / Lopen",
+        "right": "A parallel side story"
+      }
+    },
+    {
+      "id": "jasnah--elsecaller",
+      "from": "jasnah",
+      "target": "elsecaller",
+      "type": "egg",
+      "title": "From deleted scene to finished tale",
+      "description": "The earlier Sanderson draft is related to the later story co-written with Dan Wells; they are separate versions, not two events in sequence.",
+      "sources": [
+        "elsecaller"
+      ],
+      "relation": "development",
+      "evidence": "documented",
+      "locator": "Elsecaller: early draft and publication history",
+      "visual": {
+        "label": "From deleted scene to finished tale",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Earlier Jasnah draft",
+        "right": "Finished Lost Tale"
+      }
+    },
+    {
+      "id": "dsp--sa1",
+      "from": "dsp",
+      "target": "sa1",
+      "type": "egg",
+      "title": "Bridge Four’s earlier home",
+      "description": "Sanderson moved the Bridge Four concept and Shattered Plains setting from Dragonsteel into The Way of Kings. This is creative history, not an in-world crossover.",
+      "sources": [
+        "bridge-origin",
+        "dragonsteel-prime"
+      ],
+      "relation": "development",
+      "evidence": "documented",
+      "locator": "The Way of Kings annotations: origins of Bridge Four",
+      "visual": {
+        "label": "Bridge Four’s earlier home",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Early Bridge Four",
+        "right": "Reworked Bridge Four"
+      }
+    },
+    {
+      "id": "twokp--sa1",
+      "from": "twokp",
+      "target": "sa1",
+      "type": "egg",
+      "title": "Merin becomes Kaladin",
+      "description": "Merin was reworked into Kaladin, with a different pivotal choice. The Prime novel is a separate, noncanonical rendition.",
+      "sources": [
+        "merin",
+        "prime-read"
+      ],
+      "relation": "development",
+      "evidence": "documented",
+      "locator": "Author FAQ: Why Did You Change Merin’s Name To Kaladin?",
+      "visual": {
+        "label": "Merin becomes Kaladin",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Merin",
+        "right": "Kaladin"
+      }
+    },
+    {
+      "id": "fod--tress",
+      "from": "fod",
+      "target": "tress",
+      "type": "minor",
+      "title": "Hoid’s Travails",
+      "description": "These are independent Hoid-narrated stories. Sanderson groups them together but specifies no required order.",
+      "sources": [
+        "sos25",
+        "hoids-travails"
+      ],
+      "relation": "shared-narrator",
+      "evidence": "preview",
+      "locator": "State of the Sanderson 2025: Hoid’s Travails",
+      "visual": {
+        "label": "Hoid’s Travails",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Hoid narrates",
+        "right": "Hoid narrates"
+      }
+    },
+    {
+      "id": "fod--yumi",
+      "from": "fod",
+      "target": "yumi",
+      "type": "minor",
+      "title": "Hoid’s Travails",
+      "description": "Yumi and December belong to Hoid’s Travails. Sharing a narrator does not make one a prerequisite for the other.",
+      "sources": [
+        "sos25",
+        "hoids-travails"
+      ],
+      "relation": "shared-narrator",
+      "evidence": "preview",
+      "locator": "State of the Sanderson 2025: Hoid’s Travails",
+      "visual": {
+        "label": "Hoid’s Travails",
+        "credit": "Original explanatory diagram; not official artwork.",
+        "left": "Hoid narrates",
+        "right": "Hoid narrates"
+      }
+    }
+  ],
+  "connectionPatches": [
+    {
+      "from": "wsp",
+      "target": "wsgn",
+      "relation": "development",
+      "sources": [
+        "white-sand"
+      ]
+    }
+  ]
+}
