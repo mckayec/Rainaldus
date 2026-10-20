@@ -13,7 +13,7 @@ Connections marked documented are supported by the cited references, not necessa
 - Isles: first backer release July 1, 2025, public digital July 10; separate Sixth of the Dusk optional because revised flashbacks are included.
 - Elsecaller and King Lopen are existing entries, not duplicates. Added full title, coauthors, format-specific release history, context links and edition links.
 - Wind and Truth now has selected crossover records and a sourced Hoid appearance; appearance coverage is still not complete.
-- Fires is forthcoming in December 2026 in this snapshot. Preview-only Hoid narration and official Hoid’s Travails membership are included; no undisclosed full-book plot claims. Absolute chronology remains unplaced.
+- Correction: Fires released to backers September 15, 2026 and publicly in digital formats October 6; trade print is due in December. Preview-only Hoid narration and official Hoid’s Travails membership are included; no undisclosed full-book plot claims. Absolute chronology remains unplaced.
 - Horneater, Elantris sequels and White Sand rewrite: avoid using older projections as current confirmed release dates. Ghostbloods dates remain explicitly projected.
 - Prime novels, White Sand prose and other existing curiosities remain opt-in and noncanonical. Reused Bridge Four/Merin concepts are development history, not continuity.
 - Required-before edges represent series sequence / first-read spoiler context. Optional novellas and crossover ratings do not become hard prerequisites for later main novels.
@@ -248,7 +248,7 @@ Locator: State of the Sanderson 2025: Hoid’s Travails.
 - Identify every appearance vs mention of Khriss, Nazh and Hoid in recent works using exact textual references. Only supported records have been added.
 - Elsecaller introduces Hwynn Tyvneri, Rellam and Lorieta. Do not infer they are established characters from another book without evidence.
 - Do not turn proposed identity matches, similar names, a shared word such as Emberdark, or similar-looking magic into confirmed crossovers.
-- Audit Fires after its complete public release; revisit release plans against newer announcements.
+- Audit the complete released Fires text; preview-only research coverage does not mean the book is unpublished.
 - Add licensed art only with an explicit reuse basis, creator credit and spoiler-safe loading. Current callouts use original diagrams and external official galleries.
 - Extend exact chapter anchors where this snapshot only records a storyline or public sample.
 
@@ -281,3 +281,10 @@ Each curated edge has an original inline SVG relationship diagram. The diagram d
 - `prime-read`: [Read The Way of Kings Prime sample](https://www.brandonsanderson.com/blogs/blog/way-of-kings-prime-chapter-1-dalenar-1) — author; Introduction and Chapter 1: Dalenar 1
 - `dragonsteel-prime`: [Dragonsteel Prime ebook](https://www.dragonsteelbooks.com/products/dragonsteel-prime-ebook) — publisher; Sanderson Curiosity; noncanonical early novel
 - `white-sand`: [White Sand adaptation history](https://coppermind.net/wiki/White_Sand) — reference; Prose draft and graphic novel adaptation
+
+## Release-status correction
+
+The initial implementation used the older December trade-print plan and incorrectly hid Fires among planned works. Dragonsteel confirms the ebook and audiobook released October 6, following September 15 backer fulfillment. Updated to published and visible by default; connection evidence remains limited to the material actually reviewed. Miral is confirmed by the publisher.
+
+- [Dragonsteel release announcement](https://www.dragonsteelbooks.com/blogs/the-cognitive-realm/the-creatures-of-the-cosmere)
+- [Campaign updates 10 and 11](https://www.backerkit.com/c/projects/dragonsteel/hoids-storybook-collection/community?filter=updates)

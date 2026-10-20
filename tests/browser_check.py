@@ -43,6 +43,12 @@ with sync_playwright() as p:
  assert page.locator('.readbtn').get_attribute('aria-pressed')=='true'
  # Exercise new/expanded dossiers and their evidence in both connection directions.
  page.evaluate("localStorage.setItem('cro.prefs', JSON.stringify({showPlanned:true,showExtras:true,conn:{egg:true}}))")
+ # Published Fires must appear even with planned books hidden.
+ page.evaluate("localStorage.setItem('cro.prefs', JSON.stringify({showPlanned:false}))")
+ page.goto(url+'?check=fires-default#map')
+ page.wait_for_selector('.map .node')
+ assert page.locator('.map .node[data-id="fod"]').count()==1
+ page.evaluate("localStorage.setItem('cro.prefs', JSON.stringify({showPlanned:true,showExtras:true,conn:{egg:true}}))")
  for book in ['sa5','elsecaller','lopen','dsp','twokp','fod']:
   page.goto(url+'?loop='+book+'#'+book)
   page.wait_for_selector('#dossier-inner .d-title')
@@ -52,7 +58,9 @@ with sync_playwright() as p:
  page.goto(url+'?check=preview#fod')
  page.wait_for_selector('.d-title')
  assert 'Preview coverage only' in page.locator('.coverage-note').inner_text()
- assert not page.locator('.readbtn').count()
+ assert page.locator('.readbtn').count()==1
+ page.locator('.readbtn').click()
+ assert page.locator('.readbtn').get_attribute('aria-pressed')=='true'
  page.locator('[data-reveal="book:fod"]').click()
  assert page.locator('blockquote').count()==1
  # Prime drafts and their graph connections disappear with the toggle.

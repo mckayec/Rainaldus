@@ -145,6 +145,18 @@
       "label": "White Sand adaptation history",
       "kind": "reference",
       "locator": "Prose draft and graphic novel adaptation"
+    },
+    "fires-release": {
+      "url": "https://www.dragonsteelbooks.com/blogs/the-cognitive-realm/the-creatures-of-the-cosmere",
+      "label": "Dragonsteel: Fires digital release and Miral",
+      "kind": "publisher",
+      "locator": "October 6, 2026; opening release announcement and Doing Demons Differently"
+    },
+    "fires-backers": {
+      "url": "https://www.backerkit.com/c/projects/dragonsteel/hoids-storybook-collection/community?filter=updates",
+      "label": "Dragonsteel campaign fulfillment updates",
+      "kind": "publisher",
+      "locator": "Updates 10 and 11: digital rewards and fulfillment began September 15, 2026"
     }
   },
   "books": {
@@ -318,29 +330,31 @@
     "fod": {
       "title": "The Fires of December",
       "series": "Hoid’s Travails",
-      "world": "Not confirmed in the cited public preview",
+      "world": "Miral",
       "system": "Unknown",
       "worldName": "Other Worlds",
       "group": "",
-      "publication": "December 2026 (announced commercial release; forthcoming)",
+      "publication": "September 15, 2026 (backers); October 6, 2026 (public digital); December 2026 (trade print)",
       "chronology": "The story precedes Tress and Yumi; Hoid tells it after those tales. Its absolute position is not established here.",
       "categories": [
         "no-series",
         "novel",
-        "unpublished",
-        "forthcoming"
+        "phase3",
+        "published"
       ],
       "sorting": {
         "order": 3.14,
-        "publication": 2026.12
+        "publication": 2026.0915
       },
       "sources": [
         "sos25",
         "fires-preview",
-        "hoids-travails"
+        "hoids-travails",
+        "fires-release",
+        "fires-backers"
       ],
       "coverage": "preview",
-      "readingNote": "Preview coverage only. Hoid’s Travails can be read in any order. Full-book crossover claims await publication.",
+      "readingNote": "Published in backer and digital editions. Connection research currently covers the public preview and official Hoid’s Travails grouping; a full-book audit is still needed.",
       "authors": [
         "Brandon Sanderson"
       ],

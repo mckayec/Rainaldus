@@ -15,7 +15,7 @@ The user requested accuracy fixes, research on recent works, optional Prime-nove
 1. Saved progress uses stable IDs and existing `cro.*` localStorage keys. Do not rename IDs or clear progress during a migration.
 2. Crossovers are optional context. Series sequence is a separate transitive graph. Side stories are recommended after their parent novel for spoiler safety, but do not block later main novels.
 3. Prime drafts are noncanonical and opt-in. Same names and reused concepts do not establish canonical identity or history.
-4. The Fires of December is forthcoming in this snapshot. Only public preview / official series-grouping claims are included. Do not manufacture post-publication connections.
+4. The Fires of December is published (backer release September 15, 2026; public digital October 6). It must appear with planned books hidden and support marking read. Connection research remains limited to public preview / official series-grouping claims until a full-book audit. Do not confuse evidence coverage with publication status.
 5. Inline visuals are original explanatory diagrams, not official art or evidence. Publisher art is linked with credits, not copied into the project.
 6. All evidence content is spoiler-gated. Do not put a connection's secret identity in an unrevealed title, image alt text, tooltip or preload.
 7. New claims remain a selected collection, not a complete concordance. Preserve coverage labels. Imported notes retain their original wording and ratings; no independent claim-by-claim endorsement is implied.

@@ -68,7 +68,8 @@ class DataChecks(unittest.TestCase):
     def test_dates_and_canon_boundaries(self):
         self.assertTrue(books['iote']['publication'].startswith('July 1, 2025'))
         self.assertNotIn('publication',books['sa5.5']['sorting'])
-        self.assertNotIn('published',books['fod']['categories'])
+        self.assertIn('published',books['fod']['categories'])
+        self.assertEqual(books['fod']['sorting']['publication'],2026.0915)
         self.assertNotIn('chronology',books['fod']['sorting'])
         for key in ['dsp','twokp','wsp','aon']:
             self.assertIn('apocryphal',books[key]['categories'])
