@@ -15,7 +15,7 @@ The user requested accuracy fixes, research on recent works, optional Prime-nove
 1. Saved progress uses stable IDs and existing `cro.*` localStorage keys. Do not rename IDs or clear progress during a migration.
 2. Crossovers are optional context. Series sequence is a separate transitive graph. Side stories are recommended after their parent novel for spoiler safety, but do not block later main novels.
 3. Prime drafts are noncanonical and opt-in. Same names and reused concepts do not establish canonical identity or history.
-4. The Fires of December is published (backer release September 15, 2026; public digital October 6). It must appear with planned books hidden and support marking read. Connection research remains limited to public preview / official series-grouping claims until a full-book audit. Do not confuse evidence coverage with publication status.
+4. The Fires of December is published (backer release September 15, 2026; public digital October 6). It must appear with planned books hidden and support marking read. Connection research includes selected full-book secondary sources and author Q&A; an exhaustive primary-text audit is still outstanding. Do not confuse evidence coverage with publication status.
 5. Inline visuals are original explanatory diagrams, not official art or evidence. Publisher art is linked with credits, not copied into the project.
 6. All evidence content is spoiler-gated. Do not put a connection's secret identity in an unrevealed title, image alt text, tooltip or preload.
 7. New claims remain a selected collection, not a complete concordance. Preserve coverage labels. Imported notes retain their original wording and ratings; no independent claim-by-claim endorsement is implied.
@@ -27,3 +27,7 @@ Merge this PR into the branch Claude is using (or merge/rebase its branch onto m
 ## Fires source audit follow-up
 
 Read `docs/FIRES_SOURCE_AUDIT.md` before expanding Fires coverage. It records substantial omissions found on 17th Shard, separates author confirmation, reference-supported claims and forum theories, and preserves locators and sources. The current two narrator-grouping edges are not adequate full-book coverage.
+
+## Fires of December implementation update
+
+Preserve the 12 new incoming book links and their individual `claims` in `data/curation.json`. Each subclaim has its own evidence, locator and sources. Author confirmation, artwork evidence, unresolved references and theories must retain distinct labels. `showTheories` defaults off, filters both whole edges and nested claims, and must never introduce prerequisites. `researchNotes` holds unpaired lore/questions behind a separate spoiler reveal. FoD now has selected full-book research coverage, not merely preview coverage; it is still not an exhaustive text audit. See `FIRES_SOURCE_AUDIT.md` for the research trail. Regenerate data rather than overwriting the overlay.

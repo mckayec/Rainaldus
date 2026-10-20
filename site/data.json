@@ -421,6 +421,48 @@
             "left": "Galladon / seons",
             "right": "Dyel / Ghostbloods"
           }
+        },
+        {
+          "id": "elantris--fod",
+          "target": "fod",
+          "title": "AonDor and a visual Easter egg",
+          "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
+          "sources": [
+            "fires-aon",
+            "fires-megalith",
+            "fires-magitech"
+          ],
+          "locator": "See the locator for each individual finding.",
+          "claims": [
+            {
+              "title": "Aon on the Ever-Slaying Sword",
+              "description": "The binding incorporates an Aon. Coppermind identifies Reo in Tran Nguyen’s illustration; the exact Aon is not named in the prose. This is an illustration-specific identification.",
+              "sources": [
+                "fires-aon",
+                "fires-megalith"
+              ],
+              "locator": "Chapter XXVI and accompanying interior artwork.",
+              "evidence": "illustration"
+            },
+            {
+              "title": "Rivers and purified Dor: comparison",
+              "description": "Readers compare the river’s usable Investiture with Dor. This is a functional analogy, not proof that the river contains Selish Dor.",
+              "sources": [
+                "fires-magitech"
+              ],
+              "locator": "Opening magitech discussion; exact passage locator unresolved.",
+              "evidence": "theory"
+            }
+          ],
+          "type": "minor",
+          "evidence": "documented",
+          "relation": "technology",
+          "visual": {
+            "label": "AonDor and a visual Easter egg",
+            "left": "Selish Aons",
+            "right": "Binding / Aon Reo",
+            "credit": "Original explanatory diagram; not official artwork."
+          }
         }
       ],
       "worldName": "Sel",
@@ -677,6 +719,48 @@
             "credit": "Original explanatory diagram; not official artwork.",
             "left": "Captain Demoux",
             "right": "Dyel’s visitors"
+          }
+        },
+        {
+          "id": "mb1--fod",
+          "target": "fod",
+          "title": "Spiritweb pinning and Scadrial",
+          "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
+          "sources": [
+            "fires-megalith",
+            "fires-arcana",
+            "fires-skin"
+          ],
+          "locator": "See the locator for each individual finding.",
+          "claims": [
+            {
+              "title": "Hemalurgy-adjacent binding",
+              "description": "The silver spike pins the Megalith’s Spiritual aspect to its body. Preserve the distinction between this application and ordinary Mistborn power-stealing Hemalurgy; do not infer that silver is a standard power-stealing metal.",
+              "sources": [
+                "fires-megalith",
+                "fires-arcana"
+              ],
+              "locator": "Fires XXVI; qualifying replies in the arcana discussion.",
+              "evidence": "referenced"
+            },
+            {
+              "title": "A Scadrian second skin",
+              "description": "Hoid explicitly compares the dress with a garment encountered on Scadrial. This establishes the world reference, not a specific Mistborn installment, artifact or magic-system identification.",
+              "sources": [
+                "fires-skin"
+              ],
+              "locator": "Blood-river dress passage quoted in the opening post; chapter unresolved.",
+              "evidence": "unresolved-reference"
+            }
+          ],
+          "type": "minor",
+          "evidence": "documented",
+          "relation": "technology",
+          "visual": {
+            "label": "Spiritweb pinning and Scadrial",
+            "left": "Hemalurgic mechanics",
+            "right": "Spike / world reference",
+            "credit": "Original explanatory diagram; not official artwork."
           }
         }
       ],
@@ -1748,6 +1832,56 @@
             "left": "Awakening introduced",
             "right": "Awakened technology"
           }
+        },
+        {
+          "id": "wb--fod",
+          "target": "fod",
+          "title": "The Prophet and Nalthian power",
+          "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
+          "sources": [
+            "fires-vasher",
+            "fires-arcana",
+            "fires-audience"
+          ],
+          "locator": "See the locator for each individual finding.",
+          "claims": [
+            {
+              "title": "The Prophet is Vasher",
+              "description": "Sanderson confirms the identity. He corrects the historical visit to before Warbreaker, during Vasher’s travels involving Roshar and Sel. This dates the Prophet’s earlier visit, not December’s main story.",
+              "sources": [
+                "fires-vasher"
+              ],
+              "locator": "FanX 2026, September 25, entry 3",
+              "evidence": "author-confirmed"
+            },
+            {
+              "title": "Breaths, passphrases and purified power",
+              "description": "The binding discussion connects its transferable power and passphrases to Breaths, while explicitly distinguishing the modified power from ordinary Breaths. It should not all be described as conventional Awakening.",
+              "sources": [
+                "fires-arcana"
+              ],
+              "locator": "Quoted binding passage in the linked discussion; exact chapter not independently verified.",
+              "evidence": "referenced"
+            },
+            {
+              "title": "A Nalthian audience?",
+              "description": "The colorful-clothing comparison has prompted a Nalthian or Hallandren audience theory. That audience identification is not established here.",
+              "sources": [
+                "fires-audience"
+              ],
+              "locator": "Chapter IX comparison, as quoted in the discussion.",
+              "evidence": "theory"
+            }
+          ],
+          "type": "significant",
+          "evidence": "documented",
+          "relation": "shared-character",
+          "visual": {
+            "label": "The Prophet and Nalthian power",
+            "left": "Vasher / Breaths",
+            "right": "Prophet / binding",
+            "credit": "Original explanatory diagram; not official artwork."
+          }
         }
       ],
       "worldName": "Nalthis",
@@ -1916,6 +2050,38 @@
             "credit": "Original explanatory diagram; not official artwork.",
             "left": "King Nohadon",
             "right": "Hoid tells his story"
+          }
+        },
+        {
+          "id": "sa1--fod",
+          "target": "fod",
+          "title": "Nahel and Zuhel comparisons",
+          "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
+          "sources": [
+            "fires-bonds",
+            "fires-witchcraft"
+          ],
+          "locator": "See the locator for each individual finding.",
+          "claims": [
+            {
+              "title": "A cross-system bond comparison",
+              "description": "Zuhel bonds invite comparison with Stormlight’s Nahel bonds. The one-bond-per-Realm model remains a fan interpretation, and no identical cost or mechanism is asserted.",
+              "sources": [
+                "fires-bonds",
+                "fires-witchcraft"
+              ],
+              "locator": "Zuhel discussion and Witchcraft article.",
+              "evidence": "theory"
+            }
+          ],
+          "type": "minor",
+          "evidence": "theory",
+          "relation": "comparison",
+          "visual": {
+            "label": "Nahel and Zuhel comparisons",
+            "left": "Nahel bond",
+            "right": "Zuhel comparison",
+            "credit": "Original explanatory diagram; not official artwork."
           }
         }
       ],
@@ -2430,6 +2596,46 @@
             "legacy-73883049c3a8"
           ],
           "evidence": "inherited"
+        },
+        {
+          "id": "sa4--fod",
+          "target": "fod",
+          "title": "Valor and Hoid’s memories",
+          "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
+          "sources": [
+            "fires-valor",
+            "fires-backups"
+          ],
+          "locator": "See the locator for each individual finding.",
+          "claims": [
+            {
+              "title": "Valor beyond a Shard-name mention",
+              "description": "Rhythm of War chapter 25’s epigraph mentions Valor. Fires expands the Shard’s identity and activities, including Medelantorius and the search connected with her temple.",
+              "sources": [
+                "fires-valor"
+              ],
+              "locator": "Rhythm of War chapter 25 epigraph; Fires IV and temple material.",
+              "evidence": "referenced"
+            },
+            {
+              "title": "Which memory incident?",
+              "description": "Readers connect Hoid’s discussion of earlier incidents with his encounter with Taravangian in Rhythm of War. The exact assignment of both incidents remains disputed.",
+              "sources": [
+                "fires-backups"
+              ],
+              "locator": "Opening post and replies; no confirmed mapping of both incidents.",
+              "evidence": "theory"
+            }
+          ],
+          "type": "minor",
+          "evidence": "documented",
+          "relation": "crossover",
+          "visual": {
+            "label": "Valor and Hoid’s memories",
+            "left": "Valor / Hoid",
+            "right": "Temple / memories",
+            "credit": "Original explanatory diagram; not official artwork."
+          }
         }
       ],
       "worldName": "Roshar",
@@ -2514,6 +2720,46 @@
             "credit": "Original explanatory diagram; not official artwork.",
             "left": "Ladrian job offer",
             "right": "Wax’s coachman"
+          }
+        },
+        {
+          "id": "sa5--fod",
+          "target": "fod",
+          "title": "Ashyn and Godsflame",
+          "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
+          "sources": [
+            "fires-ashyn",
+            "fires-backups"
+          ],
+          "locator": "See the locator for each individual finding.",
+          "claims": [
+            {
+              "title": "An explicit Ashyn reference",
+              "description": "The cited Hoid passage associates Godsflame with Ashyn. This connects to Stormlight’s Ashyn history; the passage does not by itself establish that Valor caused its catastrophe or that Godsflame is a specific Surge or disease.",
+              "sources": [
+                "fires-ashyn"
+              ],
+              "locator": "Godsflame passage quoted in the linked thread; exact Fires chapter unresolved.",
+              "evidence": "referenced"
+            },
+            {
+              "title": "Another proposed memory incident",
+              "description": "Retribution’s attack in Wind and Truth is one proposed explanation for Hoid’s second incident. Treat this assignment as a theory, keeping narration-time distinct from story-time.",
+              "sources": [
+                "fires-backups"
+              ],
+              "locator": "Replies proposing Wind and Truth or Yumi; mapping unresolved.",
+              "evidence": "theory"
+            }
+          ],
+          "type": "minor",
+          "evidence": "documented",
+          "relation": "crossover",
+          "visual": {
+            "label": "Ashyn and Godsflame",
+            "left": "Ashyn history",
+            "right": "Godsflame reference",
+            "credit": "Original explanatory diagram; not official artwork."
           }
         }
       ],
@@ -2987,6 +3233,48 @@
             "legacy-8678eded0e11"
           ],
           "evidence": "inherited"
+        },
+        {
+          "id": "sfs--fod",
+          "target": "fod",
+          "title": "The Evil and silver",
+          "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
+          "sources": [
+            "fires-evil",
+            "fires-silver",
+            "fires-arcana"
+          ],
+          "locator": "See the locator for each individual finding.",
+          "claims": [
+            {
+              "title": "Threnodite entity lore",
+              "description": "Coppermind places the Megalith and demons in the wider Evil/Eidolith material connected with Threnody. Do not conflate all these entities with shades or treat them as one named individual.",
+              "sources": [
+                "fires-evil"
+              ],
+              "locator": "Fires XXIV and XLI; Shadows for Silence references in the Evil article.",
+              "evidence": "referenced"
+            },
+            {
+              "title": "Silver behaves differently across systems",
+              "description": "Compare the binding’s silver with its established effects on shades. The parallel is meaningful, but it does not establish that silver universally cancels all Investiture.",
+              "sources": [
+                "fires-silver",
+                "fires-arcana"
+              ],
+              "locator": "Fires XXVI; linked silver reference and qualifying discussion.",
+              "evidence": "referenced"
+            }
+          ],
+          "type": "minor",
+          "evidence": "documented",
+          "relation": "crossover",
+          "visual": {
+            "label": "The Evil and silver",
+            "left": "Threnody / silver",
+            "right": "Demons / binding",
+            "credit": "Original explanatory diagram; not official artwork."
+          }
         }
       ],
       "worldName": "Threnody",
@@ -3118,7 +3406,38 @@
         "phase3",
         "published"
       ],
-      "connections": [],
+      "connections": [
+        {
+          "id": "iote--fod",
+          "target": "fod",
+          "title": "Eidoliths across worlds",
+          "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
+          "sources": [
+            "fires-evil"
+          ],
+          "locator": "See the locator for each individual finding.",
+          "claims": [
+            {
+              "title": "Shared entity family",
+              "description": "The Evil reference links Fires’ Megalith/demon material with Eidolith lore in Emberdark, including the Dakwara. Shared classification does not imply the Megalith and Dakwara are the same being.",
+              "sources": [
+                "fires-evil"
+              ],
+              "locator": "Fires XXIV and XLI; Emberdark 25, 27 and 39.",
+              "evidence": "referenced"
+            }
+          ],
+          "type": "minor",
+          "evidence": "documented",
+          "relation": "crossover",
+          "visual": {
+            "label": "Eidoliths across worlds",
+            "left": "Emberdark entities",
+            "right": "Megalith / demons",
+            "credit": "Original explanatory diagram; not official artwork."
+          }
+        }
+      ],
       "worldName": "First of the Sun",
       "group": "",
       "readingNote": "Includes a revised Sixth of the Dusk as flashbacks. Reading the novella separately is optional.",
@@ -3478,6 +3797,48 @@
             "left": "Xisis / Crow / spores",
             "right": "Returning cast / tech"
           }
+        },
+        {
+          "id": "tress--fod",
+          "target": "fod",
+          "title": "Silver and bond comparisons",
+          "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
+          "sources": [
+            "fires-silver",
+            "fires-witchcraft",
+            "fires-bonds"
+          ],
+          "locator": "See the locator for each individual finding.",
+          "claims": [
+            {
+              "title": "Silver across two systems",
+              "description": "Silver’s role in the binding can be compared with its effects on aether spores in Tress. The shared material does not make the two magic systems identical.",
+              "sources": [
+                "fires-silver"
+              ],
+              "locator": "Fires XXVI and the silver article’s spore references.",
+              "evidence": "referenced"
+            },
+            {
+              "title": "Zuhel and Luhel",
+              "description": "Witchcraft uses a Zuhel bond. Readers compare it with Tress’s Luhel bonds, but the proposed neat division of bonds between the three Realms is an interpretation, not a confirmed universal rule.",
+              "sources": [
+                "fires-witchcraft",
+                "fires-bonds"
+              ],
+              "locator": "Witchcraft article and Zuhel discussion; cross-system model not confirmed.",
+              "evidence": "theory"
+            }
+          ],
+          "type": "minor",
+          "evidence": "documented",
+          "relation": "crossover",
+          "visual": {
+            "label": "Silver and bond comparisons",
+            "left": "Spores / silver",
+            "right": "Binding / silver",
+            "credit": "Original explanatory diagram; not official artwork."
+          }
         }
       ],
       "worldName": "Other Worlds",
@@ -3521,6 +3882,36 @@
             "legacy-f79fd23678e8"
           ],
           "evidence": "inherited"
+        },
+        {
+          "id": "yumi--fod",
+          "target": "fod",
+          "title": "Hoid’s protections: an interpretation",
+          "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
+          "sources": [
+            "fires-backups"
+          ],
+          "locator": "See the locator for each individual finding.",
+          "claims": [
+            {
+              "title": "A possible memory-protection parallel",
+              "description": "The Father Machine incident is another proposed referent for Hoid’s earlier incidents. The interpretation depends on distinguishing when the events happened from when Hoid tells the stories; it is not confirmed here.",
+              "sources": [
+                "fires-backups"
+              ],
+              "locator": "Discussion replies; no confirmed assignment of the two incidents.",
+              "evidence": "theory"
+            }
+          ],
+          "type": "minor",
+          "evidence": "theory",
+          "relation": "comparison",
+          "visual": {
+            "label": "Hoid’s protections: an interpretation",
+            "left": "Hoid’s protections",
+            "right": "Memory question",
+            "credit": "Original explanatory diagram; not official artwork."
+          }
         }
       ],
       "worldName": "Other Worlds",
@@ -3588,6 +3979,36 @@
             "left": "Awakened steelmind",
             "right": "Awakened metalmind"
           }
+        },
+        {
+          "id": "tsm--fod",
+          "target": "fod",
+          "title": "Demonstone and sunhearts: analogy",
+          "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
+          "sources": [
+            "fires-magitech"
+          ],
+          "locator": "See the locator for each individual finding.",
+          "claims": [
+            {
+              "title": "A magitech comparison",
+              "description": "Readers compare demonstone with Canticle’s sunhearts as useful sources of power. Similar function does not establish shared manufacture, origin or identical mechanics.",
+              "sources": [
+                "fires-magitech"
+              ],
+              "locator": "Magitech thread; sunheart comparison in replies.",
+              "evidence": "theory"
+            }
+          ],
+          "type": "minor",
+          "evidence": "theory",
+          "relation": "comparison",
+          "visual": {
+            "label": "Demonstone and sunhearts: analogy",
+            "left": "Sunhearts",
+            "right": "Demonstone analogy",
+            "credit": "Original explanatory diagram; not official artwork."
+          }
         }
       ],
       "worldName": "Other Worlds",
@@ -3619,6 +4040,36 @@
             "legacy-e71e15a77559"
           ],
           "evidence": "inherited"
+        },
+        {
+          "id": "tsd--fod",
+          "target": "fod",
+          "title": "Ashyn as a shared-world reference",
+          "description": "Separate findings and their evidence are listed below. Arrow direction indicates background context, not a required reading sequence.",
+          "sources": [
+            "fires-ashyn"
+          ],
+          "locator": "See the locator for each individual finding.",
+          "claims": [
+            {
+              "title": "A setting connection, not a prerequisite",
+              "description": "The Silence Divine is a planned Ashyn story; Fires explicitly references Ashyn via Godsflame. This is a world-lore link, not evidence of a shared plot or a requirement to read an unpublished work.",
+              "sources": [
+                "fires-ashyn"
+              ],
+              "locator": "Ashyn passage quoted in the linked thread; Silence Divine’s announced setting.",
+              "evidence": "referenced"
+            }
+          ],
+          "type": "minor",
+          "evidence": "documented",
+          "relation": "crossover",
+          "visual": {
+            "label": "Ashyn as a shared-world reference",
+            "left": "Planned Ashyn story",
+            "right": "Ashyn reference",
+            "credit": "Original explanatory diagram; not official artwork."
+          }
         }
       ],
       "worldName": "Other Worlds",
@@ -4125,10 +4576,13 @@
         "fires-preview",
         "hoids-travails",
         "fires-release",
-        "fires-backers"
+        "fires-backers",
+        "fires-vasher",
+        "fires-aon",
+        "fires-evil"
       ],
-      "coverage": "preview",
-      "readingNote": "Published in backer and digital editions. Connection research currently covers the public preview and official Hoid’s Travails grouping; a full-book audit is still needed.",
+      "coverage": "selected",
+      "readingNote": "Published in backer and digital editions. Includes selected full-book connections researched through 17th Shard, Coppermind and author Q&A; this is not an exhaustive text audit. Interpretations are optional and separately labeled.",
       "authors": [
         "Brandon Sanderson"
       ],
@@ -4143,6 +4597,41 @@
           "url": "https://www.brandonsanderson.com/blogs/blog/the-fires-of-december",
           "label": "Official preview and early cover",
           "credit": "Cover art: Tran Nguyen; early design, not final."
+        },
+        {
+          "url": "https://coppermind.net/wiki/Aon#Trivia",
+          "label": "Illustration reference: Aon Reo on the binding",
+          "credit": "Coppermind identifies the Aon in Tran Nguyen’s interior painting; illustration detail differs from explicit prose. View the credited reference."
+        }
+      ],
+      "researchNotes": [
+        {
+          "title": "Hoid’s Sixth Word",
+          "description": "Fires names a mechanism relevant to Hoid’s wider travels and Fortune. Its origin, associated Shard and the other Words remain unresolved; no Dawnshard identity is claimed.",
+          "sources": [
+            "fires-word",
+            "fires-invested-art"
+          ],
+          "locator": "Sixth Word discussion; Invested Art table retains unknown origin.",
+          "evidence": "unresolved-reference"
+        },
+        {
+          "title": "The unidentified dragon",
+          "description": "The Prophet’s cooperation with a dragon is a research lead. No particular dragon is identified here.",
+          "sources": [
+            "fires-dragon"
+          ],
+          "locator": "Linked discussion; individual identity unresolved.",
+          "evidence": "unresolved-reference"
+        },
+        {
+          "title": "A Shattering allusion?",
+          "description": "Readers interpret Hoid’s reference to helping cause a collapse as an allusion to the Shattering. Do not turn that interpretation into confirmation of another cosmological catastrophe.",
+          "sources": [
+            "fires-shattering"
+          ],
+          "locator": "Chapter XXIII.",
+          "evidence": "theory"
         }
       ]
     }
@@ -4559,6 +5048,114 @@
       "label": "Dragonsteel campaign fulfillment updates",
       "kind": "publisher",
       "locator": "Updates 10 and 11: digital rewards and fulfillment began September 15, 2026"
+    },
+    "fires-vasher": {
+      "url": "https://wob.coppermind.net/events/555-fanx-2026/",
+      "label": "Sanderson confirms the Prophet’s identity",
+      "locator": "September 25, 2026, entry 3; indexed author transcript",
+      "kind": "author"
+    },
+    "fires-arcana": {
+      "url": "https://www.17thshard.com/forums/topic/203167-new-arcana-we-have-learned-discuss/",
+      "label": "17th Shard: binding, silver and purified power",
+      "locator": "Quoted binding passage and replies qualifying Hemalurgy; exact passage chapter not independently verified",
+      "kind": "discussion"
+    },
+    "fires-aon": {
+      "url": "https://coppermind.net/wiki/Aon",
+      "label": "Coppermind: Aon Reo in the illustration",
+      "locator": "Trivia; Fires chapter XXVI and accompanying Tran Nguyen painting; exact Aon identified in art, not prose",
+      "kind": "reference"
+    },
+    "fires-megalith": {
+      "url": "https://coppermind.net/wiki/Megalith?mobileaction=toggle_view_mobile",
+      "label": "Coppermind: Megalith and its binding",
+      "locator": "Fires chapter XXVI (binding) and XXXIV (bond); indexed reference",
+      "kind": "reference"
+    },
+    "fires-evil": {
+      "url": "https://coppermind.net/wiki/Evil",
+      "label": "Coppermind: Evil and Eidolith connections",
+      "locator": "Fires XXIV and XLI; Emberdark 25, 27, 39; Shadows for Silence; indexed reference list",
+      "kind": "reference"
+    },
+    "fires-valor": {
+      "url": "https://coppermind.net/wiki/Valor?mobileaction=toggle_view_desktop",
+      "label": "Coppermind: Valor and Medelantorius",
+      "locator": "Fires IV and temple material; Rhythm of War chapter 25 epigraph; indexed reference",
+      "kind": "reference"
+    },
+    "fires-ashyn": {
+      "url": "https://www.17thshard.com/forums/topic/203128-valor-godsflame-and-ashyn/?comment=2118654&do=findComment",
+      "label": "17th Shard: Godsflame and Ashyn",
+      "locator": "Cited Hoid passage and distinctions between explicit reference and proposed mechanisms; exact chapter unresolved",
+      "kind": "discussion"
+    },
+    "fires-silver": {
+      "url": "https://coppermind.net/wiki/Silver",
+      "label": "Coppermind: silver across magic systems",
+      "locator": "Fires XXVI; spore and shade effects; indexed reference list",
+      "kind": "reference"
+    },
+    "fires-bonds": {
+      "url": "https://www.17thshard.com/forums/topic/203104-zuhel-bond/",
+      "label": "17th Shard: Zuhel, Nahel and Luhel comparisons",
+      "locator": "Discussion distinguishes observed bonding from proposed one-bond-per-Realm model",
+      "kind": "discussion"
+    },
+    "fires-witchcraft": {
+      "url": "https://coppermind.net/wiki/Witchcraft?mobileaction=toggle_view_mobile",
+      "label": "Coppermind: Witchcraft and Zuhel bonds",
+      "locator": "Mechanics and chapter references; indexed article",
+      "kind": "reference"
+    },
+    "fires-skin": {
+      "url": "https://www.17thshard.com/forums/topic/203247-the-second-skin-of-scadrial/",
+      "label": "17th Shard: explicit Scadrian garment reference",
+      "locator": "Opening post quotes the blood-river dress comparison; particular Scadrian garment unresolved",
+      "kind": "discussion"
+    },
+    "fires-backups": {
+      "url": "https://www.17thshard.com/forums/topic/203168-what-was-the-second-incident-discuss/",
+      "label": "17th Shard: Hoid’s two incidents",
+      "locator": "Opening post and responses; proposed RoW/WaT/Yumi identifications are disputed",
+      "kind": "discussion"
+    },
+    "fires-word": {
+      "url": "https://www.17thshard.com/forums/topic/203296-the-sixth-word/",
+      "label": "17th Shard: Sixth Word and Fortune",
+      "locator": "Named mechanism in Fires; proposed origin and other Words unresolved",
+      "kind": "discussion"
+    },
+    "fires-invested-art": {
+      "url": "https://coppermind.net/wiki/Invested_Art",
+      "label": "Coppermind: Sixth Word classification",
+      "locator": "Sixth Word origin and Shard listed as unknown; indexed table",
+      "kind": "reference"
+    },
+    "fires-shattering": {
+      "url": "https://www.17thshard.com/forums/topic/203134-the-fundamental-collapse-of-all-reality/",
+      "label": "17th Shard: Hoid’s cosmological allusion",
+      "locator": "Fires XXIII; interpretations of the collapse reference",
+      "kind": "discussion"
+    },
+    "fires-dragon": {
+      "url": "https://www.17thshard.com/forums/topic/203160-unnamed-character-cooperating-with-a-legendary-figure-discuss/",
+      "label": "17th Shard: the unidentified dragon",
+      "locator": "Cooperation with the Prophet discussed; identity not established",
+      "kind": "discussion"
+    },
+    "fires-magitech": {
+      "url": "https://www.17thshard.com/forums/topic/203105-new-magitech-and-investiture-suply/",
+      "label": "17th Shard: demonstone and power supply",
+      "locator": "Comparisons with sunhearts and Dor are analogies, not proof of identical mechanisms",
+      "kind": "discussion"
+    },
+    "fires-audience": {
+      "url": "https://www.17thshard.com/forums/topic/203095-discuss-fires-of-december-intended-audience/",
+      "label": "17th Shard: intended audience theories",
+      "locator": "Chapter IX clothing reference; proposed Nalthian audience remains a hypothesis",
+      "kind": "discussion"
     },
     "legacy-3063dbc5afd7": {
       "url": "https://coppermind.net/wiki/Elantris",

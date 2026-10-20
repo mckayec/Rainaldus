@@ -59,11 +59,23 @@ class DataChecks(unittest.TestCase):
             self.assertTrue(c['visual']['left'])
             self.assertTrue(c['visual']['right'])
             if c.get('excerpt'): self.assertIn(c['excerpt']['source'],data['sources'])
-            self.assertIn(c['evidence'],['documented','preview'])
+            self.assertIn(c['evidence'],['documented','preview','theory'])
             if c['from'] in ['dsp','twokp','jasnah']:
                 self.assertEqual(c['relation'],'development')
         self.assertEqual(len(ids),len(set(ids)))
-        self.assertEqual(len(ids),21)
+        self.assertEqual(len(ids),33)
+
+    def test_fires_claims_keep_evidence_and_sources(self):
+        edges = [c for c in overlay['connections'] if c['target']=='fod']
+        self.assertEqual(len(edges),12)
+        self.assertEqual({c['from'] for c in edges}, {'wb','elantris','mb1','sfs','iote','sa4','sa5','tress','sa1','yumi','tsm','tsd'})
+        for claim in [x for c in edges for x in c['claims']] + books['fod']['researchNotes']:
+            self.assertTrue(claim['locator'])
+            self.assertIn(claim['evidence'], ['referenced','author-confirmed','illustration','unresolved-reference','theory'])
+            self.assertTrue(claim['sources'])
+            for ref in claim['sources']: self.assertIn(ref,data['sources'])
+        self.assertEqual(next(c for c in edges if c['from']=='wb')['claims'][0]['evidence'],'author-confirmed')
+        self.assertEqual(next(c for c in edges if c['from']=='elantris')['claims'][0]['evidence'],'illustration')
 
     def test_dates_and_canon_boundaries(self):
         self.assertTrue(books['iote']['publication'].startswith('July 1, 2025'))

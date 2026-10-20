@@ -19,5 +19,6 @@ export function seriesPrerequisites(books, id) {
 }
 export function recommendedBackground(incoming, id) {
   return (incoming[id] || []).filter(c => ['major', 'significant'].includes(c.type)
-    && !['development', 'retelling', 'shared-narrator'].includes(c.relation));
+    && c.evidence !== 'theory'
+    && !['development', 'retelling', 'shared-narrator', 'comparison'].includes(c.relation));
 }

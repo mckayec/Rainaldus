@@ -288,3 +288,7 @@ The initial implementation used the older December trade-print plan and incorrec
 
 - [Dragonsteel release announcement](https://www.dragonsteelbooks.com/blogs/the-cognitive-realm/the-creatures-of-the-cosmere)
 - [Campaign updates 10 and 11](https://www.backerkit.com/c/projects/dragonsteel/hoids-storybook-collection/community?filter=updates)
+
+## Fires expansion
+
+The overlay now contains 33 added book-pair links (126 total including the 93 preserved upstream links). Twelve new incoming Fires links contain individually labeled claims covering Vasher, Aon Reo artwork, silver, secondskin, Evil/Eidolith lore, Valor, Ashyn, bonds and proposed parallels. See `FIRES_SOURCE_AUDIT.md` for sources and limitations. Speculation defaults hidden. Selected full-book secondary-source and author-Q&A research supersedes the earlier preview-only coverage description; an exhaustive primary-text audit remains outstanding.

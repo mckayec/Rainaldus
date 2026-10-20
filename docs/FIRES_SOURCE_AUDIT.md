@@ -56,3 +56,7 @@ The first implementation's two shared-narrator records were inadequate. An ebook
 ## Next implementation requirements
 
 Use separate claim-level evidence and sources inside connection cards even when several claims connect the same pair of books. The existing builder rejects duplicate book pairs, so either group properly distinguished callouts within one edge or deliberately extend the schema/renderer and tests; do not silently discard a second connection. All identity claims, images, alt text and quotations must remain spoiler-gated. Keep research coverage as selected secondary-source coverage, not a completed full-book concordance. The exact Aon visible in official interior artwork is a good candidate for a credited visual reference. Link the artwork until reuse permission is established.
+
+## Implementation status
+
+The researched additions are now implemented as 12 book-pair links to Fires, with separate sourced subclaims and additional unpaired research notes. Earlier “prepare” and “next implementation” language above records the audit stage. Confirmed identity, illustration-only evidence, unresolved details and speculative comparisons retain separate labels. Theories are opt-in and do not become reading prerequisites. Original upstream data remains unchanged.

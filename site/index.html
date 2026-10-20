@@ -337,6 +337,8 @@ button, input, select { font: inherit; color: inherit; }
 .connection-visual { margin: 12px 0; }
 .connection-visual svg { display: block; width: 100%; height: auto; }
 .connection-visual figcaption { font-size: 10px; color: var(--muted); margin-top: 4px; }
+.claim { margin: 14px 0; }
+.claim + .claim { border-top: 1px solid var(--line); padding-top: 14px; }
 .coverage-note { font-size: 11px; color: var(--muted); border-left: 2px solid var(--line); padding-left: 10px; }
 .reading-note { font-size: 12.5px; padding: 10px; border-radius: 8px; background: var(--accent-soft); }
 blockquote { margin: 12px 0; padding: 8px 12px; border-left: 2px solid var(--accent); font-family: var(--f-display); }
@@ -482,6 +484,7 @@ const state = {
   conn: Object.assign({ major: true, significant: true, minor: true, egg: false }, prefs.conn),
   showPlanned: prefs.showPlanned ?? false,
   showExtras: prefs.showExtras ?? false,
+  showTheories: prefs.showTheories ?? false,
   hideNotes: prefs.hideNotes ?? true,
   sort: prefs.sort || 'order',
   app: null,
@@ -493,7 +496,7 @@ const state = {
 };
 const savePrefs = () => store.set('prefs', {
   colorBy: state.colorBy, conn: state.conn, showPlanned: state.showPlanned,
-  showExtras: state.showExtras, hideNotes: state.hideNotes, sort: state.sort,
+  showExtras: state.showExtras, showTheories: state.showTheories, hideNotes: state.hideNotes, sort: state.sort,
 });
 const sync = { ref: null, timer: 0, last: '' };
 const saveRead = () => {
@@ -541,6 +544,7 @@ async function startSync() {
   }, () => stopSync('Couldn’t reach your account, so progress is kept in this browser for now.'));
 }
 
+const allowedEvidence = c => state.showTheories || c.evidence !== 'theory';
 const visible = b => (isPlanned(b) ? state.showPlanned : true) && (isExtra(b) ? state.showExtras : true);
 const colorOf = b => {
   const c = catIn(b, state.colorBy);
@@ -642,7 +646,7 @@ function renderMap() {
   // connections
   const arcs = el('g', {}, vp);
   Object.values(BOOKS).forEach(b => (b.connections || []).forEach(c => {
-    if (!state.conn[c.type]) return;
+    if (!state.conn[c.type] || !allowedEvidence(c)) return;
     const a = layout.pos[b.id], z = layout.pos[c.target];
     if (a == null || z == null) return;
     const d = connPath(a, z);
@@ -830,7 +834,7 @@ function renderSide() {
   // connection toggles
   const counts = {};
   Object.values(BOOKS).forEach(b => (b.connections || []).forEach(c => {
-    if (visible(b) && visible(BOOKS[c.target])) counts[c.type] = (counts[c.type] || 0) + 1;
+    if (allowedEvidence(c) && visible(b) && visible(BOOKS[c.target])) counts[c.type] = (counts[c.type] || 0) + 1;
   }));
   const style = { major: 'solid', significant: 'dashed', minor: 'dashed', egg: 'dotted' };
   document.getElementById('conn-toggles').innerHTML = CONN_ORDER.map(t => `
@@ -846,6 +850,8 @@ function renderSide() {
     <button class="toggle" role="switch" data-show="showPlanned" aria-checked="${state.showPlanned}"><span class="sw"></span><span class="lbl">Announced &amp; planned books</span><span class="n">${planned}</span></button>
     <button class="toggle" role="switch" data-show="showExtras" aria-checked="${state.showExtras}"><span class="sw"></span><span class="lbl">Noncanonical drafts &amp; Prime novels</span><span class="n">${extras}</span></button>
     <p class="note">Enable Easter eggs to see Prime-novel development links. Drafts are separate from current canon.</p>
+    <button class="toggle" role="switch" data-show="showTheories" aria-checked="${state.showTheories}"><span class="sw"></span><span class="lbl">Interpretations &amp; open theories</span></button>
+    <p class="note">Optional interpretations are labeled separately from documented connections.</p>
     <button class="toggle" role="switch" data-show="hideNotes" aria-checked="${state.hideNotes}"><span class="sw"></span><span class="lbl">Hide spoiler notes</span></button>`;
 
   document.getElementById('appearances').innerHTML = DATA.appearances.map(a =>
@@ -999,15 +1005,26 @@ function connectionVisual(c, otherId, currentId) {
     <text x="160" y="141" text-anchor="middle" fill="var(--ink)" font-size="11">${esc(name)}</text>
     </svg><figcaption>${esc(c.visual.credit)}</figcaption></figure>`;
 }
+const evidenceLabel = c => ({inherited:'Imported notes; not independently rechecked', preview:'Public preview only', documented:'Documented connection; see individual evidence', referenced:'Referenced in research; see source and locator', 'author-confirmed':'Author confirmed', illustration:'Illustration evidence; not a prose reference', 'unresolved-reference':'Reference identified; details unresolved', theory:'Interpretation / open theory; unconfirmed'})[c.evidence] || 'Source-backed; rating is editorial';
+function claimHTML(c) {
+  return `<div class="claim"><span class="evidence-label">${esc(evidenceLabel(c))}</span><h4>${esc(c.title)}</h4><div class="note">${safe(c.description)}</div><p class="note"><b>Where to look:</b> ${esc(c.locator)}</p>${sourceList(c.sources)}</div>`;
+}
+function bookResearch(b) {
+  if (!b.researchNotes?.length) return '';
+  const notes = b.researchNotes.filter(allowedEvidence);
+  return `<section class="sec"><h3>Additional lore &amp; open questions</h3>${state.hideNotes && !state.revealed.has('research:' + b.id) ? `<button class="spoil" data-reveal="research:${b.id}">Reveal research notes · book spoilers</button>` : notes.map(claimHTML).join('')}</section>`;
+}
 function connItem(otherId, c, key) {
   const o = BOOKS[otherId];
   const hidden = state.hideNotes && !state.revealed.has(key);
   const relation = c.relation || 'crossover';
   const note = hidden
     ? `<button class="spoil" data-reveal="${esc(key)}">Reveal connection &amp; sources · spoilers for both books</button>`
-    : `<div class="evidence-card"><span class="evidence-label">${esc(RELATION_LABEL[relation] || relation)} · ${c.evidence === 'inherited' ? 'Imported notes; not independently rechecked' : c.evidence === 'preview' ? 'Public preview only' : 'Source-backed; rating is editorial'}</span>
+    : `<div class="evidence-card"><span class="evidence-label">${esc(RELATION_LABEL[relation] || relation)} · ${esc(evidenceLabel(c))}</span>
        ${c.title ? `<h4>${esc(c.title)}</h4>` : ''}
        <div class="note">${safe(c.description || '')}</div>
+       ${(c.claims || []).filter(allowedEvidence).map(claimHTML).join('')}
+       ${c.claims?.some(x => x.evidence === 'theory') && !state.showTheories ? '<p class="note">Additional interpretations are available using the optional theories toggle.</p>' : ''}
        ${connectionVisual(c, otherId, state.selected)}
        ${c.locator ? `<p class="note"><b>Where to look:</b> ${esc(c.locator)}</p>` : ''}
        ${c.excerpt ? `<blockquote>${esc(c.excerpt.text)}<cite>${esc(c.excerpt.locator || '')} · ${safe(`<a href="${esc(DATA.sources[c.excerpt.source].url)}">Source excerpt</a>`)}</cite></blockquote>` : ''}
@@ -1041,13 +1058,13 @@ function renderDossier() {
   }
   const b = BOOKS[id];
   const read = state.read.has(id);
-  const inc = (INCOMING[id] || []).filter(c => visible(BOOKS[c.from]) && (state.conn[c.type] || c.type === 'major' || c.type === 'significant'))
+  const inc = (INCOMING[id] || []).filter(c => allowedEvidence(c) && visible(BOOKS[c.from]) && (state.conn[c.type] || c.type === 'major' || c.type === 'significant'))
     .sort((x, y) => CONN_ORDER.indexOf(x.type) - CONN_ORDER.indexOf(y.type));
-  const out = (b.connections || []).filter(c => visible(BOOKS[c.target]) && (state.conn[c.type] || c.type === 'major' || c.type === 'significant'))
+  const out = (b.connections || []).filter(c => allowedEvidence(c) && visible(BOOKS[c.target]) && (state.conn[c.type] || c.type === 'major' || c.type === 'significant'))
     .sort((x, y) => CONN_ORDER.indexOf(x.type) - CONN_ORDER.indexOf(y.type));
   const pre = unreadPrereqs(b);
   const earlier = seriesPrerequisites(BOOKS, id);
-  const background = recommendedBackground(INCOMING, id).filter(c => visible(BOOKS[c.from]) && !state.read.has(c.from));
+  const background = recommendedBackground(INCOMING, id).filter(c => allowedEvidence(c) && visible(BOOKS[c.from]) && !state.read.has(c.from));
   const phase = catIn(b, 'reading-order'), status = catIn(b, 'pub-status');
   const tags = [formatOf(b), phase && CAT[phase].description, status && CAT[status].description].filter(Boolean);
   const facts = [
@@ -1079,6 +1096,7 @@ function renderDossier() {
     ${out.length ? `<section class="sec"><h3><span>Connections to other books</span><span>${out.length}</span></h3><ul class="conns">${out.map(c => connItem(c.target, c, id + '>' + c.target)).join('')}</ul></section>` : ''}
     ${!inc.length && !out.length ? `<p class="note" style="margin:0">No connections are shown with these filters. Missing records do not mean this book has no Cosmere connections.</p>` : ''}
     ${bookEvidence(b)}
+    ${bookResearch(b)}
     ${apps.length ? `<section class="sec"><h3><span>Tracked appearances</span></h3><ul class="apps">${apps.map(a => `<li><span class="initial${a.type === 'appearance' ? ' solid' : ''}" title="${a.type}">${APPS[a.id].initial}</span><div><b>${esc(APPS[a.id].description)}</b> <span class="note">· ${a.id === 'ars' ? 'included' : a.type === 'appearance' ? 'appears' : 'mentioned'}</span>${a.description ? (state.hideNotes && !state.revealed.has('app:' + id + a.id) ? `<br><button class="spoil" data-reveal="app:${id}${a.id}">Show where</button>` : `<div class="note">${safe(a.description)}${sourceList(a.sources)}</div>`) : ''}</div></li>`).join('')}</ul></section>` : ''}
   `;
 }

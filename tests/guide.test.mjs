@@ -27,3 +27,11 @@ test('Reverse connections keep sources, evidence and visuals', () => {
   assert.equal(c.relation,'development');
   assert.ok(c.visual.label);
 });
+
+test('Theories never become recommended background, and nested evidence survives reversal', () => {
+  const sample = {fod:[{from:'sa1',type:'significant',evidence:'theory'}, {from:'wb',type:'significant',evidence:'documented',relation:'shared-character'}]};
+  assert.deepEqual(recommendedBackground(sample,'fod').map(c=>c.from), ['wb']);
+  const vasher = incoming.fod.find(c=>c.from==='wb');
+  assert.equal(vasher.claims[0].evidence,'author-confirmed');
+  assert.ok(vasher.claims.some(c=>c.evidence==='theory'));
+});

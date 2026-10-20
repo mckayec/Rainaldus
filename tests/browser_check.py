@@ -57,7 +57,16 @@ with sync_playwright() as p:
   assert page.locator('.coverage-note').count()==1
  page.goto(url+'?check=preview#fod')
  page.wait_for_selector('.d-title')
- assert 'Preview coverage only' in page.locator('.coverage-note').inner_text()
+ assert 'Selected connections reviewed' in page.locator('.coverage-note').inner_text()
+ assert page.locator('[data-show="showTheories"]').get_attribute('aria-checked')=='false'
+ page.locator('[data-reveal="wb>fod"]').click()
+ assert 'Author confirmed' in page.locator('#dossier-inner').inner_text()
+ assert 'A Nalthian audience?' not in page.locator('#dossier-inner').inner_text()
+ page.locator('[data-show="showTheories"]').click()
+ assert page.locator('[data-show="showTheories"]').get_attribute('aria-checked')=='true'
+ assert 'A Nalthian audience?' in page.locator('#dossier-inner').inner_text()
+ assert 'Interpretation / open theory; unconfirmed' in page.locator('#dossier-inner').inner_text()
+ page.locator('[data-show="showTheories"]').click()
  assert page.locator('.readbtn').count()==1
  page.locator('.readbtn').click()
  assert page.locator('.readbtn').get_attribute('aria-pressed')=='true'
@@ -88,6 +97,6 @@ with sync_playwright() as p:
  assert page.get_by_text('Not placed in this order',exact=True).count()==1
  assert page.locator('.row[data-id="fod"]').count()==1
  assert not errors,errors
- print('PASS: desktop/mobile evidence, spoiler gates, citations, original diagrams, saved progress, draft toggle, preview status, keyboard reveals, unknown timeline, no JS errors')
+ print('PASS: desktop/mobile evidence, spoiler gates, citations, original diagrams, saved progress, draft toggle, selected coverage, theory toggle, keyboard reveals, unknown timeline, no JS errors')
  browser.close()
 server.shutdown()
